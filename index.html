@@ -1,0 +1,322 @@
+<html>
+
+<head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js">
+  </script>
+  <link href="styles/formato.css" rel="stylesheet" type="text/css">
+  <!-- <script src="mathjax-config.js" defer></script> -->
+</head>
+
+<body>
+  <!-- Add semantic tags to this HTML -->
+  <header>
+    <hgroup>
+      <h1 class="centrado">Modelado de Sistemas Mecánicos</h1>
+      <h2 class="centrado ">Un citio dedicado para aprender ciencias básicas e ingeniería.</h2>
+    </hgroup>
+    <nav>
+      <ul>
+        <li><a href="">Pendulo simple</a></li>
+        <li><a href="index.html">Pendulo doble</a></li>
+        <li><a href="">Péndulo invertido</a></li>
+        <li><a href="">Masa-Resorte-Amortiguador</a></li>
+      </ul>
+    </nav>
+  </header>
+  <article>
+    <hgroup>
+      <h1>Péndulo doble</h1>
+      <h2>Modelado del sistema mecánico péndulo doble utilizando la ecuación de Euler-Lagrange</h2>
+      <h3> <time datetime="2022-12-18">December 18, 2022</time></h3>
+    </hgroup>
+
+    <section>
+      <h4><code>1. Configuración del péndulo doble</code></h4>
+      <p>Un péndulo doble o doble péndulo es un sistema compuesto por dos péndulos, con el segundo colgando del extremo
+        del primero.</p>
+      <figure>
+        <img src="images/penduloDoble.svg" alt="pendulo">
+        <figcaption>Fig.1 Configuración del péndulo doble.</figcaption>
+      </figure>
+      <p>Para el modelado se considerará la configuración del péndulo que se muestra en la figura (1).
+        Este es un sistema de dos grados de libertad en el cual se desprecian tanto las fricciones como las masas de las
+        cuerdas que sujetan a las masas. Los angulos \(\theta_1\) y \( \theta_2\), que estan con respecto al eje \( y \)
+        de las ordenadas,
+        son las coordenadas generalizadas del sistema.
+        El punto donde se sostiene la cuerda de la primer masa será el punto de energía potencial cero y
+        se supondrá que las lineas de acción del campo gravitatorio son paralelas al eje \( y \) de las ordenadas. </p>
+    </section>
+
+    <section>
+      <h4><code>2. Posiciones y velocidades del sistema</code></h4>
+      <p>A partir de consideraciones trigonométricas del esquema de la figura (1) se escriben las expresiones de las
+        posiciones
+        \(x_1\), \(y_1\), \(x_2\) y \(y_2\) en términos de los ángulos \(\theta_1\) y \(\theta_2\) paras las masas
+        \(m_1\) y \(m_2\) respectivamente:
+        $$\begin{align}
+        x_1=&l_{{1}}\sin \left( \theta_{{1}} \left( t \right) \right)\\
+        x_2=&l_{{1}}\sin \left( \theta_{{1}} \left( t \right) \right) +l_{{2}}\sin
+        \left( \theta_{{2}} \left( t \right) \right)\\
+        y_1=&-l_{{1}}\cos \left( \theta_{{1}} \left( t \right) \right) \\
+        y_2=&-l_{{1}}\cos \left( \theta_{{1}} \left( t \right) \right) -l_{{2}}
+        \cos \left( \theta_{{2}} \left( t \right) \right)
+        \label{eq:posiciones}
+        \end{align} \tag{1}$$
+      </p>
+      <p>Derivando con respecto al tiempo se obtiene:
+        $$\begin{align}
+        \frac{\mathrm{d} x_1}{\mathrm{d} t}=&l_{{1}} \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) \cos \left( \theta_{{1}} \left( t \right) \right) \\
+        \frac{\mathrm{d} x_2}{\mathrm{d} t}=&l_{{1}} \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) \cos \left( \theta_{{1}} \left( t \right) \right) +l_{{2}}
+        \left( {\frac {\rm d}{{\rm d}t}}\theta_{{2}} \left( t \right)
+        \right) \cos \left( \theta_{{2}} \left( t \right) \right) \\
+        \frac{\mathrm{d} y_1}{\mathrm{d} t}=&l_{{1}} \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) \sin \left( \theta_{{1}} \left( t \right) \right) \\
+        \frac{\mathrm{d} y_2}{\mathrm{d} t}=&l_{{1}} \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) \sin \left( \theta_{{1}} \left( t \right) \right) +l_{{2}}
+        \left( {\frac {\rm d}{{\rm d}t}}\theta_{{2}} \left( t \right)
+        \right) \sin \left( \theta_{{2}} \left( t \right) \right)
+        \label{eq:vel}
+        \end{align} \tag{2}$$
+      </p>
+      <p> las cuales representan las velocidades en el eje \(x\) y \(y\) de las masas \(m_1\) y \(m_2\). La velocidad
+        tangencial esta dada por:
+        $$\begin{equation}
+        v^2 = \left (\frac{\mathrm{d} x}{\mathrm{d} t} \right )^2+\left (\frac{\mathrm{d} y}{\mathrm{d} t} \right )^2
+        \label{eq:vel2}
+        \end{equation}\tag{3}$$</p>
+
+      <p>Por lo tanto, las velocidades tangenciales \(v_1\) y \(v_2\) de las masas corresponden a:
+        $$\begin{align}
+        v^2_1=&\left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) ^{2}{l_{{1}}}^{2} \\
+        v^2_2=&2\, \left( {\frac {\rm d}{{\rm d}t}}\theta_{{2}} \left( t \right)
+        \right) \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t
+        \right) \right) l_{{1}}l_{{2}}\cos \left( \theta_{{1}} \left( t
+        \right) -\theta_{{2}} \left( t \right) \right) + \left( {\frac
+        {\rm d}{{\rm d}t}}\theta_{{2}} \left( t \right) \right) ^{2}{l_{{2}}}
+        ^{2}+ \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) ^{2}{l_{{1}}}^{2}
+        \label{eq:velt}
+        \end{align} \tag{4}$$
+      </p>
+    </section>
+
+    <section>
+      <h4><code>3. Energía cinética y potencial del sistema</code></h4>
+      <p>La energía cinética \(T\) de una particula es aquella energía que posee debido a su movimiento y esta dada por:
+        $$\begin{equation}
+        T = \frac{1}{2}mv^2
+        \label{eq:cindef}
+        \end{equation}\tag{5}$$
+        mientras que la energía cinética de un sistema es la suma de todas las energías cinéticas de sus particulas.
+        Por lo tanto, la energía cinética del péndulo doble esta dada por la sumatoria de la energía cinética de la masa
+        \(m_1\) y \(m_2\):
+        $$\begin{align}
+        \nonumber T_T=&\frac{1}{2}\,m_{{1}} \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t
+        \right) \right) ^{2}{l_{{1}}}^{2} +\frac{1}{2}\,m_{{2}} \left [ 2\, \left( {
+        \frac {\rm d}{{\rm d}t}}\theta_{{2}} \left( t \right) \right)
+        \left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) l_{{1}}l_{{2}}\cos \left( \theta_{{1}} \left( t \right) -
+        \theta_{{2}} \left( t \right) \right) + \left( {\frac {\rm d}{{\rm d}
+        t}}\theta_{{2}} \left( t \right) \right) ^{2}{l_{{2}}}^{2}+ \left( {
+        \frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right) \right) ^{2}{l_
+        {{1}}}^{2} \right ]
+        \label{eq:cin}
+        \end{align}\tag{6}$$
+      </p>
+      <p>
+        La energía potencial esta asociada a la localización de un cuerpo dentro de un campo de fuerzas (gravitatoria,
+        electrostática, etc.) o a la existencia de un campo de fuerzas en el interior de un cuerpo (energía elástica).
+        En el caso del sistema del doble péndulo, este solo tiene energía potencial debido al campo gravitatorio. La
+        energía potencial gravitacional esta dada por:
+
+        $$\begin{equation}
+        U = mgh
+        \label{eq:potendef}
+        \end{equation}\tag{7}$$
+
+        donde h es la altura con respecto al punto de energía potencial cero. La energía potencial de la masa \(m_1\) y
+        \(m_2\) estan dadas por:
+
+        $$\begin{align}
+        U_1=&-m_{{1}}gl_{{1}}\cos \left( \theta_{{1}} \left( t \right) \right)\\
+        U_2=&m_{{2}}g \left( -l_{{1}}\cos \left( \theta_{{1}} \left( t \right)
+        \right) -l_{{2}}\cos \left( \theta_{{2}} \left( t \right) \right)
+        \right)
+        \label{eq:pot}
+        \end{align}\tag{8}$$
+
+        y la energía potencial del sistema es la suma de las energías potenciales de cada particula. Por lo tanto, la
+        energía potencial total del doble péndulo es:
+
+        $$\begin{align}
+        U_T=&-m_{{1}}gl_{{1}}\cos \left( \theta_{{1}} \left( t \right) \right) +m_
+        {{2}}g \left( -l_{{1}}\cos \left( \theta_{{1}} \left( t \right)
+        \right) -l_{{2}}\cos \left( \theta_{{2}} \left( t \right) \right)
+        \right).
+        \label{eq:pott}
+        \end{align}\tag{9}$$
+      </p>
+    </section>
+
+    <section>
+      <h4><code>4. Ecuaciones de movimiento de Lagrange</code></h4>
+      <p>La ecuación de Euler-Lagrange obtenida a partir de la teoría de variaciones:
+
+        $$\begin{align}
+        \frac{\mathrm{d} }{\mathrm{d} t}\left ( \frac{\partial L\left ( t, q(t), \dot{q}(t) \right ) }{\partial
+        \dot{q}(t)} \right )-\frac{\partial L\left ( t, q(t), \dot{q}(t) \right )}{\partial q(t)}=Q
+        \label{eq:lagran}
+        \end{align}\tag{10}$$
+
+        modela un sistema en el cual la energía aparece solamente como energía cinética y potencial, a tales sistemas se
+        les conoce como sistemas conservativos.
+        En la ecuación (10), \(L\) representa el lagrangiano del sistema definido como:
+
+        $$\begin{equation}
+        L=T-U
+        \label{eq:lagrangiano}
+        \end{equation}\tag{11}$$
+      </p>
+
+      <p>
+        El lagrangiano en forma general es una función de \(q_i\), \(\dot{q}_i(i=1,2,\cdots ,n)\) y del tiempo \(t\), o
+        bien
+
+        $$\begin{equation}
+        L=L(q_i, \dot{q}_i, t) \qquad i=1,2, \cdots,n
+        \label{eq:lagrangiano2}
+        \end{equation}\tag{12}$$
+
+        donde \(q_i\) representa las \(n\) coordenadas generalizadas y \(\dot{q}_i\) sus primeras derivadas.
+        El lagrangiano del sistema de doble péndulo esta dado por:
+
+        $$\begin{align}
+        L=&\left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}} \left( t \right)
+        \right) \left( {\frac {\rm d}{{\rm d}t}}\theta_{{2}} \left( t
+        \right) \right) \cos \left( \theta_{{1}} \left( t \right) -\theta_{{
+        2}} \left( t \right) \right) l_{{1}}l_{{2}}m_{{2}} + \cfrac{1}{2}\,{l_{{1}}}^{2}
+        \left( m_{{1}}+m_{{2}} \right) \left( {\frac {\rm d}{{\rm d}t}}
+        \theta_{{1}} \left( t \right) \right) ^{2}\\
+        &+\cfrac{1}{2}\, \left( {\frac
+        {\rm d}{{\rm d}t}}\theta_{{2}} \left( t \right) \right) ^{2}{l_{{2}}}
+        ^{2}m_{{2}}+ \left( l_{{1}} \left( m_{{1}}+m_{{2}} \right) \cos \left( \theta_{{1}} \left( t \right) \right) +\cos \left( \theta_{{2
+        }} \left( t \right) \right) l_{{2}}m_{{2}} \right) g
+        \label{eq:lagrangianop}
+        \end{align}\tag{13}$$
+      </p>
+      <p>
+        Por lo tanto para encontrar las ecuaciones de movimiento del sistema se deben obtener:
+
+        $$\begin{equation}
+        \frac{\mathrm{d} }{\mathrm{d} t}\left ( \frac{\partial L }{\partial \dot{\theta}_1} \right )-\frac{\partial
+        L}{\partial \theta}_1=0
+        \label{eq:dL1}
+        \end{equation}\tag{14}$$
+
+        $$\begin{equation}
+        \frac{\mathrm{d} }{\mathrm{d} t}\left ( \frac{\partial L }{\partial \dot{\theta}_2} \right )-\frac{\partial
+        L}{\partial \theta}_2=0
+        \label{eq:dL2}
+        \end{equation}\tag{15}$$
+      </p>
+
+      <p>
+        Las ecuaciones de Lagrange serán entonces:
+
+        $$\begin{align}
+        \nonumber l_{{2}}m_{{2}}\left( {\frac {{\rm d}^{2}}{{\rm d}{t}^{2}}}\theta_{{2}}
+        \left( t \right) \right) \cos \left( \theta_{{1}} \left( t \right) -
+        \theta_{{2}} \left( t \right) \right)+ l_{{2}}m_{{2}} \left( {\frac
+        {\rm d}{{\rm d}t}}\theta_{{2}} \left( t \right) \right) ^{2}\sin
+        \left( \theta_{{1}} \left( t \right) -\theta_{{2}} \left( t \right)
+        \right)+\left( m_{{1}}+m_{{2}} \right) \left( g\sin
+        \left( \theta_{{1}} \left( t \right) \right) +l_{{1}}{\frac {{\rm d}
+        ^{2}}{{\rm d}{t}^{2}}}\theta_{{1}} \left( t \right) \right)&=0\\ \\
+        \nonumber - l_{{1}}\left( {\frac {\rm d}{{\rm d}t}}\theta_{{1}}
+        \left( t \right) \right) ^{2}\sin \left( \theta_{{1}} \left( t
+        \right) -\theta_{{2}} \left( t \right) \right) + l_{{1}}\left( {
+        \frac {{\rm d}^{2}}{{\rm d}{t}^{2}}}\theta_{{1}} \left( t \right)
+        \right) \cos \left( \theta_{{1}} \left( t \right) -\theta_{{2}}
+        \left( t \right) \right) +l_{{2}}\left( {\frac {{\rm d}^{2}}{{\rm d}{t}^{2}}}
+        \theta_{{2}} \left( t \right) \right) +g\sin \left( \theta_{{2}} \left( t
+        \right) \right) &=0
+        \label{eq:ECM}
+        \end{align} \tag{16}$$
+      </p>
+
+    </section>
+
+    <section>
+      <h4><code>5. Representación en espacios de estados</code></h4>
+      <p>Para poder simular el comportamiento del sistema es necesario tener representado al sistema en espacios de
+      estados. Para mayor facilidad primero se representa al sistema de forma matricial:
+
+      $$\begin{align}
+      \begin{bmatrix}
+      (m_1+m_2)l_1 & l_2m_2\cos(\theta_1-\theta_2)\\
+      l_1\cos(\theta_1-\theta_2) & l_2
+      \end{bmatrix} \begin{matrix}
+      \ddot{\theta_1}\\
+      \ddot{\theta_2}
+      \end{matrix}= \begin{bmatrix}
+      0 & -l_2m_2\dot{\theta_2}\sin(\theta_1-\theta_2)\\
+      l_1\dot{\theta_1}\sin(\theta_1-\theta_2) & 0
+      \end{bmatrix}\begin{matrix}
+      \dot{\theta_1}\\
+      \dot{\theta_2}
+      \end{matrix}-\begin{bmatrix}
+      (m_1+m_2)g\sin(\theta_1)\\
+      g\sin(\theta_2)
+      \end{bmatrix}
+      \label{eq:matr}
+      \end{align}\tag{17}$$
+      </p>
+
+      <p>
+      Renombrando a la primer matriz de la ecuación (17) como \(M\), a la segunda matriz como \(C\) y a la
+      tercera como \(G\), entonces el sistema se puede reescribir como:
+      
+      $$\begin{equation}
+      M\ddot{\theta}=C\dot{\theta }-G
+      \label{eq:matriz}
+      \end{equation}\tag{18}$$
+     </p>
+     <p>
+      Por lo tanto si se elige el cambio de variable:
+      $$\begin{align}
+      \nonumber x_1&=\theta_1\\
+      \nonumber x_2&=\dot{\theta}_1\\
+      \nonumber x_3&=\theta_2\\
+      x_4&=\dot{\theta}_2
+      \label{eq:cambiov}
+      \end{align}\tag{19}$$
+
+      el sistema queda representado en espacios de estados de la siguiente forma:
+      
+      $$\begin{align}
+      \nonumber \dot{x}_1&=x_2\\
+      \nonumber \dot{x}_3&=x_4\\
+      \begin{matrix}
+      \dot{x_2}\\
+      \dot{x_4}
+      \end{matrix}&=M^{-1}\left ( C\begin{bmatrix}
+      x_2\\
+      x_4
+      \end{bmatrix}-G \right )
+      \label{eq:espacios}
+      \end{align}\tag{20}$$
+    </p>
+    </section>
+
+  </article>
+  <footer>
+    <p>&copy; JCainServices.mx 2022</p>
+  </footer>
+
+</body>
+
+</html>
