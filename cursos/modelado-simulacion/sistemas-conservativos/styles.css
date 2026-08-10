@@ -389,13 +389,6 @@ body.presentation-mode .lesson { width:min(1250px,calc(100% - 50px)); }
 }
 
 /* --- Sistemas conservativos: componentes específicos de esta clase --- */
-.unit-links a {
-  display:block; position:relative; padding:8px 10px; border-radius:8px;
-  font-size:11px; color:#aac0d4; text-decoration:none;
-}
-.unit-links a:hover { background:rgba(255,255,255,.06); color:white; }
-.unit-links a span { float:right; font-size:9px; color:#6f8aa3; margin-left:6px; }
-.subtopics a { font-size:10.5px; padding-block:6px; }
 .unit-links a.subtopic-active { background:rgba(49,168,201,.15); color:white; font-weight:700; }
 
 .energy-identity {
