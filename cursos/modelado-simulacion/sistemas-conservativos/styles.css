@@ -303,7 +303,7 @@ body.presentation-mode .lesson { width:min(1250px,calc(100% - 50px)); }
   .footer-links { grid-auto-flow:row; gap:5px; }
 }
 
-/* Enlaces a clases ya publicadas dentro del árbol del curso */
+/* --- Sistemas conservativos: componentes específicos de esta clase --- */
 .unit-links a {
   display:block; position:relative; padding:8px 10px; border-radius:8px;
   font-size:11px; color:#aac0d4; text-decoration:none;
@@ -311,3 +311,80 @@ body.presentation-mode .lesson { width:min(1250px,calc(100% - 50px)); }
 .unit-links a:hover { background:rgba(255,255,255,.06); color:white; }
 .unit-links a span { float:right; font-size:9px; color:#6f8aa3; margin-left:6px; }
 .subtopics a { font-size:10.5px; padding-block:6px; }
+.unit-links a.subtopic-active { background:rgba(49,168,201,.15); color:white; font-weight:700; }
+
+.energy-identity {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:18px;
+}
+.energy-identity > div {
+  padding:15px; border:1px solid var(--line); border-radius:12px; background:#fff;
+}
+.energy-identity span { display:block; color:var(--blue); font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
+.energy-identity strong { display:block; margin-top:4px; color:var(--navy); font-size:12px; }
+.energy-identity p { margin:4px 0 0; color:#697d90; font-size:10px; }
+
+.conservative-test {
+  margin-top:17px; display:grid; gap:9px;
+}
+.test-row {
+  display:grid; grid-template-columns:32px minmax(0,1fr); gap:11px; align-items:start;
+  padding:13px 14px; border:1px solid #e2e9f1; border-radius:11px; background:#fbfdff;
+}
+.test-row > span {
+  width:28px; height:28px; display:grid; place-items:center; border-radius:8px;
+  background:#eef7ff; color:var(--blue); font-weight:800; font-size:10px;
+}
+.test-row strong { color:var(--navy); font-size:11px; }
+.test-row p { margin:2px 0 0; color:#6b7e91; font-size:10px; }
+
+.energy-lab-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:17px; }
+.energy-visual-card, .energy-controls-card {
+  background:white; border:1px solid var(--line); border-radius:var(--radius); padding:24px;
+  box-shadow:0 9px 26px rgba(20,50,80,.045);
+}
+.energy-visual-card h4, .energy-controls-card h4 { margin:5px 0 11px; font-size:17px; }
+#oscillatorCanvas, #energyCanvas {
+  display:block; width:100%; height:auto; background:#fbfdff; border:1px solid #e4ebf3; border-radius:11px;
+}
+#energyCanvas { margin-top:12px; }
+.energy-legend { display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 0; font-size:9px; color:#6f8194; }
+.energy-legend span::before { content:""; display:inline-block; width:15px; height:3px; border-radius:2px; margin-right:5px; vertical-align:middle; }
+.energy-legend .kinetic::before { background:#2778c9; }
+.energy-legend .potential::before { background:#e9b949; }
+.energy-legend .total::before { background:#15936f; }
+.control-group { margin-top:13px; }
+.control-label { display:flex; justify-content:space-between; gap:12px; align-items:center; color:#5d7186; font-size:10px; font-weight:700; }
+.control-label output { min-width:58px; text-align:center; padding:4px 7px; border-radius:7px; background:#edf3f8; color:var(--navy); }
+.control-group input[type="range"] { width:100%; accent-color:var(--blue); }
+.lab-buttons { display:flex; gap:8px; margin-top:15px; }
+.lab-buttons button { border:0; border-radius:8px; padding:9px 12px; cursor:pointer; font-size:10px; font-weight:800; }
+#playButton { background:var(--navy); color:white; }
+#resetButton { background:#edf3f8; color:#536a80; }
+.energy-readouts { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:15px; }
+.energy-readout { padding:11px; border:1px solid var(--line); border-radius:10px; background:#fbfdff; }
+.energy-readout span { display:block; color:#7b8b9b; font-size:8px; text-transform:uppercase; font-weight:800; letter-spacing:.07em; }
+.energy-readout strong { display:block; margin-top:3px; color:var(--navy); font-size:12px; }
+.conservation-status { display:flex; gap:10px; align-items:start; margin-top:15px; padding:12px; border-radius:10px; background:#eefaf5; color:#476a5d; }
+.conservation-status .status-dot { margin-top:4px; }
+.conservation-status strong { font-size:10px; }
+.conservation-status p { margin:2px 0 0; font-size:9px; }
+
+.modeling-strip { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:15px; }
+.modeling-strip > div { position:relative; min-height:82px; padding:12px; border:1px solid var(--line); border-radius:11px; background:white; }
+.modeling-strip > div:not(:last-child)::after { content:"→"; position:absolute; right:-8px; top:30px; z-index:3; color:#9bb0c3; font-weight:800; }
+.modeling-strip span { display:grid; place-items:center; width:23px; height:23px; border-radius:7px; background:#eef6fd; color:var(--blue); font-size:9px; font-weight:800; margin-bottom:7px; }
+.modeling-strip strong { display:block; font-size:9px; color:#425a70; }
+.modeling-strip small { display:block; margin-top:3px; color:#7a8b9b; font-size:8px; }
+
+.homework-list { display:grid; gap:7px; margin:13px 0 0; padding:0; list-style:none; }
+.homework-list li { padding:10px 12px; border-radius:9px; background:rgba(255,255,255,.72); border:1px solid #eadcb8; color:#756a52; font-size:10px; }
+
+@media (max-width:980px) {
+  .energy-lab-grid { grid-template-columns:1fr; }
+  .modeling-strip { grid-template-columns:1fr 1fr; }
+  .modeling-strip > div::after { display:none; }
+}
+@media (max-width:650px) {
+  .energy-identity, .energy-readouts, .modeling-strip { grid-template-columns:1fr; }
+  .energy-visual-card, .energy-controls-card { padding:17px; }
+}
