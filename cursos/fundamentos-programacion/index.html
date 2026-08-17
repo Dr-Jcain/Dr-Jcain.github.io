@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Curso de Fundamentos de Programación dentro de JCain Engineering.">
   <title>Fundamentos de Programación | JCain Engineering</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,26 +12,228 @@
 </head>
 <body>
 <div class="portal-shell">
-<header class="portal-topbar"><a class="portal-brand" href="../../index.html"><span class="portal-mark">JE</span><span><strong>JCain Engineering</strong><small>Portal académico</small></span></a><nav><a href="../../index.html#materias">Todas las materias</a></nav></header>
+<header class="portal-topbar">
+  <a class="portal-brand" href="../../index.html"><span class="portal-mark">JE</span><span><strong>JCain Engineering</strong><small>Portal académico</small></span></a>
+  <nav><a href="../../index.html#materias">Todas las materias</a><a href="#mapa-curso">Mapa del curso</a></nav>
+</header>
+
 <main class="portal-main">
-  <div class="course-layout">
-    <aside class="course-sidebar">
+  <div class="course-layout course-layout-wide">
+    <aside class="course-sidebar course-sidebar-tree">
       <a class="back-link" href="../../index.html">← Todas las materias</a>
       <p class="eyebrow">Materia</p>
       <h1>Fundamentos de Programación</h1>
-      <p>Conceptos, ejemplos de código, problemas y prácticas.</p>
-      <div class="status-pills"><span>Estructura preparada</span><span>GitHub Pages</span></div>
-      <div class="unit-list">
-        <div class="unit-row"><strong>Unidades y temas</strong>Se irán incorporando conforme avance la clase.</div>
-        <div class="unit-row"><strong>Plantilla didáctica</strong>Teoría · práctica · problemas · tarea · recursos.</div>
+      <p>Bases de computación, algoritmos y programación estructurada en lenguaje C.</p>
+      <div class="status-pills"><span>I5288</span><span>En desarrollo activo</span></div>
+
+      <nav class="syllabus-tree" aria-label="Temario de Fundamentos de Programación">
+        <a class="tree-home active" href="index.html">⌂ Inicio</a>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad I</strong><span>Introducción y conceptos básicos</span></div>
+          <div class="tree-group current-group">
+            <div class="tree-group-label">1.1 Conceptos fundamentales: computadora y lenguajes <span>En desarrollo</span></div>
+            <a class="tree-sub current" href="conversiones-sistemas-numericos/index.html">1.1.1 Conversiones entre sistemas numéricos <em>Publicada</em></a>
+          </div>
+          <a class="planned" href="#u1-paradigmas">1.2 Paradigmas de programación <em>Próximamente</em></a>
+          <a class="planned" href="#u1-estructurada">1.2.1 Programación estructurada <em>Próximamente</em></a>
+          <a class="planned" href="#u1-von">1.3 Modelo Von Newmann <em>Próximamente</em></a>
+          <a class="planned" href="#u1-von-partes">1.3.1 Memoria, entrada, salida, CPU <em>Próximamente</em></a>
+          <a class="planned" href="#u1-proceso">1.4 Proceso de programación <em>Próximamente</em></a>
+          <a class="planned" href="#u1-algoritmo">1.5 Definición de algoritmo <em>Próximamente</em></a>
+          <a class="planned" href="#u1-caracteristicas">1.5.1 Características de los algoritmos <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad II</strong><span>Fundamentos de la programación</span></div>
+          <a class="planned" href="#u2-formulacion">2.1 Técnicas de formulación de algoritmos <em>Próximamente</em></a>
+          <a class="planned" href="#u2-diagrama">2.1.1 Diagrama de flujo <em>Próximamente</em></a>
+          <a class="planned" href="#u2-pseudocodigo">2.1.2 Pseudocódigo <em>Próximamente</em></a>
+          <a class="planned" href="#u2-c">2.2 Lenguaje C <em>Próximamente</em></a>
+          <a class="planned" href="#u2-operadores">2.3 Operadores <em>Próximamente</em></a>
+          <a class="planned" href="#u2-datos">2.4 Tipos de datos <em>Próximamente</em></a>
+          <a class="planned" href="#u2-variable">2.5 Variables <em>Próximamente</em></a>
+          <a class="planned" href="#u2-constante">2.6 Constantes <em>Próximamente</em></a>
+          <a class="planned" href="#u2-comentarios">2.7 Comentarios <em>Próximamente</em></a>
+          <a class="planned" href="#u2-reservadas">2.8 Palabras reservadas <em>Próximamente</em></a>
+          <a class="planned" href="#u2-bibliotecas">2.9 Bibliotecas <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad III</strong><span>Control secuencial</span></div>
+          <a class="planned" href="#u3-def">3.1 Estructura de control secuenciación <em>Próximamente</em></a>
+          <a class="planned" href="#u3-rep">3.2 Pseudocódigo y diagrama de flujo <em>Próximamente</em></a>
+          <a class="planned" href="#u3-io">3.3 Entrada y salida de datos <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad IV</strong><span>Control selectivo</span></div>
+          <a class="planned" href="#u4-def">4.1 Estructuras de selección <em>Próximamente</em></a>
+          <a class="planned" href="#u4-simple">4.1.1 Simple (if) <em>Próximamente</em></a>
+          <a class="planned" href="#u4-simple-rep">4.1.1.1 Pseudocódigo y diagrama <em>Próximamente</em></a>
+          <a class="planned" href="#u4-doble">4.1.2 Doble (if-else) <em>Próximamente</em></a>
+          <a class="planned" href="#u4-doble-rep">4.1.2.1 Pseudocódigo y diagrama <em>Próximamente</em></a>
+          <a class="planned" href="#u4-multiple">4.1.3 Múltiple (switch / if-else) <em>Próximamente</em></a>
+          <a class="planned" href="#u4-multiple-rep">4.1.3.1 Pseudocódigo y diagrama <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad V</strong><span>Control repetitivo</span></div>
+          <a class="planned" href="#u5-def">5.1 Estructuras repetitivas <em>Próximamente</em></a>
+          <a class="planned" href="#u5-while">5.2 Mientras (while) <em>Próximamente</em></a>
+          <a class="planned" href="#u5-while-rep">5.2.1 Pseudocódigo y diagrama <em>Próximamente</em></a>
+          <a class="planned" href="#u5-vars">5.3 Contadores, acumuladores y banderas <em>Próximamente</em></a>
+          <a class="planned" href="#u5-do">5.4 Hacer-mientras (do-while) <em>Próximamente</em></a>
+          <a class="planned" href="#u5-do-rep">5.4.1 Pseudocódigo y diagrama <em>Próximamente</em></a>
+          <a class="planned" href="#u5-for">5.5 Desde (for) <em>Próximamente</em></a>
+          <a class="planned" href="#u5-for-rep">5.5.1 Pseudocódigo y diagrama <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad VI</strong><span>Funciones</span></div>
+          <a class="planned" href="#u6-modular">6.1 Programación modular y variables <em>Próximamente</em></a>
+          <a class="planned" href="#u6-modularidad">6.1.1 Modularidad <em>Próximamente</em></a>
+          <a class="planned" href="#u6-funcion">6.1.2 Definición de función <em>Próximamente</em></a>
+          <a class="planned" href="#u6-local-global">6.1.3 Variables locales y globales <em>Próximamente</em></a>
+          <a class="planned" href="#u6-estructura">6.2 Estructura de una función <em>Próximamente</em></a>
+          <a class="planned" href="#u6-sin-prototipos">6.2.1 Sin prototipos <em>Próximamente</em></a>
+          <a class="planned" href="#u6-prototipos">6.2.2 Con prototipos <em>Próximamente</em></a>
+          <a class="planned" href="#u6-tipos">6.3 Tipos de función <em>Próximamente</em></a>
+          <a class="planned" href="#u6-predef">6.3.1 Funciones predefinidas <em>Próximamente</em></a>
+          <a class="planned" href="#u6-programador">6.3.2 Funciones definidas por el programador <em>Próximamente</em></a>
+          <a class="planned" href="#u6-sin-retorno">6.4 Sin devolver datos <em>Próximamente</em></a>
+          <a class="planned" href="#u6-sin-retorno-call">6.4.1 Invocación <em>Próximamente</em></a>
+          <a class="planned" href="#u6-retorno">6.5 Con devolución de datos <em>Próximamente</em></a>
+          <a class="planned" href="#u6-retorno-call">6.5.1 Invocación <em>Próximamente</em></a>
+        </section>
+      </nav>
+
+      <div class="sidebar-course-template">
+        <strong>Estructura de cada tema</strong>
+        <span>Teoría</span><span>Visualización</span><span>Problemas</span><span>Tarea</span>
       </div>
     </aside>
+
     <section class="course-content">
-      <div class="course-banner"><p class="eyebrow">Página de la materia</p><h2>Fundamentos de Programación</h2><p>Conceptos, ejemplos de código, problemas y prácticas.</p></div>
-      <div class="placeholder"><strong>Aún no hay clases publicadas en esta materia.</strong><p>La estructura ya está lista. Cuando se agregue el primer tema, aparecerá aquí sin modificar el portal principal.</p></div>
+      <div class="course-banner course-banner-featured">
+        <p class="eyebrow">Página de la materia</p>
+        <h2>Fundamentos de Programación</h2>
+        <p>Este índice sigue las seis unidades temáticas del programa de I5288. Conforme avance el curso, cada tema se convertirá en una clase con teoría, ejemplos, práctica y actividades.</p>
+        <div class="banner-actions"><a class="portal-primary" href="conversiones-sistemas-numericos/index.html">Abrir 1.1.1 Conversiones →</a></div>
+      </div>
+
+      <section id="mapa-curso">
+        <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">Mapa del curso</p><h1>Unidades y temas</h1></div></div>
+
+        <div class="curriculum-stack">
+          <article class="curriculum-unit unit-one">
+            <header><span>Unidad I</span><div><h3>Introducción y conceptos básicos</h3><p>Conceptos fundamentales de computación y del proceso de programación.</p></div></header>
+            <div class="curriculum-topics">
+              <div class="topic-expanded">
+                <div class="topic-expanded-head"><strong>1.1</strong><span>Conceptos fundamentales: definición de computadora y lenguajes que usa una computadora</span><em>En desarrollo</em></div>
+                <div class="expanded-subtopics">
+                  <a href="conversiones-sistemas-numericos/index.html"><b>1.1.1</b><span>Conversiones entre sistemas binario, octal, decimal y hexadecimal</span><small class="published">Publicada →</small></a>
+                </div>
+              </div>
+              <div id="u1-paradigmas"><strong>1.2</strong><span>Paradigmas de programación</span><em>Próximamente</em></div>
+              <div id="u1-estructurada"><strong>1.2.1</strong><span>Definición de programación estructurada</span><em>Próximamente</em></div>
+              <div id="u1-von"><strong>1.3</strong><span>Modelo Von Newmann</span><em>Próximamente</em></div>
+              <div id="u1-von-partes"><strong>1.3.1</strong><span>Memoria, entrada, salida y CPU</span><em>Próximamente</em></div>
+              <div id="u1-proceso"><strong>1.4</strong><span>Introducción a la programación: definición, análisis, diseño, codificación, prueba y mantenimiento</span><em>Próximamente</em></div>
+              <div id="u1-algoritmo"><strong>1.5</strong><span>Definición de algoritmo</span><em>Próximamente</em></div>
+              <div id="u1-caracteristicas"><strong>1.5.1</strong><span>Características: definido, preciso, finito; entrada, proceso y salida</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-two">
+            <header><span>Unidad II</span><div><h3>Fundamentos de la programación</h3><p>Representación de algoritmos, lenguaje C, operadores y datos.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u2-formulacion"><strong>2.1</strong><span>Técnicas de formulación de algoritmos</span><em>Próximamente</em></div>
+              <div id="u2-diagrama"><strong>2.1.1</strong><span>Diagrama de flujo: símbolos</span><em>Próximamente</em></div>
+              <div id="u2-pseudocodigo"><strong>2.1.2</strong><span>Pseudocódigo: palabras clave</span><em>Próximamente</em></div>
+              <div id="u2-c"><strong>2.2</strong><span>Antecedentes y definición de lenguaje C</span><em>Próximamente</em></div>
+              <div id="u2-operadores"><strong>2.3</strong><span>Operadores: asignación, aritméticos, lógicos, relacionales e incremento</span><em>Próximamente</em></div>
+              <div id="u2-datos"><strong>2.4</strong><span>Tipos de datos: entero, real y carácter</span><em>Próximamente</em></div>
+              <div id="u2-variable"><strong>2.5</strong><span>Concepto de variable</span><em>Próximamente</em></div>
+              <div id="u2-constante"><strong>2.6</strong><span>Concepto de constante</span><em>Próximamente</em></div>
+              <div id="u2-comentarios"><strong>2.7</strong><span>Comentarios</span><em>Próximamente</em></div>
+              <div id="u2-reservadas"><strong>2.8</strong><span>Palabras reservadas del lenguaje</span><em>Próximamente</em></div>
+              <div id="u2-bibliotecas"><strong>2.9</strong><span>Bibliotecas: stdio, math, stdlib</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-three">
+            <header><span>Unidad III</span><div><h3>Estructura de control secuenciación</h3><p>Solución de problemas con instrucciones ejecutadas en secuencia.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u3-def"><strong>3.1</strong><span>Definición de la estructura de control secuenciación</span><em>Próximamente</em></div>
+              <div id="u3-rep"><strong>3.2</strong><span>Representación en pseudocódigo y diagrama de flujo</span><em>Próximamente</em></div>
+              <div id="u3-io"><strong>3.3</strong><span>Entrada y salida de datos</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-one">
+            <header><span>Unidad IV</span><div><h3>Estructuras de control selectiva</h3><p>Selección simple, doble y múltiple con codificación en C.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u4-def"><strong>4.1</strong><span>Definición de estructuras de control de selección</span><em>Próximamente</em></div>
+              <div id="u4-simple"><strong>4.1.1</strong><span>Simple (if)</span><em>Próximamente</em></div>
+              <div id="u4-simple-rep"><strong>4.1.1.1</strong><span>Representación en pseudocódigo y diagrama de flujo</span><em>Próximamente</em></div>
+              <div id="u4-doble"><strong>4.1.2</strong><span>Doble (if-else)</span><em>Próximamente</em></div>
+              <div id="u4-doble-rep"><strong>4.1.2.1</strong><span>Representación en pseudocódigo y diagrama de flujo</span><em>Próximamente</em></div>
+              <div id="u4-multiple"><strong>4.1.3</strong><span>Múltiple (switch, if-else)</span><em>Próximamente</em></div>
+              <div id="u4-multiple-rep"><strong>4.1.3.1</strong><span>Representación en pseudocódigo y diagrama de flujo</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-two">
+            <header><span>Unidad V</span><div><h3>Estructuras de control repetición</h3><p>While, do-while y for; contadores, acumuladores y banderas.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u5-def"><strong>5.1</strong><span>Definición de estructuras de control repetitivas</span><em>Próximamente</em></div>
+              <div id="u5-while"><strong>5.2</strong><span>Mientras (while)</span><em>Próximamente</em></div>
+              <div id="u5-while-rep"><strong>5.2.1</strong><span>Representación en pseudocódigo y diagrama de flujo</span><em>Próximamente</em></div>
+              <div id="u5-vars"><strong>5.3</strong><span>Contadores, acumuladores y banderas</span><em>Próximamente</em></div>
+              <div id="u5-do"><strong>5.4</strong><span>Hacer-mientras (do-while)</span><em>Próximamente</em></div>
+              <div id="u5-do-rep"><strong>5.4.1</strong><span>Representación en pseudocódigo y diagrama de flujo</span><em>Próximamente</em></div>
+              <div id="u5-for"><strong>5.5</strong><span>Desde (for)</span><em>Próximamente</em></div>
+              <div id="u5-for-rep"><strong>5.5.1</strong><span>Representación en pseudocódigo y diagrama de flujo</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-three">
+            <header><span>Unidad VI</span><div><h3>Manejo de funciones</h3><p>Programación modular, variables locales/globales y funciones con o sin devolución.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u6-modular"><strong>6.1</strong><span>Programación modular, función, variables locales y globales</span><em>Próximamente</em></div>
+              <div id="u6-modularidad"><strong>6.1.1</strong><span>Cómo funciona la modularidad</span><em>Próximamente</em></div>
+              <div id="u6-funcion"><strong>6.1.2</strong><span>Definición de una función</span><em>Próximamente</em></div>
+              <div id="u6-local-global"><strong>6.1.3</strong><span>Diferencia entre variables locales y globales</span><em>Próximamente</em></div>
+              <div id="u6-estructura"><strong>6.2</strong><span>Estructura de una función dentro de un programa</span><em>Próximamente</em></div>
+              <div id="u6-sin-prototipos"><strong>6.2.1</strong><span>Sin prototipos</span><em>Próximamente</em></div>
+              <div id="u6-prototipos"><strong>6.2.2</strong><span>Con prototipos</span><em>Próximamente</em></div>
+              <div id="u6-tipos"><strong>6.3</strong><span>Tipos de función</span><em>Próximamente</em></div>
+              <div id="u6-predef"><strong>6.3.1</strong><span>Funciones predefinidas</span><em>Próximamente</em></div>
+              <div id="u6-programador"><strong>6.3.2</strong><span>Funciones definidas por el programador</span><em>Próximamente</em></div>
+              <div id="u6-sin-retorno"><strong>6.4</strong><span>Funciones sin devolver datos y sin paso de parámetros</span><em>Próximamente</em></div>
+              <div id="u6-sin-retorno-call"><strong>6.4.1</strong><span>Invocación o llamada a la función</span><em>Próximamente</em></div>
+              <div id="u6-retorno"><strong>6.5</strong><span>Funciones con devolución de datos</span><em>Próximamente</em></div>
+              <div id="u6-retorno-call"><strong>6.5.1</strong><span>Invocación o llamada a la función</span><em>Próximamente</em></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">Clase publicada</p><h2>Unidad I</h2></div></div>
+        <div class="lesson-list">
+          <a class="lesson-card" href="conversiones-sistemas-numericos/index.html">
+            <div class="lesson-index">1.1.1</div>
+            <div><h3>Conversiones entre sistemas binario, octal, decimal y hexadecimal</h3><p>Sistemas posicionales, conversión hacia decimal, divisiones sucesivas desde decimal, ejemplos guiados, convertidor interactivo y práctica.</p></div>
+            <span class="state">Publicada</span>
+          </a>
+        </div>
+      </section>
     </section>
   </div>
-  <footer class="site-footer"><div><strong>JCain Engineering</strong><br>Sitio preparado para crecer por materias.</div><a href="../../index.html">Volver al portal ↑</a></footer>
+
+  <footer class="site-footer"><div><strong>JCain Engineering</strong><br>Fundamentos de Programación · I5288.</div><a href="../../index.html">Volver al portal ↑</a></footer>
 </main>
 </div>
 </body>
