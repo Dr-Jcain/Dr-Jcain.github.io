@@ -3,45 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Portal didáctico para clases de ingeniería: teoría, problemas resueltos, actividades y simulaciones interactivas.">
+  <meta name="description" content="JCain Engineering: recursos académicos para ingeniería y computación, con teoría, ejercicios, problemas resueltos y simulaciones interactivas.">
   <title>JCain Engineering | Portal académico</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/portal.css">
-  <script defer src="assets/portal.js"></script>
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="/assets/portal.css">
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
 </head>
-<body>
+<body data-page="home">
 <div class="portal-shell">
-  <header class="portal-topbar">
-    <a class="portal-brand" href="index.html"><span class="portal-mark">JE</span><span><strong>JCain Engineering</strong><small>Portal académico</small></span></a>
-    <nav><a href="#materias">Materias</a><a href="#metodo">Estructura didáctica</a></nav>
-  </header>
+  <div data-site-header></div>
 
   <main class="portal-main">
     <section class="portal-hero">
       <div>
         <p class="eyebrow">Sitio académico en crecimiento</p>
         <h1>Teoría, práctica y simulación en un solo lugar.</h1>
-        <p>JCain Engineering está preparado para crecer clase por clase. Cada materia puede incorporar unidades, apuntes, problemas resueltos, tareas, código y laboratorios interactivos sin cambiar la estructura general del sitio.</p>
+        <p>JCain Engineering está preparado para crecer clase por clase. Cada materia puede incorporar unidades, apuntes, problemas resueltos, tareas, código y laboratorios interactivos sin modificar manualmente la estructura general del sitio.</p>
       </div>
       <aside class="hero-panel">
-        <strong>Clases publicadas</strong>
-        <p>Modelado y Simulación de Sistemas · Euler–Lagrange y sistemas conservativos. Fundamentos de Programación · conversiones entre sistemas numéricos.</p>
-        <div class="hero-tags"><span></span><span></span><span></span><span></span></div>
+        <strong data-total-lessons-label>0 clases publicadas</strong>
+        <p data-published-summary>Las clases publicadas aparecerán aquí automáticamente.</p>
+        <div class="hero-tags" data-published-tags></div>
       </aside>
     </section>
 
     <section id="materias">
-      <div class="section-heading"><span class="section-number">6</span><div><p class="eyebrow">Materias</p><h2>JCain Engineering: materias y clases</h2></div></div>
-      <div class="course-grid">
-        <a class="course-card" href="cursos/analisis-algoritmos/index.html"><span class="course-code">Curso</span><h3>Análisis de Algoritmos</h3><p>Espacio preparado para teoría, análisis de complejidad, ejercicios y actividades.</p><footer><span>En construcción</span><strong>Abrir →</strong></footer></a>
-        <a class="course-card current" href="cursos/fundamentos-programacion/index.html"><span class="course-code">1 clase publicada</span><h3>Fundamentos de Programación</h3><p>Conceptos de computación, algoritmos, programación estructurada y lenguaje C.</p><footer><span>En desarrollo activo</span><strong>Entrar →</strong></footer></a>
-        <a class="course-card" href="cursos/laboratorio-abierto-construccion/index.html"><span class="course-code">Laboratorio</span><h3>Laboratorio Abierto: Construcción</h3><p>Espacio preparado para guías, prácticas, evidencias y material de laboratorio.</p><footer><span>En construcción</span><strong>Abrir →</strong></footer></a>
-        <a class="course-card" href="cursos/programacion-estructurada/index.html"><span class="course-code">Curso</span><h3>Programación Estructurada</h3><p>Espacio preparado para teoría, algoritmos, ejercicios y prácticas de programación.</p><footer><span>En construcción</span><strong>Abrir →</strong></footer></a>
-        <a class="course-card current" href="cursos/modelado-simulacion/index.html"><span class="course-code">2 clases publicadas</span><h3>Modelado y Simulación de Sistemas</h3><p>Modelado de sistemas dinámicos, mecánicos, eléctricos, electromecánicos, térmicos y de nivel.</p><footer><span>En desarrollo activo</span><strong>Entrar →</strong></footer></a>
-        <a class="course-card" href="cursos/teoria-sistemas-i/index.html"><span class="course-code">Curso</span><h3>Teoría de Sistemas I</h3><p>Espacio preparado para teoría, ejercicios, visualizaciones y material del curso.</p><footer><span>En construcción</span><strong>Abrir →</strong></footer></a>
+      <div class="section-heading">
+        <span class="section-number" data-course-count>0</span>
+        <div><p class="eyebrow">Materias</p><h2>JCain Engineering: materias y clases</h2></div>
       </div>
+      <div class="course-grid" data-course-grid></div>
     </section>
 
     <section id="metodo">
@@ -56,64 +51,7 @@
       </div>
     </section>
 
-    <footer class="site-footer">
-
-    <div class="footer-info">
-        <strong class="footer-title">JCain Engineering</strong>
-        <span class="footer-description">
-            Recursos académicos para ingeniería y computación.
-        </span>
-    </div>
-
-    <nav class="academic-profiles" aria-label="Perfiles académicos">
-
-        <a href="https://academicos.cucei.udg.mx/academicos/2963418"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="academic-link">
-            <img src="images/udg.png"
-                 alt="Universidad de Guadalajara"
-                 class="academic-icon udg-icon">
-            <span>Perfil CUCEI</span>
-        </a>
-
-        <a href="https://scholar.google.com.mx/citations?user=nCAyIuUAAAAJ&hl=es"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="academic-link">
-            <img src="images/scholar.png"
-                 alt="Google Scholar"
-                 class="academic-icon">
-            <span>Google Scholar</span>
-        </a>
-
-        <a href="https://orcid.org/0000-0003-0021-6402"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="academic-link">
-            <img src="images/orcid.png"
-                 alt="ORCID"
-                 class="academic-icon">
-            <span>ORCID</span>
-        </a>
-
-        <a href="https://www.researchgate.net/profile/Jairo-Sanchez-Estrada"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="academic-link">
-            <img src="images/research.png"
-                 alt="ResearchGate"
-                 class="academic-icon">
-            <span>ResearchGate</span>
-        </a>
-
-    </nav>
-
-    <div class="footer-copyright">
-        © 2026 Jairo Cain Sánchez Estrada
-    </div>
-
-</footer>
+    <div data-site-footer></div>
   </main>
 </div>
 </body>
