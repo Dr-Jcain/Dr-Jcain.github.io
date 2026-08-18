@@ -175,10 +175,35 @@ a { color: inherit; }
 .callout.neutral { background:#f7fafc; }
 .callout.compact { margin-top:14px; }
 
+.position-board-intro {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid #d9e5f0;
+  border-radius: 16px;
+  background: linear-gradient(145deg,#ffffff,#f6f9fc);
+  box-shadow: 0 8px 22px rgba(20,50,80,.04);
+}
+.position-board-intro h4 {
+  margin: 4px 0 0;
+  font-family: "STIX Two Text", Georgia, serif;
+  font-size: 21px;
+  color: var(--navy);
+}
+.position-board-intro > p {
+  margin: 0;
+  color: #526b82;
+  font-size: 13px;
+}
+.position-board-intro > p strong { color: var(--navy); }
+
 .position-board {
   display: grid;
   gap: 14px;
-  margin-top: 22px;
+  margin-top: 14px;
 }
 .position-row {
   display: grid;
@@ -216,15 +241,27 @@ a { color: inherit; }
   padding-bottom: 2px;
 }
 .position-cell {
-  min-height: 84px;
+  position: relative;
+  min-height: 96px;
   border-radius: 12px;
   border: 1px solid #dbe7f2;
   background: linear-gradient(145deg,#fbfdff,#f4f8fc);
-  padding: 12px;
+  padding: 29px 12px 12px;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   min-width: 95px;
+}
+.position-cell::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 12%;
+  width: 76%;
+  height: 4px;
+  border-radius: 3px;
+  background: #111820;
+  box-shadow: 0 1px 0 rgba(255,255,255,.75);
 }
 .position-cell span { color:var(--blue); font-weight:800; font-size:16px; }
 .position-cell small { color:#4f667d; font-size:14px; font-weight:600; line-height:1.25; }
@@ -391,6 +428,10 @@ body.presentation-mode .menu-button { display: inline-flex; }
   .homework-status { min-width:0; }
   .problem-card summary { flex-direction:column; align-items:flex-start; }
   .problem-card summary span { width:auto; }
+}
+
+@media (max-width: 760px) {
+  .position-board-intro { grid-template-columns: 1fr; gap: 8px; }
 }
 @media (max-width: 650px) {
   .lesson { width:min(100% - 24px,1180px); padding-top:20px; }
