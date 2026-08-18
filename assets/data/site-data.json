@@ -57,16 +57,269 @@
       "title": "Análisis de Algoritmos",
       "shortTitle": "Análisis de Algoritmos",
       "mark": "AA",
-      "program": "Computación",
-      "description": "Teoría, análisis de complejidad, ejercicios y actividades.",
-      "status": "prepared",
-      "units": [],
+      "program": "Ingeniería en Computación",
+      "code": "IL355",
+      "hours": "80 h",
+      "credits": "8 créditos",
+      "description": "Fundamentos de algoritmia, análisis de eficiencia y complejidad, y estrategias para el diseño de algoritmos.",
+      "banner": "El curso comienza con las bases necesarias para comprender qué es un algoritmo y qué significa que sea eficiente. Después se estudian el crecimiento asintótico, el análisis sistemático de algoritmos y las principales estrategias de diseño.",
+      "status": "active",
+      "units": [
+        {
+          "label": "Unidad 1",
+          "title": "Introducción a la algoritmia",
+          "description": "Concepto de algoritmo, propiedades fundamentales y noción de eficiencia.",
+          "topics": [
+            {
+              "number": "1.1",
+              "title": "Conceptos básicos",
+              "slug": "conceptos-basicos",
+              "summary": "Definición de algoritmo, propiedades, relación entre problema, algoritmo e implementación, ejemplos y problemas de repaso.",
+              "published": true,
+              "actualFolder": "conceptos-basicos",
+              "url": "/cursos/analisis-algoritmos/conceptos-basicos/"
+            },
+            {
+              "number": "1.2",
+              "title": "Eficiencia de un algoritmo",
+              "slug": "eficiencia-algoritmo",
+              "summary": "Eficiencia temporal y espacial, tamaño de entrada n, función T(n), análisis a priori y a posteriori y principio de invarianza.",
+              "published": true,
+              "actualFolder": "eficiencia-algoritmo",
+              "url": "/cursos/analisis-algoritmos/eficiencia-algoritmo/"
+            }
+          ]
+        },
+        {
+          "label": "Unidad 2",
+          "title": "Dominio asintótico",
+          "description": "Comparación del crecimiento de funciones y formalización mediante notaciones asintóticas.",
+          "topics": [
+            {
+              "number": "2.1",
+              "title": "Dominio asintótico entre funciones",
+              "slug": "dominio-asintotico",
+              "published": false
+            },
+            {
+              "number": "2.2",
+              "title": "Notaciones asintóticas: O, Ω y Θ",
+              "slug": "notaciones-asintoticas",
+              "published": false
+            }
+          ]
+        },
+        {
+          "label": "Unidad 3",
+          "title": "Análisis de los algoritmos",
+          "description": "Conteo de operaciones y análisis de instrucciones, estructuras de control y algoritmos recursivos.",
+          "topics": [
+            {
+              "number": "3.1",
+              "title": "Análisis de instrucciones en un algoritmo",
+              "slug": "analisis-instrucciones",
+              "published": false
+            },
+            {
+              "number": "3.2",
+              "title": "Análisis de estructuras condicionales",
+              "slug": "analisis-condicionales",
+              "published": false
+            },
+            {
+              "number": "3.3",
+              "title": "Análisis de estructuras iterativas",
+              "slug": "analisis-iterativas",
+              "published": false
+            },
+            {
+              "number": "3.4",
+              "title": "Análisis de algoritmos recursivos",
+              "slug": "analisis-recursivos",
+              "published": false
+            }
+          ]
+        },
+        {
+          "label": "Unidad 4",
+          "title": "Fuerza bruta",
+          "description": "Algoritmos de ordenamiento y búsqueda analizados como estrategias de fuerza bruta.",
+          "topics": [
+            {
+              "number": "4.1",
+              "title": "Ordenamiento por selección y de burbuja",
+              "slug": "seleccion-burbuja",
+              "published": false
+            },
+            {
+              "number": "4.2",
+              "title": "Búsqueda de subcadenas",
+              "slug": "busqueda-subcadenas",
+              "published": false
+            },
+            {
+              "number": "4.3",
+              "title": "Búsqueda primero en profundidad y búsqueda primero en anchura",
+              "slug": "busqueda-profundidad-anchura",
+              "published": false
+            }
+          ]
+        },
+        {
+          "label": "Unidad 5",
+          "title": "Divide y vencerás",
+          "description": "Descomposición de problemas y análisis de algoritmos representativos.",
+          "topics": [
+            {
+              "number": "5.1",
+              "title": "Ordenamiento por mezcla",
+              "slug": "ordenamiento-mezcla",
+              "published": false
+            },
+            {
+              "number": "5.2",
+              "title": "Ordenamiento rápido",
+              "slug": "ordenamiento-rapido",
+              "published": false
+            },
+            {
+              "number": "5.3",
+              "title": "Multiplicación de enteros grandes",
+              "slug": "multiplicacion-enteros-grandes",
+              "published": false
+            }
+          ]
+        },
+        {
+          "label": "Unidad 6",
+          "title": "Programación dinámica",
+          "description": "Soluciones que reutilizan resultados de subproblemas.",
+          "topics": [
+            {
+              "number": "6.1",
+              "title": "El problema de la mochila",
+              "slug": "problema-mochila",
+              "published": false
+            },
+            {
+              "number": "6.2",
+              "title": "El algoritmo de Warshall",
+              "slug": "warshall",
+              "published": false
+            },
+            {
+              "number": "6.3",
+              "title": "El algoritmo de Floyd",
+              "slug": "floyd",
+              "published": false
+            }
+          ]
+        },
+        {
+          "label": "Unidad 7",
+          "title": "Técnica voraz",
+          "description": "Árboles de expansión mínima y caminos más cortos.",
+          "topics": [
+            {
+              "number": "7.1",
+              "title": "Algoritmo de Prim",
+              "slug": "prim",
+              "published": false
+            },
+            {
+              "number": "7.2",
+              "title": "Algoritmo de Kruskal",
+              "slug": "kruskal",
+              "published": false
+            },
+            {
+              "number": "7.3",
+              "title": "Algoritmo de Dijkstra",
+              "slug": "dijkstra",
+              "published": false
+            }
+          ]
+        },
+        {
+          "label": "Unidad 8",
+          "title": "Limitaciones de los algoritmos",
+          "description": "Cotas inferiores, clases de complejidad y límites del cómputo eficiente.",
+          "topics": [
+            {
+              "number": "8.1",
+              "title": "Argumentos de cota inferior",
+              "slug": "cota-inferior",
+              "published": false
+            },
+            {
+              "number": "8.2",
+              "title": "Problemas P, NP y NP-completo",
+              "slug": "p-np-np-completo",
+              "published": false
+            },
+            {
+              "number": "8.3",
+              "title": "Retos de algoritmos numéricos",
+              "slug": "retos-algoritmos-numericos",
+              "published": false
+            }
+          ]
+        },
+        {
+          "label": "Unidad 9",
+          "title": "Enfrentando las limitaciones de los algoritmos",
+          "description": "Estrategias exactas y aproximadas para problemas difíciles.",
+          "topics": [
+            {
+              "number": "9.1",
+              "title": "Backtracking",
+              "slug": "backtracking",
+              "published": false
+            },
+            {
+              "number": "9.2",
+              "title": "Ramificación y poda",
+              "slug": "ramificacion-poda",
+              "published": false
+            },
+            {
+              "number": "9.3",
+              "title": "Algoritmos de aproximación para problemas NP-complejo",
+              "slug": "algoritmos-aproximacion",
+              "published": false
+            }
+          ]
+        }
+      ],
       "slug": "analisis-algoritmos",
       "url": "/cursos/analisis-algoritmos/",
-      "publishedCount": 0,
-      "lessons": [],
-      "hasPublishedLessons": false,
-      "statusLabel": "Estructura preparada"
+      "publishedCount": 2,
+      "lessons": [
+        {
+          "slug": "conceptos-basicos",
+          "number": "1.1",
+          "title": "Conceptos básicos",
+          "summary": "Definición de algoritmo, propiedades, relación entre problema, algoritmo e implementación, ejemplos y problemas de repaso.",
+          "url": "/cursos/analisis-algoritmos/conceptos-basicos/",
+          "unitLabel": "Unidad 1",
+          "unitTitle": "Introducción a la algoritmia",
+          "parentNumber": "",
+          "parentTitle": ""
+        },
+        {
+          "slug": "eficiencia-algoritmo",
+          "number": "1.2",
+          "title": "Eficiencia de un algoritmo",
+          "summary": "Eficiencia temporal y espacial, tamaño de entrada n, función T(n), análisis a priori y a posteriori y principio de invarianza.",
+          "url": "/cursos/analisis-algoritmos/eficiencia-algoritmo/",
+          "unitLabel": "Unidad 1",
+          "unitTitle": "Introducción a la algoritmia",
+          "parentNumber": "",
+          "parentTitle": ""
+        }
+      ],
+      "hasPublishedLessons": true,
+      "statusLabel": "En desarrollo activo"
     },
     {
       "order": 2,
@@ -445,8 +698,8 @@
         {
           "slug": "conversiones-sistemas-numericos",
           "number": "1.1.1",
-          "title": "Conversiones entre sistemas binario, octal, decimal y hexadecimal",
-          "summary": "Sistemas posicionales, conversión hacia decimal, divisiones sucesivas desde decimal, ejemplos guiados, convertidor interactivo y práctica.",
+          "title": "1.1.1 Conversiones entre sistemas numéricos",
+          "summary": "Clase 1.1.1 de Fundamentos de Programación: conversiones entre sistemas binario, octal, decimal y hexadecimal.",
           "url": "/cursos/fundamentos-programacion/conversiones-sistemas-numericos/",
           "unitLabel": "Unidad I",
           "unitTitle": "Introducción y conceptos básicos",
@@ -676,15 +929,41 @@
   ],
   "stats": {
     "courseCount": 6,
-    "publishedLessonCount": 3,
-    "coursesWithLessons": 2
+    "publishedLessonCount": 5,
+    "coursesWithLessons": 3
   },
   "publishedLessons": [
     {
+      "slug": "conceptos-basicos",
+      "number": "1.1",
+      "title": "Conceptos básicos",
+      "summary": "Definición de algoritmo, propiedades, relación entre problema, algoritmo e implementación, ejemplos y problemas de repaso.",
+      "url": "/cursos/analisis-algoritmos/conceptos-basicos/",
+      "unitLabel": "Unidad 1",
+      "unitTitle": "Introducción a la algoritmia",
+      "parentNumber": "",
+      "parentTitle": "",
+      "courseSlug": "analisis-algoritmos",
+      "courseTitle": "Análisis de Algoritmos"
+    },
+    {
+      "slug": "eficiencia-algoritmo",
+      "number": "1.2",
+      "title": "Eficiencia de un algoritmo",
+      "summary": "Eficiencia temporal y espacial, tamaño de entrada n, función T(n), análisis a priori y a posteriori y principio de invarianza.",
+      "url": "/cursos/analisis-algoritmos/eficiencia-algoritmo/",
+      "unitLabel": "Unidad 1",
+      "unitTitle": "Introducción a la algoritmia",
+      "parentNumber": "",
+      "parentTitle": "",
+      "courseSlug": "analisis-algoritmos",
+      "courseTitle": "Análisis de Algoritmos"
+    },
+    {
       "slug": "conversiones-sistemas-numericos",
       "number": "1.1.1",
-      "title": "Conversiones entre sistemas binario, octal, decimal y hexadecimal",
-      "summary": "Sistemas posicionales, conversión hacia decimal, divisiones sucesivas desde decimal, ejemplos guiados, convertidor interactivo y práctica.",
+      "title": "1.1.1 Conversiones entre sistemas numéricos",
+      "summary": "Clase 1.1.1 de Fundamentos de Programación: conversiones entre sistemas binario, octal, decimal y hexadecimal.",
       "url": "/cursos/fundamentos-programacion/conversiones-sistemas-numericos/",
       "unitLabel": "Unidad I",
       "unitTitle": "Introducción y conceptos básicos",
