@@ -3,40 +3,214 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Teoría, análisis de complejidad, ejercicios y actividades.">
-  <title>Análisis de Algoritmos | JCain Engineering</title>
+  <meta name="description" content="Análisis de Algoritmos IL355 · JCain Engineering">
+  <title>Análisis de Algoritmos IL355 | JCain Engineering</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/shared.css">
-  <link rel="stylesheet" href="/assets/portal.css">
-  <script defer src="/assets/data/site-data.js"></script>
-  <script defer src="/assets/site.js"></script>
+  <link rel="stylesheet" href="../../assets/portal.css">
+<style>
+.curriculum-topic-link{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;text-decoration:none;color:inherit}
+.curriculum-topic-link:hover{background:#f2f8fe}
+.curriculum-topic-link em{font-style:normal}
+</style>
 </head>
-<body data-page="course" data-course="analisis-algoritmos">
+<body>
 <div class="portal-shell">
-  <div data-site-header></div>
-  <main class="portal-main">
-    <div class="course-layout course-layout-wide">
-      <aside class="course-sidebar course-sidebar-tree" data-course-sidebar></aside>
+<header class="portal-topbar">
+  <a class="portal-brand" href="../../index.html"><span class="portal-mark">JE</span><span><strong>JCain Engineering</strong><small>Portal académico</small></span></a>
+  <nav><a href="../../index.html#materias">Todas las materias</a><a href="#mapa-curso">Mapa del curso</a></nav>
+</header>
 
-      <section class="course-content">
-        <div data-course-banner></div>
+<main class="portal-main">
+  <div class="course-layout course-layout-wide">
+    <aside class="course-sidebar course-sidebar-tree">
+      <a class="back-link" href="../../index.html">← Todas las materias</a>
+      <p class="eyebrow">Materia</p>
+      <h1>Análisis de Algoritmos</h1>
+      <p>Fundamentos de algoritmia, análisis de eficiencia, complejidad asintótica y estrategias para el diseño de algoritmos.</p>
+      <div class="status-pills"><span>IL355</span><span>2 clases publicadas</span></div>
 
-        <section id="mapa-curso">
-          <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">Mapa del curso</p><h1>Unidades y temas</h1></div></div>
-          <div data-course-curriculum></div>
+      <nav class="syllabus-tree" aria-label="Temario de Análisis de Algoritmos">
+        <a class="tree-home active" href="index.html">⌂ Inicio</a>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 1</strong><span>Introducción a la algoritmia</span></div>
+          <a href="conceptos-basicos/index.html">1.1 Conceptos básicos <em>Publicada</em></a>
+          <a href="eficiencia-algoritmo/index.html">1.2 Eficiencia de un algoritmo <em>Publicada</em></a>
         </section>
 
-        <section id="clases-publicadas">
-          <div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">Clases publicadas</p><h2><span data-current-course-count>0 clases publicadas</span></h2></div></div>
-          <div data-course-lessons></div>
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 2</strong><span>Dominio asintótico</span></div>
+          <a class="planned" href="#u2-1">2.1 Dominio asintótico entre funciones <em>Próximamente</em></a>
+          <a class="planned" href="#u2-2">2.2 Notaciones O, Ω y Θ <em>Próximamente</em></a>
         </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 3</strong><span>Análisis de los algoritmos</span></div>
+          <a class="planned" href="#u3-1">3.1 Análisis de instrucciones <em>Próximamente</em></a>
+          <a class="planned" href="#u3-2">3.2 Estructuras condicionales <em>Próximamente</em></a>
+          <a class="planned" href="#u3-3">3.3 Estructuras iterativas <em>Próximamente</em></a>
+          <a class="planned" href="#u3-4">3.4 Algoritmos recursivos <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 4</strong><span>Fuerza bruta</span></div>
+          <a class="planned" href="#u4-1">4.1 Ordenamiento por selección y burbuja <em>Próximamente</em></a>
+          <a class="planned" href="#u4-2">4.2 Búsqueda de subcadenas <em>Próximamente</em></a>
+          <a class="planned" href="#u4-3">4.3 Búsqueda en profundidad y anchura <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 5</strong><span>Divide y vencerás</span></div>
+          <a class="planned" href="#u5-1">5.1 Ordenamiento por mezcla <em>Próximamente</em></a>
+          <a class="planned" href="#u5-2">5.2 Ordenamiento rápido <em>Próximamente</em></a>
+          <a class="planned" href="#u5-3">5.3 Multiplicación de enteros grandes <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 6</strong><span>Programación dinámica</span></div>
+          <a class="planned" href="#u6-1">6.1 Problema de la mochila <em>Próximamente</em></a>
+          <a class="planned" href="#u6-2">6.2 Algoritmo de Warshall <em>Próximamente</em></a>
+          <a class="planned" href="#u6-3">6.3 Algoritmo de Floyd <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 7</strong><span>Técnica voraz</span></div>
+          <a class="planned" href="#u7-1">7.1 Algoritmo de Prim <em>Próximamente</em></a>
+          <a class="planned" href="#u7-2">7.2 Algoritmo de Kruskal <em>Próximamente</em></a>
+          <a class="planned" href="#u7-3">7.3 Algoritmo de Dijkstra <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 8</strong><span>Limitaciones de los algoritmos</span></div>
+          <a class="planned" href="#u8-1">8.1 Argumentos de cota inferior <em>Próximamente</em></a>
+          <a class="planned" href="#u8-2">8.2 Problemas P, NP y NP-completo <em>Próximamente</em></a>
+          <a class="planned" href="#u8-3">8.3 Retos de algoritmos numéricos <em>Próximamente</em></a>
+        </section>
+
+        <section class="tree-unit">
+          <div class="tree-unit-title"><strong>Unidad 9</strong><span>Enfrentando las limitaciones</span></div>
+          <a class="planned" href="#u9-1">9.1 Backtracking <em>Próximamente</em></a>
+          <a class="planned" href="#u9-2">9.2 Ramificación y poda <em>Próximamente</em></a>
+          <a class="planned" href="#u9-3">9.3 Algoritmos de aproximación <em>Próximamente</em></a>
+        </section>
+      </nav>
+
+      <div class="sidebar-course-template">
+        <strong>Estructura de cada tema</strong>
+        <span>Teoría</span><span>Análisis</span><span>3–4 problemas</span><span>Tarea</span>
+      </div>
+    </aside>
+
+    <section class="course-content">
+      <div class="course-banner course-banner-featured">
+        <p class="eyebrow">Página de la materia</p>
+        <h2>Análisis de Algoritmos · IL355</h2>
+        <p>El curso comienza por las bases necesarias para comprender qué es un algoritmo y qué significa que sea eficiente. Después se estudia el crecimiento asintótico y se formaliza el análisis de instrucciones, estructuras de control y algoritmos recursivos antes de abordar estrategias de diseño más complejas.</p>
+      </div>
+
+      <section id="mapa-curso">
+        <div class="section-heading"><span class="section-number">↗</span><div><p class="eyebrow">Mapa del curso</p><h1>De los fundamentos al análisis avanzado</h1></div></div>
+        <p>La secuencia prioriza primero la comprensión conceptual, luego las herramientas matemáticas de crecimiento y finalmente el análisis sistemático de algoritmos y estrategias de diseño.</p>
+
+        <div class="curriculum-stack">
+          <article class="curriculum-unit unit-one">
+            <header><span>Unidad 1</span><div><h3>Introducción a la algoritmia</h3><p>Qué es un algoritmo, sus propiedades y la noción de eficiencia.</p></div></header>
+            <div class="curriculum-topics">
+              <a class="curriculum-topic-link" href="conceptos-basicos/index.html"><strong>1.1</strong><span>Conceptos básicos</span><em>Publicada</em></a>
+              <a class="curriculum-topic-link" href="eficiencia-algoritmo/index.html"><strong>1.2</strong><span>Eficiencia de un algoritmo</span><em>Publicada</em></a>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-two">
+            <header><span>Unidad 2</span><div><h3>Dominio asintótico</h3><p>Comparación del crecimiento de funciones y notaciones asintóticas.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u2-1"><strong>2.1</strong><span>Dominio asintótico entre funciones</span><em>Próximamente</em></div>
+              <div id="u2-2"><strong>2.2</strong><span>Notaciones asintóticas: O, Ω y Θ</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-three">
+            <header><span>Unidad 3</span><div><h3>Análisis de los algoritmos</h3><p>Operaciones elementales, estructuras de control y algoritmos recursivos.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u3-1"><strong>3.1</strong><span>Análisis de instrucciones en un algoritmo</span><em>Próximamente</em></div>
+              <div id="u3-2"><strong>3.2</strong><span>Análisis de estructuras condicionales</span><em>Próximamente</em></div>
+              <div id="u3-3"><strong>3.3</strong><span>Análisis de estructuras iterativas</span><em>Próximamente</em></div>
+              <div id="u3-4"><strong>3.4</strong><span>Análisis de algoritmos recursivos</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-one">
+            <header><span>Unidad 4</span><div><h3>Fuerza bruta</h3><p>Algoritmos de ordenamiento y búsqueda analizados como estrategias de fuerza bruta.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u4-1"><strong>4.1</strong><span>Ordenamiento por selección y de burbuja</span><em>Próximamente</em></div>
+              <div id="u4-2"><strong>4.2</strong><span>Búsqueda de subcadenas</span><em>Próximamente</em></div>
+              <div id="u4-3"><strong>4.3</strong><span>Búsqueda primero en profundidad y búsqueda primero en anchura</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-two">
+            <header><span>Unidad 5</span><div><h3>Divide y vencerás</h3><p>Descomposición de problemas y análisis de algoritmos representativos.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u5-1"><strong>5.1</strong><span>Ordenamiento por mezcla</span><em>Próximamente</em></div>
+              <div id="u5-2"><strong>5.2</strong><span>Ordenamiento rápido</span><em>Próximamente</em></div>
+              <div id="u5-3"><strong>5.3</strong><span>Multiplicación de enteros grandes</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-three">
+            <header><span>Unidad 6</span><div><h3>Programación dinámica</h3><p>Soluciones que reutilizan resultados de subproblemas.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u6-1"><strong>6.1</strong><span>El problema de la mochila</span><em>Próximamente</em></div>
+              <div id="u6-2"><strong>6.2</strong><span>El algoritmo de Warshall</span><em>Próximamente</em></div>
+              <div id="u6-3"><strong>6.3</strong><span>El algoritmo de Floyd</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-one">
+            <header><span>Unidad 7</span><div><h3>Técnica voraz</h3><p>Árboles de expansión mínima y caminos más cortos.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u7-1"><strong>7.1</strong><span>Algoritmo de Prim</span><em>Próximamente</em></div>
+              <div id="u7-2"><strong>7.2</strong><span>Algoritmo de Kruskal</span><em>Próximamente</em></div>
+              <div id="u7-3"><strong>7.3</strong><span>Algoritmo de Dijkstra</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-two">
+            <header><span>Unidad 8</span><div><h3>Limitaciones de los algoritmos</h3><p>Cotas inferiores, clases de complejidad y límites del cómputo eficiente.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u8-1"><strong>8.1</strong><span>Argumentos de cota inferior</span><em>Próximamente</em></div>
+              <div id="u8-2"><strong>8.2</strong><span>Problemas P, NP y NP-completo</span><em>Próximamente</em></div>
+              <div id="u8-3"><strong>8.3</strong><span>Retos de algoritmos numéricos</span><em>Próximamente</em></div>
+            </div>
+          </article>
+
+          <article class="curriculum-unit unit-three">
+            <header><span>Unidad 9</span><div><h3>Enfrentando las limitaciones de los algoritmos</h3><p>Estrategias exactas y aproximadas para problemas difíciles.</p></div></header>
+            <div class="curriculum-topics">
+              <div id="u9-1"><strong>9.1</strong><span>Backtracking</span><em>Próximamente</em></div>
+              <div id="u9-2"><strong>9.2</strong><span>Ramificación y poda</span><em>Próximamente</em></div>
+              <div id="u9-3"><strong>9.3</strong><span>Algoritmos de aproximación para problemas NP-complejo</span><em>Próximamente</em></div>
+            </div>
+          </article>
+        </div>
       </section>
-    </div>
 
-    <div data-site-footer></div>
-  </main>
+      <section>
+        <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">Organización didáctica</p><h2>Cómo crecerá cada tema</h2></div></div>
+        <div class="template-grid">
+          <article class="template-card"><span>01</span><strong>Teoría</strong><p>Definiciones, propiedades y herramientas matemáticas necesarias.</p></article>
+          <article class="template-card"><span>02</span><strong>Análisis</strong><p>Conteo de operaciones, recurrencias, eficiencia temporal y espacial.</p></article>
+          <article class="template-card"><span>03</span><strong>Problemas</strong><p>Tres o cuatro ejercicios resueltos paso a paso con el método usado en clase.</p></article>
+          <article class="template-card"><span>04</span><strong>Tarea</strong><p>Ejercicios para aplicar la técnica y justificar la complejidad obtenida.</p></article>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <footer class="site-footer"><div><strong>JCain Engineering</strong><br>Análisis de Algoritmos · IL355</div><a href="../../index.html">Volver al portal ↑</a></footer>
+</main>
 </div>
 </body>
 </html>
