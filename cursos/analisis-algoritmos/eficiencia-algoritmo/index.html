@@ -1,40 +1,147 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Clase 1.2 Eficiencia de un algoritmo · Análisis de Algoritmos IL355">
-<title>1.2 Eficiencia de un algoritmo | Análisis de Algoritmos IL355</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/lesson.css"><script defer src="../assets/lesson.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Clase 1.2 Eficiencia de un algoritmo · Análisis de Algoritmos IL355">
+  <meta name="jcain-lesson-number" content="1.2">
+  <meta name="jcain-lesson-title" content="Eficiencia de un algoritmo">
+  <meta name="jcain-lesson-summary" content="Eficiencia temporal y espacial, tamaño de entrada n, función T(n), análisis a priori y a posteriori y principio de invarianza.">
+  <meta name="jcain-lesson-unit" content="Unidad 1 · Introducción a la algoritmia">
+  <title>1.2 Eficiencia de un algoritmo | Análisis de Algoritmos IL355</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script defer src="../assets/lesson.js"></script>
 </head>
 <body>
-<div class="app-shell"><aside class="sidebar" id="sidebar"><a class="portal-back" href="../../../index.html">← JCain Engineering</a><div class="brand"><div class="brand-mark">JE</div><div><p class="eyebrow">Análisis de Algoritmos</p><h1>Temario de la materia</h1></div></div><div class="course-meta"><span>IL355</span><span>Unidad 1</span><span>Clase 1.2</span></div>
-<nav class="course-nav" aria-label="Temario de Análisis de Algoritmos"><a class="nav-item nav-home" href="../index.html"><span class="nav-icon">⌂</span>Inicio de la materia</a>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="true"><span><strong>Unidad 1</strong> · Introducción a la algoritmia</span><span>⌄</span></button><div class="unit-links"><a href="../conceptos-basicos/index.html">1.1 Conceptos básicos <span>Publicada</span></a><a class="subtopic-active" href="#inicio">1.2 Eficiencia de un algoritmo <span>Actual</span></a></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 2</strong> · Dominio asintótico</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">2.1 Dominio asintótico entre funciones</button><button data-planned="true">2.2 Notaciones O, Ω y Θ</button></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 3</strong> · Análisis de los algoritmos</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">3.1 Análisis de instrucciones</button><button data-planned="true">3.2 Estructuras condicionales</button><button data-planned="true">3.3 Estructuras iterativas</button><button data-planned="true">3.4 Algoritmos recursivos</button></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 4</strong> · Fuerza bruta</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">4.1 Selección y burbuja</button><button data-planned="true">4.2 Búsqueda de subcadenas</button><button data-planned="true">4.3 Profundidad y anchura</button></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 5</strong> · Divide y vencerás</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">5.1 Ordenamiento por mezcla</button><button data-planned="true">5.2 Ordenamiento rápido</button><button data-planned="true">5.3 Multiplicación de enteros grandes</button></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 6</strong> · Programación dinámica</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">6.1 Mochila</button><button data-planned="true">6.2 Warshall</button><button data-planned="true">6.3 Floyd</button></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 7</strong> · Técnica voraz</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">7.1 Prim</button><button data-planned="true">7.2 Kruskal</button><button data-planned="true">7.3 Dijkstra</button></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 8</strong> · Limitaciones</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">8.1 Cota inferior</button><button data-planned="true">8.2 P, NP y NP-completo</button><button data-planned="true">8.3 Algoritmos numéricos</button></div></div>
-<div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 9</strong> · Enfrentando limitaciones</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">9.1 Backtracking</button><button data-planned="true">9.2 Ramificación y poda</button><button data-planned="true">9.3 Aproximación</button></div></div></nav><div class="sidebar-footer"><p>Estructura del tema</p><div class="topic-template"><span>Teoría</span><span>Visualización</span><span>Comprobación</span><span>Problemas</span><span>Tarea</span></div></div></aside>
-<main class="main-content"><header class="topbar"><button class="menu-button" id="menuButton">☰</button><div class="breadcrumbs">Unidad 1 <span>›</span> Introducción a la algoritmia <span>›</span> 1.2 Eficiencia de un algoritmo</div><button class="focus-button" id="focusButton">Modo presentación</button></header><article class="lesson" id="inicio">
-<section class="hero"><div><p class="eyebrow">Clase 1.2 · Análisis de Algoritmos</p><h2>Eficiencia de un algoritmo</h2><p class="hero-lead">Resolver correctamente un problema no basta para comparar algoritmos. También interesa cuánto tiempo requieren y cuánta memoria consumen cuando crece el tamaño de la entrada.</p><div class="hero-actions"><a class="primary-button" href="#eficiencia">Comenzar teoría</a><a class="secondary-button" href="#invarianza">Explorar T(n)</a></div></div><div class="hero-visual"><span class="visual-label">Preguntas centrales</span><div class="hero-flow"><div><strong>¿Cuánto tiempo ocupa?</strong><small>Eficiencia temporal</small></div><div><strong>¿Cuánta memoria ocupa?</strong><small>Eficiencia espacial</small></div><div><strong>¿Cómo cambia al crecer n?</strong><small>Comportamiento de T(n)</small></div></div><div class="hero-tags"><span>tiempo</span><span>memoria</span><span>T(n)</span><span>tamaño de entrada</span><span>invarianza</span></div></div></section>
-<section class="learning-objectives"><div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div><div class="objective-grid"><article class="objective"><span>01</span><p>Explicar qué significa estudiar la eficiencia de un algoritmo.</p></article><article class="objective"><span>02</span><p>Identificar tiempo y memoria como recursos principales.</p></article><article class="objective"><span>03</span><p>Interpretar T(n) como función del tamaño de la entrada.</p></article><article class="objective"><span>04</span><p>Distinguir estudios a priori y a posteriori.</p></article><article class="objective"><span>05</span><p>Interpretar el principio de invarianza como diferencia por factor constante entre implementaciones.</p></article><article class="objective"><span>06</span><p>Entender por qué interesa la forma de crecimiento de T(n), no sólo un tiempo medido en segundos.</p></article></div></section>
-<section class="concept-section" id="eficiencia"><div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Análisis de eficiencia</p><h3>Comparar algoritmos que resuelven el mismo problema</h3></div></div><div class="two-column"><div class="prose-card"><p>El análisis de algoritmos busca determinar si un algoritmo es eficaz y permite compararlo con otros que resuelven el mismo problema. El material señala que el programador debe procurar utilizar de manera eficiente los recursos de la computadora.</p><div class="efficiency-grid"><article class="metric-card"><div class="metric-icon">T</div><h4>Tiempo</h4><p>Cuánto trabajo requiere el algoritmo para resolver una entrada.</p></article><article class="metric-card"><div class="metric-icon">M</div><h4>Memoria</h4><p>Cuántos recursos de almacenamiento necesita durante la resolución.</p></article></div></div><aside class="intuition-card"><p class="card-kicker">Cuidado</p><h4>Tiempo real y complejidad no son lo mismo</h4><p>El tiempo medido en una computadora depende de la implementación, del procesador y de los datos. Para comparar el comportamiento del algoritmo interesa separar esos factores de la naturaleza del algoritmo.</p></aside></div></section>
-<section class="concept-section" id="tn"><div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Tamaño de entrada</p><h3>El tiempo se expresa como una función T(n)</h3></div></div><div class="two-column"><div class="prose-card"><div class="tn-box"><div class="tn-symbol">T(n)</div><p>Representa cómo varía la medida del tiempo de ejecución cuando cambia el tamaño <strong>n</strong> de los datos de entrada.</p></div><p>El tamaño de la entrada es el número de componentes sobre los que se ejecuta el algoritmo. El material pone como ejemplos el número de elementos de un arreglo que se va a ordenar o el tamaño de matrices que se van a multiplicar.</p><div class="callout blue"><strong>Idea esencial</strong><p>En el análisis teórico no interesa medir T(n) en segundos o milisegundos; interesa la forma de la función y cómo crece al aumentar n.</p></div></div><aside class="intuition-card"><p class="card-kicker">Factores del tiempo real</p><h4>¿Por qué dos mediciones pueden ser distintas?</h4><div class="factor-list"><div><span>1</span><p>Datos de entrada.</p></div><div><span>2</span><p>Implementación del programa.</p></div><div><span>3</span><p>Procesador o computadora.</p></div><div><span>4</span><p>Complejidad del algoritmo.</p></div></div></aside></div></section>
-<section class="concept-section" id="estudios"><div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Dos formas de estudiar el tiempo</p><h3>A priori y a posteriori</h3></div></div><div class="route-cards"><article class="route-card"><span>A priori</span><h4>Medida teórica</h4><p>Se obtiene una función que acota por arriba o por abajo el tiempo de ejecución para entradas dadas. No exige ejecutar el programa en una computadora particular.</p></article><article class="route-card"><span>A posteriori</span><h4>Medida real</h4><p>Se mide el tiempo de ejecución del algoritmo para unas entradas concretas en una computadora determinada.</p></article></div></section>
-<section class="lab-section" id="invarianza"><div class="section-heading"><span class="step-number">04</span><div><p class="eyebrow">Principio de invarianza</p><h3>Distintas implementaciones pueden diferir por un factor constante</h3></div></div><div class="two-column"><div class="interactive-card"><p class="card-kicker">Ejemplo didáctico</p><h4>Dos implementaciones con el mismo tipo de crecimiento</h4><div class="formula-box">T₁(n) = 2n &nbsp;&nbsp;&nbsp; T₂(n) = 6n = 3T₁(n)</div><div class="slider-row"><input id="nSlider" type="range" min="1" max="100" value="20"><output id="nValue">20</output></div><div class="invariance-bars"><div class="bar-row"><span class="bar-label">Implementación I₁</span><div class="bar-track"><div class="bar-fill" id="bar1"></div></div><span class="bar-value" id="val1"></span></div><div class="bar-row"><span class="bar-label">Implementación I₂</span><div class="bar-track"><div class="bar-fill secondary" id="bar2"></div></div><span class="bar-value" id="val2"></span></div></div><p class="ratio-note" id="ratioNote"></p></div><aside class="intuition-card"><p class="card-kicker">Forma general</p><h4>Principio de invarianza</h4><div class="formula-box">T₁(n) ≤ c T₂(n), &nbsp; para n ≥ n₀</div><p>El material concluye que, para comparar eficiencia temporal, el tipo de función termina teniendo mayor influencia que una constante multiplicativa asociada a una implementación particular.</p></aside></div></section>
-<section class="checkpoint-section"><div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación rápida</p><h3>Antes de pasar a los problemas</h3></div></div><div class="quiz-grid"><article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 1</p><h4>¿Cuál de estos es un estudio a posteriori?</h4><button data-choice="a">Obtener una función teórica</button><button data-choice="b">Comparar formas de crecimiento</button><button data-choice="c">Medir el programa en una computadora concreta</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 2</p><h4>En T(n), ¿qué representa n?</h4><button data-choice="a">El tamaño de los datos de entrada</button><button data-choice="b">Los segundos de ejecución</button><button data-choice="c">La memoria RAM instalada</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 3</p><h4>Para el análisis teórico, ¿qué interesa especialmente de T(n)?</h4><button data-choice="a">El lenguaje de programación</button><button data-choice="b">Cómo crece la función cuando aumenta n</button><button data-choice="c">El modelo del procesador</button><p class="quiz-feedback"></p></article></div></section>
-<section class="practice-section" id="problemas"><div class="section-heading"><span class="step-number">05</span><div><p class="eyebrow">Problemas de repaso</p><h3>Aplicación práctica</h3></div></div><p class="section-intro">Los ejercicios sólo usan las ideas presentadas en esta clase.</p><div class="problem-list">
-<details class="problem-card"><summary><span>Problema 1</span><strong>Un algoritmo ordena un arreglo de 250 elementos. ¿Cuál es un valor natural para n?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Identifica la entrada</strong><p>El algoritmo trabaja sobre los elementos del arreglo.</p></div></article><article><span>2</span><div><strong>Resultado</strong><p>El tamaño de entrada puede expresarse como <strong>n = 250</strong>.</p></div></article></div></div></details>
-<details class="problem-card"><summary><span>Problema 2</span><strong>Se ejecuta un programa diez veces y se registra el tiempo en milisegundos. ¿A priori o a posteriori?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Observa el método</strong><p>Se está midiendo una ejecución real en una computadora.</p></div></article><article><span>2</span><div><strong>Clasificación</strong><p>Es un estudio <strong>a posteriori</strong>.</p></div></article></div></div></details>
-<details class="problem-card"><summary><span>Problema 3</span><strong>Se obtiene una función que acota el tiempo sin ejecutar el programa. ¿A priori o a posteriori?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Observa el método</strong><p>La medida es teórica y se expresa mediante una función.</p></div></article><article><span>2</span><div><strong>Clasificación</strong><p>Es un estudio <strong>a priori</strong>.</p></div></article></div></div></details>
-<details class="problem-card"><summary><span>Problema 4</span><strong>Si T₁(n)=2n y T₂(n)=6n, ¿qué factor constante relaciona T₂ con T₁?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Compara</strong><p>T₂(n)/T₁(n) = 6n/(2n) = 3.</p></div></article><article><span>2</span><div><strong>Interpretación</strong><p>T₂ es tres veces T₁ en este ejemplo, pero ambas funciones tienen la misma forma lineal respecto de n.</p></div></article></div></div></details>
-</div></section>
-<section class="homework-section"><div class="homework-card"><div><p class="eyebrow">Tarea</p><h3>Eficiencia y tamaño de entrada</h3><p>Justifica brevemente cada respuesta.</p><div class="homework-items"><div>1. Explica por qué dos programas que implementan el mismo algoritmo pueden tardar tiempos distintos.</div><div>2. Da un ejemplo de qué podría representar n en un problema distinto al ordenamiento.</div><div>3. Explica la diferencia entre medir segundos y estudiar la forma de T(n).</div><div>4. Propón un estudio a priori y uno a posteriori para el mismo algoritmo.</div><div>5. Explica con tus palabras qué significa el principio de invarianza.</div></div></div><div class="homework-status"><span>Práctica individual</span><small>Enfócate en la interpretación, no sólo en definiciones.</small></div></div></section>
-<footer class="lesson-footer"><div><span>JCain Engineering</span><strong>Análisis de Algoritmos · 1.2</strong></div><div class="footer-links"><a href="../conceptos-basicos/index.html">← Conceptos básicos</a><a href="../index.html">Temario</a><a href="#inicio">Arriba ↑</a></div></footer>
-</article></main></div><div class="toast" id="toast">Este tema se publicará conforme avance la clase.</div>
-</body></html>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="portal-back" href="../../../index.html">← JCain Engineering</a>
+    <div class="brand"><div class="brand-mark">JE</div><div><p class="eyebrow">Análisis de Algoritmos</p><h1>Temario de la materia</h1></div></div>
+    <div class="course-meta"><span>IL355</span><span>Unidad 1</span><span>Clase 1.2</span></div>
+
+    <nav class="course-nav" aria-label="Temario de Análisis de Algoritmos">
+      <a class="nav-item nav-home" href="../index.html"><span class="nav-icon">⌂</span>Inicio de la materia</a>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="true"><span><strong>Unidad 1</strong> · Introducción a la algoritmia</span><span>⌄</span></button><div class="unit-links"><a href="../conceptos-basicos/index.html">1.1 Conceptos básicos <span>Publicada</span></a><a class="subtopic-active" href="#inicio">1.2 Eficiencia de un algoritmo <span>Actual</span></a></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 2</strong> · Dominio asintótico</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">2.1 Dominio asintótico entre funciones</button><button data-planned="true">2.2 Notaciones O, Ω y Θ</button></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 3</strong> · Análisis de los algoritmos</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">3.1 Análisis de instrucciones</button><button data-planned="true">3.2 Estructuras condicionales</button><button data-planned="true">3.3 Estructuras iterativas</button><button data-planned="true">3.4 Algoritmos recursivos</button></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 4</strong> · Fuerza bruta</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">4.1 Selección y burbuja</button><button data-planned="true">4.2 Búsqueda de subcadenas</button><button data-planned="true">4.3 Búsqueda en profundidad y anchura</button></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 5</strong> · Divide y vencerás</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">5.1 Ordenamiento por mezcla</button><button data-planned="true">5.2 Ordenamiento rápido</button><button data-planned="true">5.3 Multiplicación de enteros grandes</button></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 6</strong> · Programación dinámica</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">6.1 Problema de la mochila</button><button data-planned="true">6.2 Warshall</button><button data-planned="true">6.3 Floyd</button></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 7</strong> · Técnica voraz</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">7.1 Prim</button><button data-planned="true">7.2 Kruskal</button><button data-planned="true">7.3 Dijkstra</button></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 8</strong> · Limitaciones de los algoritmos</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">8.1 Argumentos de cota inferior</button><button data-planned="true">8.2 P, NP y NP-completo</button><button data-planned="true">8.3 Retos de algoritmos numéricos</button></div></div>
+      <div class="nav-unit"><button class="unit-toggle" aria-expanded="false"><span><strong>Unidad 9</strong> · Enfrentando las limitaciones</span><span>⌄</span></button><div class="unit-links" hidden><button data-planned="true">9.1 Backtracking</button><button data-planned="true">9.2 Ramificación y poda</button><button data-planned="true">9.3 Algoritmos de aproximación</button></div></div>
+    </nav>
+    <div class="sidebar-footer"><p>Estructura del tema</p><div class="topic-template"><span>Teoría</span><span>Visualización</span><span>Comprobación</span><span>Problemas</span><span>Tarea</span></div></div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar"><button class="menu-button" id="menuButton">☰</button><div class="breadcrumbs">Unidad 1 <span>›</span> Introducción a la algoritmia <span>›</span> 1.2 Eficiencia de un algoritmo</div><button class="focus-button" id="focusButton">Modo presentación</button></header>
+
+    <article class="lesson" id="inicio">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Clase 1.2 · Análisis de Algoritmos</p>
+          <h2>Eficiencia de un algoritmo</h2>
+          <p class="hero-lead">Dos algoritmos pueden resolver correctamente el mismo problema y requerir cantidades muy distintas de tiempo y memoria. El análisis de eficiencia estudia esos recursos y, en particular, cómo cambian cuando aumenta el tamaño de la entrada.</p>
+          <div class="hero-actions"><a class="primary-button" href="#eficiencia">Comenzar teoría</a><a class="secondary-button" href="#invarianza">Visualizar T(n)</a></div>
+        </div>
+        <div class="hero-visual"><span class="visual-label">Recursos principales</span><div class="hero-flow"><div><strong>Tiempo</strong><small>Trabajo requerido</small></div><div><strong>Memoria</strong><small>Espacio requerido</small></div><div><strong>Tamaño n</strong><small>Dimensión de la entrada</small></div></div><div class="hero-tags"><span>T(n)</span><span>a priori</span><span>a posteriori</span><span>invarianza</span></div></div>
+      </section>
+
+      <section class="learning-objectives">
+        <div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div>
+        <div class="objective-grid">
+          <article class="objective"><span>01</span><p>Explicar qué significa analizar la eficiencia de un algoritmo.</p></article>
+          <article class="objective"><span>02</span><p>Distinguir eficiencia temporal y espacial.</p></article>
+          <article class="objective"><span>03</span><p>Interpretar n como tamaño de entrada y T(n) como función de n.</p></article>
+          <article class="objective"><span>04</span><p>Distinguir análisis a priori y medición a posteriori.</p></article>
+          <article class="objective"><span>05</span><p>Interpretar el principio de invarianza.</p></article>
+          <article class="objective"><span>06</span><p>Comprender por qué importa la forma de crecimiento de T(n).</p></article>
+        </div>
+      </section>
+
+      <section class="concept-section" id="eficiencia">
+        <div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Eficiencia</p><h3>Tiempo y memoria como recursos computacionales</h3></div></div>
+        <div class="two-column">
+          <div class="prose-card">
+            <p>Cuando varios algoritmos resuelven el mismo problema, no basta con verificar que todos produzcan la respuesta correcta. También interesa comparar los recursos que requieren.</p>
+            <div class="efficiency-grid">
+              <article class="metric-card"><div class="metric-icon">T</div><h4>Tiempo</h4><p>Cantidad de trabajo necesario para completar la ejecución.</p></article>
+              <article class="metric-card"><div class="metric-icon">M</div><h4>Memoria</h4><p>Cantidad de almacenamiento requerido durante la ejecución.</p></article>
+            </div>
+          </div>
+          <aside class="intuition-card"><p class="card-kicker">Objetivo del análisis</p><h4>Comparar algoritmos con independencia de una prueba aislada</h4><p>Una medición concreta puede cambiar al usar otra computadora o una implementación distinta. El análisis teórico busca describir el comportamiento del algoritmo en función del tamaño de la entrada.</p></aside>
+        </div>
+      </section>
+
+      <section class="concept-section" id="tn">
+        <div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Tamaño de entrada</p><h3>La función T(n)</h3></div></div>
+        <div class="two-column">
+          <div class="prose-card">
+            <div class="tn-box"><div class="tn-symbol">T(n)</div><p>Representa cómo cambia la medida del tiempo requerido por el algoritmo cuando cambia el tamaño <strong>n</strong> de los datos de entrada.</p></div>
+            <p>El significado de <strong>n</strong> depende del problema. Puede ser, por ejemplo, el número de elementos de un arreglo que se desea ordenar o la dimensión de matrices que se desean multiplicar.</p>
+            <div class="callout blue"><strong>Importante</strong><p>En el análisis teórico, T(n) no se expresa simplemente en segundos o milisegundos. Interesa principalmente la forma de la función y cómo aumenta cuando crece n.</p></div>
+          </div>
+          <aside class="intuition-card"><p class="card-kicker">Tiempo observado</p><h4>¿De qué depende una medición real?</h4><div class="factor-list"><div><span>1</span><p>Datos de entrada.</p></div><div><span>2</span><p>Implementación del programa.</p></div><div><span>3</span><p>Procesador o computadora utilizada.</p></div><div><span>4</span><p>Complejidad propia del algoritmo.</p></div></div></aside>
+        </div>
+      </section>
+
+      <section class="concept-section" id="estudios">
+        <div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Dos enfoques</p><h3>Análisis a priori y medición a posteriori</h3></div></div>
+        <div class="route-cards">
+          <article class="route-card"><span>A priori</span><h4>Medida teórica</h4><p>Se obtiene una función que acota el tiempo de ejecución para tamaños de entrada dados. El objetivo es estudiar el algoritmo sin depender de una computadora específica.</p></article>
+          <article class="route-card"><span>A posteriori</span><h4>Medida experimental</h4><p>Se ejecuta una implementación con datos concretos en una computadora determinada y se registra el tiempo real de ejecución.</p></article>
+        </div>
+        <table class="comparison-table"><thead><tr><th></th><th>A priori</th><th>A posteriori</th></tr></thead><tbody><tr><td>Tipo de medida</td><td>Teórica</td><td>Experimental</td></tr><tr><td>Depende de una computadora concreta</td><td>No</td><td>Sí</td></tr><tr><td>Resultado típico</td><td>Función de n</td><td>Tiempo medido</td></tr></tbody></table>
+      </section>
+
+      <section class="concept-section" id="invarianza">
+        <div class="section-heading"><span class="step-number">04</span><div><p class="eyebrow">Principio de invarianza</p><h3>La implementación puede cambiar constantes sin cambiar la naturaleza del crecimiento</h3></div></div>
+        <div class="prose-card">
+          <p>Para dos implementaciones de un mismo algoritmo, con tiempos T₁(n) y T₂(n), el principio de invarianza establece la existencia de una constante real c &gt; 0 y un n₀ tales que, para n suficientemente grande, una de las funciones puede quedar acotada por una constante multiplicativa de la otra:</p>
+          <div class="formula-box">T₁(n) ≤ c T₂(n), &nbsp;&nbsp; para n ≥ n₀</div>
+          <p>Por eso, al comparar eficiencia temporal, la forma de crecimiento de T(n) es más importante que una diferencia producida únicamente por un factor constante.</p>
+        </div>
+
+        <div class="invariance-demo">
+          <div class="invariance-control"><p class="card-kicker">Visualización</p><h4>Dos implementaciones con factor constante</h4><p>Considere el ejemplo T₁(n)=2n y T₂(n)=6n. Mueva n y observe que la razón T₂/T₁ permanece igual a 3.</p><label>n = <output id="nValue">20</output></label><input id="nSlider" type="range" min="1" max="100" value="20"></div>
+          <div class="invariance-output">
+            <div class="invariance-values"><div><span>T₁(n)</span><strong id="t1Value">40</strong></div><div><span>T₂(n)</span><strong id="t2Value">120</strong></div><div><span>T₂/T₁</span><strong id="ratioValue">3</strong></div></div>
+            <div class="growth-bars"><div class="growth-row"><span>T₁</span><div class="growth-track"><div class="growth-fill" id="bar1"></div></div></div><div class="growth-row"><span>T₂</span><div class="growth-track"><div class="growth-fill secondary" id="bar2"></div></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="checkpoint-section" id="checkpoint">
+        <div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación rápida</p><h3>Antes de pasar a problemas</h3></div></div>
+        <div class="quiz-grid">
+          <article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 1</p><h4>¿Cuál es un estudio a posteriori?</h4><button data-choice="a">Obtener una función teórica de n</button><button data-choice="b">Estudiar el crecimiento de T(n)</button><button data-choice="c">Ejecutar el programa y medir su tiempo en una computadora</button><p class="quiz-feedback"></p></article>
+          <article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 2</p><h4>En T(n), ¿qué representa n?</h4><button data-choice="a">El tamaño de los datos de entrada</button><button data-choice="b">Los segundos de ejecución</button><button data-choice="c">La cantidad de memoria RAM instalada</button><p class="quiz-feedback"></p></article>
+          <article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 3</p><h4>¿Qué interesa especialmente en el análisis teórico de T(n)?</h4><button data-choice="a">El lenguaje de programación</button><button data-choice="b">Cómo crece la función cuando aumenta n</button><button data-choice="c">La marca del procesador</button><p class="quiz-feedback"></p></article>
+        </div>
+      </section>
+
+      <section class="practice-section" id="problemas">
+        <div class="section-heading"><span class="step-number">05</span><div><p class="eyebrow">Problemas de repaso</p><h3>Interpretación de eficiencia y T(n)</h3></div></div>
+        <div class="problem-list">
+          <details class="problem-card"><summary><span>Problema 1</span><strong>Un algoritmo ordena un arreglo de 250 elementos. ¿Qué representa n?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Tamaño de entrada</strong><p>La entrada contiene 250 elementos.</p></div></article><article><span>2</span><div><strong>Resultado</strong><p>Para esa ejecución, <strong>n = 250</strong>.</p></div></article></div></div></details>
+          <details class="problem-card"><summary><span>Problema 2</span><strong>Se ejecuta un programa diez veces y se registran milisegundos. ¿Qué tipo de estudio es?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Observación</strong><p>Se realizan ejecuciones reales en una computadora.</p></div></article><article><span>2</span><div><strong>Clasificación</strong><p>Es un estudio <strong>a posteriori</strong>.</p></div></article></div></div></details>
+          <details class="problem-card"><summary><span>Problema 3</span><strong>Sin ejecutar el programa se obtiene una función que acota el tiempo. ¿Qué tipo de estudio es?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Observación</strong><p>La evaluación se realiza mediante una función teórica.</p></div></article><article><span>2</span><div><strong>Clasificación</strong><p>Es un estudio <strong>a priori</strong>.</p></div></article></div></div></details>
+          <details class="problem-card"><summary><span>Problema 4</span><strong>Si T₁(n)=2n y T₂(n)=6n, calcula T₂(n)/T₁(n).</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Cociente</strong><p>T₂(n)/T₁(n)=6n/(2n)=3.</p></div></article><article><span>2</span><div><strong>Interpretación</strong><p>En este ejemplo las funciones difieren por un factor constante de 3.</p></div></article></div></div></details>
+        </div>
+      </section>
+
+      <section class="homework-section" id="tarea">
+        <div class="homework-card"><div><p class="eyebrow">Tarea</p><h3>Eficiencia de un algoritmo</h3><p>Justifica cada respuesta.</p><div class="homework-items"><div>1. Indica qué podría representar n al buscar un dato en una lista de nombres.</div><div>2. Explica por qué una medición en segundos depende de la computadora utilizada.</div><div>3. Describe un estudio a priori y uno a posteriori para un mismo algoritmo.</div><div>4. Explica qué información aporta T(n) que no aporta una única medición de tiempo.</div><div>5. Interpreta el principio de invarianza con tus propias palabras.</div></div></div><div class="homework-status"><span>Práctica individual</span><small>Priorizar la interpretación de los conceptos.</small></div></div>
+      </section>
+
+      <footer class="lesson-footer"><div><span>JCain Engineering</span><strong>Análisis de Algoritmos · 1.2</strong></div><div class="footer-links"><a href="../conceptos-basicos/index.html">← Conceptos básicos</a><a href="../index.html">Temario</a><a href="#inicio">Arriba ↑</a></div></footer>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast">Este tema se publicará conforme avance la clase.</div>
+</body>
+</html>
