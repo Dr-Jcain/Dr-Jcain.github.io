@@ -254,7 +254,14 @@
   }
 
   function lessonSidebar(course, lesson) {
-    const meta = [course.code, course.hours, course.credits].filter(Boolean);
+    // En una página de clase, las píldoras identifican el contexto actual:
+    // clave de la materia · unidad · número de clase.
+    // Así todas las materias siguen el mismo criterio visual.
+    const meta = [
+      course.code,
+      lesson.unitLabel,
+      lesson.number ? `Clase ${lesson.number}` : ''
+    ].filter(Boolean);
     return `
       <a class="portal-back" href="${siteUrl('/')}">← ${esc(SITE.name)}</a>
       <div class="brand">
