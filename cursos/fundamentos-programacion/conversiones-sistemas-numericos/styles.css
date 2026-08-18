@@ -207,7 +207,7 @@ a { color: inherit; }
 }
 .position-row {
   display: grid;
-  grid-template-columns: 170px minmax(0, 1fr);
+  grid-template-columns: 180px minmax(0, 1fr);
   gap: 14px;
   align-items: stretch;
 }
@@ -215,14 +215,14 @@ a { color: inherit; }
   background: white;
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 18px;
+  padding: 20px 22px;
   box-shadow: 0 9px 26px rgba(20,50,80,.045);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .position-label strong {
-  font-size: 20px;
+  font-size: 22px;
   color: var(--navy);
 }
 .position-label span {
@@ -235,36 +235,54 @@ a { color: inherit; }
 }
 .position-track {
   display: grid;
-  grid-template-columns: repeat(8, minmax(95px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(8, minmax(112px, 1fr));
+  gap: 12px;
   overflow-x: auto;
   padding-bottom: 2px;
 }
 .position-cell {
   position: relative;
-  min-height: 96px;
-  border-radius: 12px;
+  min-height: 128px;
+  border-radius: 16px;
   border: 1px solid #dbe7f2;
   background: linear-gradient(145deg,#fbfdff,#f4f8fc);
-  padding: 29px 12px 12px;
+  padding: 22px 10px 14px;
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
-  min-width: 95px;
+  align-items:center;
+  justify-content:flex-end;
+  gap: 8px;
+  min-width: 112px;
+  box-shadow: 0 8px 22px rgba(20,50,80,.035);
 }
 .position-cell::before {
   content: "";
   position: absolute;
-  top: 13px;
-  left: 12%;
-  width: 76%;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
   height: 4px;
-  border-radius: 3px;
+  border-radius: 999px;
   background: #111820;
-  box-shadow: 0 1px 0 rgba(255,255,255,.75);
 }
-.position-cell span { color:var(--blue); font-weight:800; font-size:16px; }
-.position-cell small { color:#4f667d; font-size:14px; font-weight:600; line-height:1.25; }
+.position-cell span {
+  display:block;
+  margin-top: 28px;
+  color:var(--blue);
+  font-weight:800;
+  font-size:18px;
+  line-height:1;
+  text-align:center;
+}
+.position-cell small {
+  display:block;
+  color:#4f667d;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.25;
+  text-align:center;
+}
 
 .section-intro { margin:0 0 18px; color:#5a6f84; }
 .example-grid { display:grid; gap:16px; }
