@@ -785,7 +785,10 @@
               "number": "1.4",
               "title": "Ecuaciones dinámicas de un sistema",
               "slug": "ecuaciones-dinamicas",
-              "published": false
+              "summary": "Representación en espacio de estados: metodología paso a paso para transformar ecuaciones diferenciales de orden superior en un sistema equivalente de primer orden.",
+              "published": true,
+              "actualFolder": "ecuaciones-dinamicas",
+              "url": "/cursos/modelado-simulacion/ecuaciones-dinamicas/"
             },
             {
               "number": "1.5",
@@ -885,7 +888,7 @@
       ],
       "slug": "modelado-simulacion",
       "url": "/cursos/modelado-simulacion/",
-      "publishedCount": 3,
+      "publishedCount": 4,
       "lessons": [
         {
           "slug": "sistemas-dinamicos",
@@ -893,6 +896,17 @@
           "title": "Sistema dinámico",
           "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
           "url": "/cursos/modelado-simulacion/sistemas-dinamicos/",
+          "unitLabel": "Unidad I",
+          "unitTitle": "Conceptos básicos",
+          "parentNumber": "",
+          "parentTitle": ""
+        },
+        {
+          "slug": "ecuaciones-dinamicas",
+          "number": "1.4",
+          "title": "Ecuaciones dinámicas de un sistema",
+          "summary": "Representación en espacio de estados: del orden de las ecuaciones diferenciales al vector de estado y a la forma matricial de primer orden.",
+          "url": "/cursos/modelado-simulacion/ecuaciones-dinamicas/",
           "unitLabel": "Unidad I",
           "unitTitle": "Conceptos básicos",
           "parentNumber": "",
@@ -943,7 +957,7 @@
   ],
   "stats": {
     "courseCount": 6,
-    "publishedLessonCount": 6,
+    "publishedLessonCount": 7,
     "coursesWithLessons": 3
   },
   "publishedLessons": [
@@ -992,6 +1006,19 @@
       "title": "Sistema dinámico",
       "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
       "url": "/cursos/modelado-simulacion/sistemas-dinamicos/",
+      "unitLabel": "Unidad I",
+      "unitTitle": "Conceptos básicos",
+      "parentNumber": "",
+      "parentTitle": "",
+      "courseSlug": "modelado-simulacion",
+      "courseTitle": "Modelado y Simulación de Sistemas"
+    },
+    {
+      "slug": "ecuaciones-dinamicas",
+      "number": "1.4",
+      "title": "Ecuaciones dinámicas de un sistema",
+      "summary": "Representación en espacio de estados: del orden de las ecuaciones diferenciales al vector de estado y a la forma matricial de primer orden.",
+      "url": "/cursos/modelado-simulacion/ecuaciones-dinamicas/",
       "unitLabel": "Unidad I",
       "unitTitle": "Conceptos básicos",
       "parentNumber": "",
