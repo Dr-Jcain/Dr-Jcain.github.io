@@ -1,0 +1,54 @@
+{
+  "site": {
+    "name": "JCain Engineering",
+    "tagline": "Recursos académicos para ingeniería y computación.",
+    "owner": "Jairo Cain Sánchez Estrada",
+    "copyrightYear": 2026,
+    "brandMark": "JE",
+    "basePath": "/"
+  },
+  "profiles": [
+    {
+      "label": "Perfil CUCEI",
+      "url": "https://academicos.cucei.udg.mx/academicos/2963418",
+      "icon": "/images/udg.png",
+      "alt": "Universidad de Guadalajara"
+    },
+    {
+      "label": "Google Scholar",
+      "url": "https://scholar.google.com.mx/citations?user=nCAyIuUAAAAJ&hl=es",
+      "icon": "/images/scholar.png",
+      "alt": "Google Scholar"
+    },
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0000-0003-0021-6402",
+      "icon": "/images/orcid.png",
+      "alt": "ORCID"
+    },
+    {
+      "label": "ResearchGate",
+      "url": "https://www.researchgate.net/profile/Jairo-Sanchez-Estrada",
+      "icon": "/images/research.png",
+      "alt": "ResearchGate"
+    }
+  ],
+  "homeNavigation": [
+    {
+      "label": "Materias",
+      "url": "/#materias"
+    },
+    {
+      "label": "Estructura didáctica",
+      "url": "/#metodo"
+    }
+  ],
+  "lessonTemplate": [
+    "Teoría",
+    "Visualización",
+    "Comprobación",
+    "Problemas resueltos",
+    "Tarea",
+    "Recursos"
+  ]
+}

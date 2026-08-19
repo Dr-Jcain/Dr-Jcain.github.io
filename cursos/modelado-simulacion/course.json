@@ -1,0 +1,120 @@
+{
+  "order": 5,
+  "title": "Modelado y Simulación de Sistemas",
+  "shortTitle": "Modelado y Simulación",
+  "mark": "MS",
+  "program": "Ingeniería Robótica",
+  "code": "I9905",
+  "hours": "80 h",
+  "credits": "8 créditos",
+  "description": "Modelado de sistemas dinámicos y físicos con teoría, deducciones, problemas y simulación.",
+  "banner": "Este es el índice permanente de la asignatura. Conforme avance la clase, cada tema publicado se incorpora automáticamente al mapa, al contador y a la navegación del curso.",
+  "status": "active",
+  "units": [
+    {
+      "label": "Unidad I",
+      "title": "Conceptos básicos",
+      "description": "Lenguaje matemático y conceptual para describir sistemas dinámicos.",
+      "topics": [
+        {
+          "number": "1.1",
+          "title": "Sistema dinámico",
+          "slug": "sistemas-dinamicos",
+          "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo."
+        },
+        {
+          "number": "1.2",
+          "title": "Modelos",
+          "slug": "modelos"
+        },
+        {
+          "number": "1.3",
+          "title": "Sistemas lineales y no lineales",
+          "slug": "sistemas-lineales-no-lineales"
+        },
+        {
+          "number": "1.4",
+          "title": "Ecuaciones dinámicas de un sistema",
+          "slug": "ecuaciones-dinamicas"
+        },
+        {
+          "number": "1.5",
+          "title": "Linealización",
+          "slug": "linealizacion"
+        },
+        {
+          "number": "1.6",
+          "title": "Punto de equilibrio",
+          "slug": "punto-equilibrio"
+        }
+      ]
+    },
+    {
+      "label": "Unidad II",
+      "title": "Modelado y simulación de sistemas",
+      "description": "Sistemas mecánicos, eléctricos y electromecánicos.",
+      "topics": [
+        {
+          "number": "3.1",
+          "title": "Mecánica Newtoniana",
+          "slug": "mecanica-newtoniana"
+        },
+        {
+          "number": "3.2",
+          "title": "Euler–Lagrange",
+          "children": [
+            {
+              "number": "3.2.1",
+              "title": "Coordenadas generalizadas",
+              "slug": "coordenadas-generalizadas"
+            },
+            {
+              "number": "3.2.2",
+              "title": "Ecuación de movimiento de Lagrange",
+              "slug": "euler-lagrange",
+              "summary": "Deducción guiada desde la acción estacionaria hasta Euler–Lagrange, laboratorio interactivo y cuatro problemas sencillos de repaso."
+            },
+            {
+              "number": "3.2.3",
+              "title": "Modelado de sistemas conservativos",
+              "slug": "sistemas-conservativos",
+              "summary": "Construcción del modelo a partir de energía cinética y potencial, conservación de la energía, laboratorio masa–resorte y cuatro problemas resueltos."
+            },
+            {
+              "number": "3.2.4",
+              "title": "Modelado de sistemas no conservativos",
+              "slug": "sistemas-no-conservativos"
+            }
+          ]
+        },
+        {
+          "number": "3.3",
+          "title": "Sistemas eléctricos",
+          "slug": "sistemas-electricos"
+        },
+        {
+          "number": "3.6",
+          "title": "Sistemas electromecánicos",
+          "slug": "sistemas-electromecanicos"
+        }
+      ]
+    },
+    {
+      "label": "Unidad III",
+      "title": "Sistemas térmicos y de nivel",
+      "description": "Modelado mediante balances físicos y ecuaciones dinámicas.",
+      "topics": [
+        {
+          "number": "5.1",
+          "title": "Sistemas térmicos",
+          "slug": "sistemas-termicos"
+        },
+        {
+          "number": "5.2",
+          "title": "Sistemas de nivel",
+          "slug": "sistemas-nivel"
+        }
+      ]
+    }
+  ]
+}
