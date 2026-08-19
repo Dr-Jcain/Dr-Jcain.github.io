@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Definición intuitiva y formal de sistema dinámico, ecuación escalar autónoma, problema de valor inicial, existencia y unicidad, y concepto de flujo.">
+  <title>Sistema dinámico | Modelado y Simulación | JCain Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <meta name="jcain-lesson-number" content="1.1">
+  <meta name="jcain-lesson-title" content="Sistema dinámico">
+  <meta name="jcain-lesson-summary" content="Definición intuitiva y formal de sistema dinámico, ecuación escalar autónoma, problema de valor inicial, existencia y unicidad, y concepto de flujo.">
+  <meta name="jcain-lesson-unit" content="Unidad I">
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body data-course="modelado-simulacion" data-lesson="sistemas-dinamicos" data-page="lesson">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+  <main class="main-content">
+    <header class="topbar" data-lesson-topbar></header>
+    <article class="lesson" id="lesson">
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">1.1 · Sistema dinámico</p>
+          <h2>Del cambio de un estado al concepto de flujo</h2>
+          <p class="hero-lead">Un sistema dinámico describe cómo evoluciona un estado. Partiremos de la idea física de cambio, formularemos una ecuación diferencial escalar autónoma y llegaremos al problema de valor inicial y al flujo asociado.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#idea">Comenzar teoría</a>
+            <a class="secondary-button" href="#flujo">Ir al concepto de flujo</a>
+          </div>
+        </div>
+        <div class="hero-equation" aria-label="Ecuación diferencial autónoma">
+          <span class="equation-label">Punto de partida</span>
+          \[
+            \boxed{\dot{x}=\frac{dx}{dt}=f(x)}
+          \]
+          <div class="equation-tags">
+            <span>estado \(x\)</span>
+            <span>cambio \(\dot x\)</span>
+            <span>función \(f(x)\)</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="learning-objectives">
+        <div>
+          <p class="eyebrow">Objetivos de la clase</p>
+          <h3>Al terminar, el estudiante debe poder…</h3>
+        </div>
+        <div class="objective-grid">
+          <div class="objective"><span>01</span><p>Interpretar un sistema dinámico como la evolución de un estado.</p></div>
+          <div class="objective"><span>02</span><p>Reconocer una ecuación diferencial escalar autónoma.</p></div>
+          <div class="objective"><span>03</span><p>Distinguir ecuación, solución y problema de valor inicial.</p></div>
+          <div class="objective"><span>04</span><p>Explicar qué representa el flujo \(\varphi(t,x_0)\) y sus propiedades.</p></div>
+        </div>
+      </section>
+
+      <section class="concept-section" id="idea">
+        <div class="section-heading">
+          <span class="step-number">01</span>
+          <div><p class="eyebrow">Idea física</p><h3>Un estado que cambia</h3></div>
+        </div>
+        <div class="two-column">
+          <div class="prose-card">
+            <p>Una definición inicial de <strong>sistema dinámico</strong> es la siguiente: es un sistema cuyos estados cambian con respecto a algo, generalmente al tiempo.</p>
+            <p>El estado puede representar diferentes magnitudes físicas. Al modelar matemáticamente su cambio aparecen de forma natural las ecuaciones diferenciales.</p>
+            <div class="state-grid">
+              <div class="state-chip"><strong>Temperatura</strong><span>estado térmico</span></div>
+              <div class="state-chip"><strong>Posición</strong><span>estado mecánico</span></div>
+              <div class="state-chip"><strong>Velocidad</strong><span>estado mecánico</span></div>
+              <div class="state-chip"><strong>Corriente</strong><span>estado eléctrico</span></div>
+              <div class="state-chip"><strong>Voltaje</strong><span>estado eléctrico</span></div>
+              <div class="state-chip"><strong>Presión</strong><span>estado físico</span></div>
+            </div>
+          </div>
+          <aside class="intuition-card">
+            <p class="card-kicker">Idea central</p>
+            <h4>Modelar significa describir el cambio</h4>
+            <p>Si una variable de estado es \(x(t)\), su rapidez de cambio con respecto al tiempo se expresa mediante \(\dot x=dx/dt\).</p>
+            <div class="math-box compact">\[x(t)\quad\longrightarrow\quad \dot x(t)\]</div>
+            <div class="analogy"><span class="analogy-dot"></span><p>La dinámica aparece cuando el interés no está sólo en el valor del estado, sino en <strong>cómo evoluciona</strong>.</p></div>
+          </aside>
+        </div>
+        <div class="concept-chain" aria-label="Secuencia conceptual">
+          <div><span>1</span><strong>Estado</strong><small>Una magnitud describe al sistema.</small></div>
+          <div><span>2</span><strong>Cambio</strong><small>El estado evoluciona con el tiempo.</small></div>
+          <div><span>3</span><strong>Derivada</strong><small>\(\dot x\) cuantifica ese cambio.</small></div>
+          <div><span>4</span><strong>Ecuación diferencial</strong><small>Relaciona el estado con su evolución.</small></div>
+        </div>
+      </section>
+
+      <section class="concept-section" id="autonoma">
+        <div class="section-heading">
+          <span class="step-number">02</span>
+          <div><p class="eyebrow">Definición 1</p><h3>Ecuación diferencial escalar autónoma</h3></div>
+        </div>
+        <div class="definition-card">
+          <div class="definition-head"><span>1</span><h4>Forma matemática</h4></div>
+          <p>Sea</p>
+          <div class="math-box big">\[
+            \dot{x}=\frac{dx}{dt}=f(x)
+          \]</div>
+          <p>donde \(x\) es de dimensión uno y \(f:\mathbb{R}\rightarrow\mathbb{R}\) es una función real que <strong>no depende explícitamente de \(t\)</strong>. A esta ecuación diferencial se le llama <strong>escalar autónoma</strong>.</p>
+          <div class="symbol-grid">
+            <div><strong>\(x\in\mathbb R\)</strong><p>El estado es escalar.</p></div>
+            <div><strong>\(f:\mathbb R\to\mathbb R\)</strong><p>La función asigna a cada estado una rapidez de cambio.</p></div>
+            <div><strong>Sin \(t\) explícito</strong><p>La ley de evolución depende del estado, no directamente del tiempo.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="checkpoint-section" id="clasificacion">
+        <div class="section-heading">
+          <span class="step-number">↯</span>
+          <div><p class="eyebrow">Aplicación inmediata</p><h3>Reconocer si una ecuación es autónoma</h3></div>
+        </div>
+        <p class="section-intro">La pregunta es concreta: ¿el lado derecho depende sólo de \(x\) o aparece \(t\) de manera explícita?</p>
+        <div class="classifier-grid">
+          <article class="classifier-card" data-correct="autonoma">
+            <p class="card-kicker">Ecuación A</p><h4>\(\dot x=3x-x^2\)</h4>
+            <div class="classifier-actions"><button data-choice="autonoma">Autónoma</button><button data-choice="no">No autónoma</button></div>
+            <p class="classifier-feedback" aria-live="polite"></p>
+          </article>
+          <article class="classifier-card" data-correct="no">
+            <p class="card-kicker">Ecuación B</p><h4>\(\dot x=t-x\)</h4>
+            <div class="classifier-actions"><button data-choice="autonoma">Autónoma</button><button data-choice="no">No autónoma</button></div>
+            <p class="classifier-feedback" aria-live="polite"></p>
+          </article>
+          <article class="classifier-card" data-correct="autonoma">
+            <p class="card-kicker">Ecuación C</p><h4>\(\dot x=\sin x\)</h4>
+            <div class="classifier-actions"><button data-choice="autonoma">Autónoma</button><button data-choice="no">No autónoma</button></div>
+            <p class="classifier-feedback" aria-live="polite"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="concept-section" id="solucion">
+        <div class="section-heading">
+          <span class="step-number">03</span>
+          <div><p class="eyebrow">Definición 2</p><h3>¿Qué significa resolver la ecuación?</h3></div>
+        </div>
+        <div class="definition-card">
+          <div class="definition-head"><span>2</span><h4>Solución en un intervalo</h4></div>
+          <p>Se dice que \(x(t)\) es una solución de</p>
+          <div class="math-box compact">\[\dot x=f(x)\]</div>
+          <p>en un intervalo \(I\), si \(x(t)\) satisface</p>
+          <div class="math-box result">\[
+            \boxed{\dot{x}(t)=f(x(t))\qquad\text{para todo }t\in I.}
+          \]</div>
+          <p>Por tanto, una solución no es únicamente un valor de \(x\); es una <strong>función del tiempo</strong> cuya derivada cumple la ecuación diferencial en el intervalo considerado.</p>
+        </div>
+      </section>
+
+      <section class="concept-section" id="pvi">
+        <div class="section-heading">
+          <span class="step-number">04</span>
+          <div><p class="eyebrow">Definición 3</p><h3>Problema de valor inicial</h3></div>
+        </div>
+        <div class="two-column">
+          <div class="definition-card">
+            <div class="definition-head"><span>3</span><h4>Seleccionar una solución específica</h4></div>
+            <p>Generalmente interesa una solución específica que, en un tiempo inicial \(t_0\in I\), tenga el valor \(x_0\). Entonces se plantea</p>
+            <div class="math-box big">\[
+              \boxed{\dot{x}=f(x),\qquad x(t_0)=x_0.}
+            \]</div>
+            <p>A esta formulación se le llama <strong>problema de valor inicial</strong>. Cualquiera de sus soluciones se denomina solución a través de \(x_0\) en \(t_0\).</p>
+          </div>
+          <aside class="intuition-card">
+            <p class="card-kicker">Dos datos distintos</p><h4>La ley y el punto de partida</h4>
+            <p>La ecuación \(\dot x=f(x)\) determina la ley de evolución. La condición \(x(t_0)=x_0\) fija el estado desde el cual se quiere seguir esa evolución.</p>
+            <div class="math-box compact">\[
+              \underbrace{\dot x=f(x)}_{\text{dinámica}}
+              \qquad+
+              \qquad
+              \underbrace{x(t_0)=x_0}_{\text{condición inicial}}
+            \]</div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="concept-section" id="existencia-unicidad">
+        <div class="section-heading">
+          <span class="step-number">05</span>
+          <div><p class="eyebrow">Teorema 1</p><h3>Existencia y unicidad</h3></div>
+        </div>
+        <div class="theorem-card">
+          <p class="card-kicker">Resultado fundamental</p>
+          <h4>¿Existe una solución y es única?</h4>
+          <p>Si \(f\) es continua, entonces para cualquier \(x_0\in\mathbb R\) existe un intervalo</p>
+          <div class="math-box compact">\[
+            I_{x_0}=(\alpha_{x_0},\beta_{x_0})
+          \]</div>
+          <p>que contiene \(t_0=0\), y existe una solución \(\varphi(t,x_0)\) del problema</p>
+          <div class="math-box">\[
+            \dot x=f(x),\qquad x(0)=x_0,
+          \]</div>
+          <p>definida para todo \(t\in I_{x_0}\) y que satisface la condición inicial</p>
+          <div class="math-box result">\[\boxed{\varphi(0,x_0)=x_0}.\]</div>
+          <div class="theorem-split">
+            <div><strong>Si \(f\) es continua</strong><p>Se establece la existencia de una solución en un intervalo que contiene al tiempo inicial.</p></div>
+            <div><strong>Si además \(f'\) es continua</strong><p>La solución es única en \(I_{x_0}\), y \(\varphi(t,x_0)\) es continua en \((t,x_0)\) junto con sus primeras derivadas parciales.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept-section" id="flujo">
+        <div class="section-heading">
+          <span class="step-number">06</span>
+          <div><p class="eyebrow">Flujo</p><h3>Reunir todas las soluciones específicas en una sola función</h3></div>
+        </div>
+        <div class="prose-card">
+          <p>El conjunto de soluciones específicas de \(\dot x=f(x)\) puede representarse mediante \(\varphi(t,x_0)\), vista como una función de dos variables: el tiempo \(t\) y la condición inicial \(x_0\).</p>
+          <div class="math-box big">\[
+            \boxed{\varphi(t,x_0)}
+          \]</div>
+          <p>A \(\varphi(t,x_0)\) se le llama <strong>el flujo</strong> de \(\dot x=f(x)\).</p>
+          <p>En esta formulación, un sistema dinámico en \(\mathbb R\) se describe mediante este flujo, sujeto a las propiedades siguientes.</p>
+        </div>
+
+        <div class="flow-properties">
+          <article class="flow-property"><span>Propiedad 1</span><div class="math-box compact">\[\varphi(0,x_0)=x_0\]</div><p>En tiempo cero, el estado coincide con la condición inicial.</p></article>
+          <article class="flow-property"><span>Propiedad 2</span><div class="math-box compact">\[\varphi(t+s,x_0)=\varphi\!\left(t,\varphi(s,x_0)\right)\]</div><p>Evolucionar durante \(s\) y después durante \(t\) equivale a evolucionar durante \(t+s\).</p></article>
+          <article class="flow-property"><span>Propiedad 3</span><div class="math-box compact">\[\varphi(-t,\cdot)=\varphi(t,\cdot)^{-1}\]</div><p>Para cada \(t\), el mapa es derivable y continuo, con inversa derivable y continua dada por el tiempo negativo.</p></article>
+        </div>
+      </section>
+
+      <section class="lab-section" id="composicion">
+        <div class="section-heading">
+          <span class="step-number">↔</span>
+          <div><p class="eyebrow">Visualización</p><h3>Propiedad de composición del flujo</h3></div>
+        </div>
+        <p class="section-intro">La propiedad no requiere calcular una solución particular para entender su estructura: se puede seguir simbólicamente la evolución en dos etapas y compararla con una sola evolución de duración \(t+s\).</p>
+        <div class="flow-demo">
+          <div class="flow-controls">
+            <p class="card-kicker">Tiempos de evolución</p><h4>Modifique \(s\) y \(t\)</h4>
+            <p>El diagrama actualiza las etiquetas de cada etapa. La igualdad que se muestra es precisamente la propiedad de composición.</p>
+            <label class="flow-slider-label">Primer intervalo \(s\)<output id="sValue">1.0</output></label>
+            <input id="sSlider" type="range" min="-3" max="3" step="0.5" value="1">
+            <label class="flow-slider-label">Segundo intervalo \(t\)<output id="tValue">2.0</output></label>
+            <input id="tSlider" type="range" min="-3" max="3" step="0.5" value="2">
+            <div class="callout blue"><strong>Tiempo total</strong><p id="sumText">\(t+s=3.0\)</p></div>
+          </div>
+          <div class="flow-visual">
+            <p class="card-kicker">Dos etapas</p><h4>Evolución sucesiva</h4>
+            <div class="flow-route">
+              <div class="flow-node">\(x_0\)</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node" id="nodeS">\(\varphi(1.0,x_0)\)</div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-node" id="nodeTS">\(\varphi(2.0,\varphi(1.0,x_0))\)</div>
+            </div>
+            <div class="flow-direct">
+              <span>Una sola evolución</span>
+              <strong id="directFlow">\(\varphi(3.0,x_0)\)</strong>
+            </div>
+            <div class="math-box result" id="flowEquality">\[
+              \varphi(3.0,x_0)=\varphi\!\left(2.0,\varphi(1.0,x_0)\right)
+            \]</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept-section" id="resumen">
+        <div class="section-heading">
+          <span class="step-number">07</span>
+          <div><p class="eyebrow">Mapa conceptual</p><h3>De la ecuación al sistema dinámico</h3></div>
+        </div>
+        <div class="summary-map">
+          <div><span>01</span><strong>Ecuación</strong><p>\(\dot x=f(x)\)</p></div>
+          <div><span>02</span><strong>Solución</strong><p>\(x(t)\) satisface la ecuación.</p></div>
+          <div><span>03</span><strong>Condición inicial</strong><p>\(x(t_0)=x_0\)</p></div>
+          <div><span>04</span><strong>Solución específica</strong><p>\(\varphi(t,x_0)\)</p></div>
+          <div><span>05</span><strong>Flujo</strong><p>Organiza la evolución para las distintas condiciones iniciales.</p></div>
+        </div>
+      </section>
+
+      <section class="checkpoint-section" id="checkpoint">
+        <div class="section-heading">
+          <span class="step-number">?</span>
+          <div><p class="eyebrow">Comprobación rápida</p><h3>Tres ideas que deben quedar claras</h3></div>
+        </div>
+        <div class="quiz-grid">
+          <article class="quiz-card" data-answer="b">
+            <p class="quiz-number">Pregunta 1</p><h4>¿Qué distingue a \(\dot x=f(x)\) como ecuación autónoma?</h4>
+            <button data-choice="a">Que \(x\) sea constante.</button><button data-choice="b">Que \(f\) no dependa explícitamente de \(t\).</button><button data-choice="c">Que no exista condición inicial.</button><p class="quiz-feedback"></p>
+          </article>
+          <article class="quiz-card" data-answer="a">
+            <p class="quiz-number">Pregunta 2</p><h4>¿Qué añade \(x(t_0)=x_0\) a la ecuación diferencial?</h4>
+            <button data-choice="a">Fija el estado desde el que se busca una solución específica.</button><button data-choice="b">Convierte a \(f\) en una función del tiempo.</button><button data-choice="c">Elimina la derivada.</button><p class="quiz-feedback"></p>
+          </article>
+          <article class="quiz-card" data-answer="c">
+            <p class="quiz-number">Pregunta 3</p><h4>¿Qué expresa la propiedad \(\varphi(t+s,x_0)=\varphi(t,\varphi(s,x_0))\)?</h4>
+            <button data-choice="a">Que toda solución es constante.</button><button data-choice="b">Que el tiempo siempre es positivo.</button><button data-choice="c">Que la evolución puede componerse por intervalos de tiempo.</button><p class="quiz-feedback"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="practice-section" id="problemas">
+        <div class="section-heading">
+          <span class="step-number">P</span>
+          <div><p class="eyebrow">Problemas resueltos</p><h3>Aplicación directa de las definiciones</h3></div>
+        </div>
+        <p class="section-intro">Los ejercicios se concentran en reconocer la estructura matemática antes de pasar al modelado de sistemas físicos.</p>
+        <div class="problem-list">
+          <details class="problem-card">
+            <summary><span>Problema 1</span><strong>Clasificar ecuaciones escalares</strong><em>+</em></summary>
+            <div class="problem-body">
+              <div class="problem-prompt"><p class="card-kicker">Enunciado</p><p>Determine cuáles de las ecuaciones siguientes son autónomas: (a) \(\dot x=x^2+1\), (b) \(\dot x=t+x\), (c) \(\dot x=\cos x\).</p></div>
+              <div class="solution-steps">
+                <article><span>1</span><div><strong>Criterio</strong><p>Una ecuación escalar es autónoma cuando el lado derecho depende de \(x\) y no contiene una dependencia explícita de \(t\).</p></div></article>
+                <article><span>2</span><div><strong>Aplicación</strong><p>(a) y (c) son autónomas. En (b) aparece \(t\) explícitamente, por lo que no tiene la forma \(\dot x=f(x)\).</p></div></article>
+              </div>
+            </div>
+          </details>
+
+          <details class="problem-card">
+            <summary><span>Problema 2</span><strong>Escribir un problema de valor inicial</strong><em>+</em></summary>
+            <div class="problem-body">
+              <div class="problem-prompt"><p class="card-kicker">Enunciado</p><p>Sea \(f(x)=x(1-x)\). Escriba el problema de valor inicial correspondiente a \(t_0=0\) y \(x_0=1/2\).</p></div>
+              <div class="solution-steps">
+                <article><span>1</span><div><strong>Ecuación</strong><div class="math-box compact">\[\dot x=x(1-x)\]</div></div></article>
+                <article><span>2</span><div><strong>Condición inicial</strong><div class="math-box compact">\[x(0)=\frac12\]</div></div></article>
+                <article><span>3</span><div><strong>Problema completo</strong><div class="math-box result">\[\boxed{\dot x=x(1-x),\qquad x(0)=\frac12.}\]</div></div></article>
+              </div>
+            </div>
+          </details>
+
+          <details class="problem-card">
+            <summary><span>Problema 3</span><strong>Verificar una solución</strong><em>+</em></summary>
+            <div class="problem-body">
+              <div class="problem-prompt"><p class="card-kicker">Enunciado</p><p>Compruebe que \(x(t)=3e^{2t}\) satisface \(\dot x=2x\) y la condición inicial \(x(0)=3\).</p></div>
+              <div class="solution-steps">
+                <article><span>1</span><div><strong>Derivar la función candidata</strong><div class="math-box compact">\[\dot x(t)=6e^{2t}.\]</div></div></article>
+                <article><span>2</span><div><strong>Evaluar el lado derecho</strong><div class="math-box compact">\[2x(t)=2(3e^{2t})=6e^{2t}.\]</div><p>Por tanto, \(\dot x(t)=2x(t)\).</p></div></article>
+                <article><span>3</span><div><strong>Comprobar la condición inicial</strong><div class="math-box result">\[x(0)=3e^0=3.\]</div><p>La función satisface el problema de valor inicial.</p></div></article>
+              </div>
+            </div>
+          </details>
+
+          <details class="problem-card">
+            <summary><span>Problema 4</span><strong>Comprobar la composición de un flujo</strong><em>+</em></summary>
+            <div class="problem-body">
+              <div class="problem-prompt"><p class="card-kicker">Enunciado</p><p>Considere \(\varphi(t,x_0)=x_0e^t\). Verifique las dos primeras propiedades del flujo.</p></div>
+              <div class="solution-steps">
+                <article><span>1</span><div><strong>Tiempo cero</strong><div class="math-box compact">\[\varphi(0,x_0)=x_0e^0=x_0.\]</div></div></article>
+                <article><span>2</span><div><strong>Composición</strong><div class="math-box">\[\varphi(t,\varphi(s,x_0))=\varphi(t,x_0e^s)=x_0e^se^t=x_0e^{t+s}.\]</div></div></article>
+                <article><span>3</span><div><strong>Comparación</strong><div class="math-box result">\[\boxed{\varphi(t,\varphi(s,x_0))=\varphi(t+s,x_0).}\]</div></div></article>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="homework-section" id="tarea">
+        <div class="homework-card">
+          <div>
+            <p class="eyebrow">Tarea de repaso</p>
+            <h3>Tres ejercicios sobre la estructura de un sistema dinámico</h3>
+            <p>Resuelva mostrando el criterio utilizado en cada paso.</p>
+            <ul class="homework-list">
+              <li><strong>A.</strong> Determine cuáles son autónomas: \(\dot x=4-x^2\), \(\dot x=t^2+x\), \(\dot x=e^{-x}\).</li>
+              <li><strong>B.</strong> Para \(\dot x=-2x\), escriba el problema de valor inicial con \(t_0=1\) y \(x_0=5\). Después verifique si \(x(t)=5e^{-2(t-1)}\) lo satisface.</li>
+              <li><strong>C.</strong> Para \(\varphi(t,x_0)=x_0e^{-2t}\), verifique \(\varphi(0,x_0)=x_0\) y la propiedad de composición.</li>
+            </ul>
+          </div>
+          <div class="homework-status"><span>Repaso</span><small>Definiciones, PVI y flujo</small></div>
+        </div>
+      </section>
+
+      <div data-lesson-footer></div>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>
