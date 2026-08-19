@@ -762,9 +762,12 @@
           "topics": [
             {
               "number": "1.1",
-              "title": "Sistemas dinámicos",
+              "title": "Sistema dinámico",
               "slug": "sistemas-dinamicos",
-              "published": false
+              "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
+              "published": true,
+              "actualFolder": "sistemas-dinamicos",
+              "url": "/cursos/modelado-simulacion/sistemas-dinamicos/"
             },
             {
               "number": "1.2",
@@ -882,8 +885,19 @@
       ],
       "slug": "modelado-simulacion",
       "url": "/cursos/modelado-simulacion/",
-      "publishedCount": 2,
+      "publishedCount": 3,
       "lessons": [
+        {
+          "slug": "sistemas-dinamicos",
+          "number": "1.1",
+          "title": "Sistema dinámico",
+          "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
+          "url": "/cursos/modelado-simulacion/sistemas-dinamicos/",
+          "unitLabel": "Unidad I",
+          "unitTitle": "Conceptos básicos",
+          "parentNumber": "",
+          "parentTitle": ""
+        },
         {
           "slug": "euler-lagrange",
           "number": "3.2.2",
@@ -929,7 +943,7 @@
   ],
   "stats": {
     "courseCount": 6,
-    "publishedLessonCount": 5,
+    "publishedLessonCount": 6,
     "coursesWithLessons": 3
   },
   "publishedLessons": [
@@ -971,6 +985,19 @@
       "parentTitle": "Conceptos fundamentales: definición de computadora y lenguajes que usa una computadora",
       "courseSlug": "fundamentos-programacion",
       "courseTitle": "Fundamentos de Programación"
+    },
+    {
+      "slug": "sistemas-dinamicos",
+      "number": "1.1",
+      "title": "Sistema dinámico",
+      "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
+      "url": "/cursos/modelado-simulacion/sistemas-dinamicos/",
+      "unitLabel": "Unidad I",
+      "unitTitle": "Conceptos básicos",
+      "parentNumber": "",
+      "parentTitle": "",
+      "courseSlug": "modelado-simulacion",
+      "courseTitle": "Modelado y Simulación de Sistemas"
     },
     {
       "slug": "euler-lagrange",
