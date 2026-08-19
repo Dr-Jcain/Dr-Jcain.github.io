@@ -140,12 +140,30 @@
           </div>
           <aside class="intuition-card">
             <p class="card-kicker">Lectura física</p>
-            <h4>¿Qué variables aparecen?</h4>
-            <div class="physical-list">
-              <div><strong>\(\theta\)</strong><span>posición angular</span></div>
-              <div><strong>\(\dot\theta\)</strong><span>velocidad angular</span></div>
-              <div><strong>\(i\)</strong><span>corriente eléctrica</span></div>
-              <div><strong>\(v(t)\)</strong><span>entrada de voltaje</span></div>
+            <h4>Variables del sistema y entrada</h4>
+            <p class="role-intro">Conviene separar desde el principio las variables que formarán el vector de estado de la señal que actúa como entrada externa.</p>
+
+            <div class="role-group state-role-group">
+              <div class="role-group-title">
+                <span class="role-badge state-badge">ESTADO</span>
+                <strong>Variables que formarán el estado</strong>
+              </div>
+              <div class="physical-list">
+                <div><strong>\(\theta\)</strong><span>posición angular</span></div>
+                <div><strong>\(\dot\theta\)</strong><span>velocidad angular</span></div>
+                <div><strong>\(i\)</strong><span>corriente eléctrica</span></div>
+              </div>
+            </div>
+
+            <div class="role-group input-role-group">
+              <div class="role-group-title">
+                <span class="role-badge input-badge">ENTRADA</span>
+                <strong>No es una variable de estado</strong>
+              </div>
+              <div class="input-variable-row">
+                <strong>\(v(t)\)</strong>
+                <span>voltaje aplicado al sistema</span>
+              </div>
             </div>
           </aside>
         </div>
@@ -236,28 +254,57 @@
             </section>
 
             <section class="step-panel" data-panel="5">
-              <div class="step-header"><span>Paso 5</span><h4>Despejar las derivadas máximas y sustituir los estados</h4></div>
-              <p>Primero despejamos \(\ddot\theta\) y \(di/dt\):</p>
-              <div class="math-box">
+              <div class="step-header"><span>Paso 5</span><h4>Despejar las derivadas máximas y sustituirlas donde corresponden</h4></div>
+              <p>Primero obtenemos de las ecuaciones originales las expresiones de las derivadas máximas que todavía aparecen en las ecuaciones de estado:</p>
+              <div class="math-box substitution-source">
                 \[
                 \begin{aligned}
                   \ddot\theta
-                  &= -\frac{b}{J}\dot\theta+\frac{k_t}{J}i,\\[4pt]
+                  &= -\frac{b}{J}\dot\theta+\frac{k_t}{J}i,\\[5pt]
                   \frac{di}{dt}
                   &= -\frac{R}{L}i-\frac{k_e}{L}\dot\theta+\frac{1}{L}v(t).
                 \end{aligned}
                 \]
               </div>
-              <p>Después reemplazamos las variables originales por \(z_1,z_2,z_3\):</p>
-              <div class="math-box result">
-                \[
-                \begin{aligned}
-                  \dot z_1 &= z_2,\\
-                  \dot z_2 &= -\frac{b}{J}z_2+\frac{k_t}{J}z_3,\\
-                  \dot z_3 &= -\frac{k_e}{L}z_2-\frac{R}{L}z_3+\frac{1}{L}v(t).
-                \end{aligned}
-                \]
+
+              <p class="substitution-intro">Ahora se ve exactamente <strong>dónde</strong> se sustituyen esos despejes. Partimos del sistema obtenido al derivar los estados en el paso 4 y reemplazamos \(\ddot\theta\) y \(di/dt\). Además usamos \(\dot\theta=z_2\) e \(i=z_3\).</p>
+
+              <div class="substitution-comparison">
+                <div class="substitution-card before">
+                  <span class="comparison-label">Sistema donde se sustituye</span>
+                  \[
+                  \begin{aligned}
+                    \dot z_1 &= \dot\theta,\\[5pt]
+                    \dot z_2 &= \ddot\theta,\\[5pt]
+                    \dot z_3 &= \frac{di}{dt}.
+                  \end{aligned}
+                  \]
+                  <small>Estas son las ecuaciones obtenidas en el paso 4.</small>
+                </div>
+
+                <div class="substitution-arrow" aria-hidden="true">
+                  <span>→</span>
+                  <small>sustituir</small>
+                </div>
+
+                <div class="substitution-card after">
+                  <span class="comparison-label">Después de sustituir</span>
+                  \[
+                  \begin{aligned}
+                    \dot z_1 &= z_2,\\[5pt]
+                    \dot z_2 &= -\frac{b}{J}z_2+\frac{k_t}{J}z_3,\\[5pt]
+                    \dot z_3 &= -\frac{k_e}{L}z_2-\frac{R}{L}z_3+\frac{1}{L}v(t).
+                  \end{aligned}
+                  \]
+                  <small>Ya no aparecen \(\ddot\theta\) ni \(di/dt\).</small>
+                </div>
               </div>
+
+              <div class="callout blue substitution-note">
+                <strong>La entrada no se convierte en estado.</strong>
+                <p>La señal \(v(t)\) permanece en la ecuación porque es una <strong>entrada externa</strong>. Las sustituciones de estado son \(\theta=z_1\), \(\dot\theta=z_2\) e \(i=z_3\).</p>
+              </div>
+
               <button class="next-step" data-next="6">Siguiente paso →</button>
             </section>
 
