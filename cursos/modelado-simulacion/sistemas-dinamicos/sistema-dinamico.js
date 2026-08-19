@@ -1,20 +1,37 @@
 (function () {
   // La navegación, el menú lateral y el modo presentación se gestionan en /assets/lesson-shell.js.
 
-  // MathJax normalmente procesa la página al cargarse. Se solicita un segundo
-  // procesamiento al finalizar la carga para que las ecuaciones iniciales y
-  // cualquier contenido inyectado por el shell queden renderizados de forma
-  // consistente.
-  window.addEventListener('load', async () => {
+  // Renderizado matemático. La página usa exactamente el mismo cargador de
+  // MathJax que las demás clases. Si por alguna razón el CDN no hubiera
+  // terminado de cargar, se realiza un único intento de respaldo.
+  async function typesetMath() {
     try {
       if (window.MathJax?.startup?.promise) {
         await window.MathJax.startup.promise;
       }
       if (window.MathJax?.typesetPromise) {
         await window.MathJax.typesetPromise();
+        return;
       }
+
+      // Fallback: la configuración window.MathJax ya fue declarada en <head>.
+      const existing = document.querySelector('script[data-mathjax-fallback]');
+      if (existing) return;
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+      script.defer = true;
+      script.dataset.mathjaxFallback = 'true';
+      script.onload = async () => {
+        try {
+          if (window.MathJax?.startup?.promise) await window.MathJax.startup.promise;
+          if (window.MathJax?.typesetPromise) await window.MathJax.typesetPromise();
+        } catch (_) {}
+      };
+      document.head.appendChild(script);
     } catch (_) {}
-  });
+  }
+
+  window.addEventListener('load', typesetMath);
 
   // Comprobación conceptual.
   document.querySelectorAll('.quiz-card').forEach((card) => {
