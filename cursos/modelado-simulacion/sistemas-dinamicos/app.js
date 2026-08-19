@@ -1,6 +1,16 @@
 (function () {
   // La navegación, el menú lateral y el modo presentación se gestionan en /assets/lesson-shell.js.
 
+  // MathJax normalmente procesa la página al cargarse. Se solicita un segundo
+  // procesamiento al finalizar la carga para que las ecuaciones iniciales y
+  // cualquier contenido inyectado por el shell queden renderizados de forma
+  // consistente.
+  window.addEventListener('load', () => {
+    if (window.MathJax?.typesetPromise) {
+      window.MathJax.typesetPromise().catch(() => {});
+    }
+  });
+
   // Comprobación conceptual.
   document.querySelectorAll('.quiz-card').forEach((card) => {
     const correct = card.dataset.answer;
