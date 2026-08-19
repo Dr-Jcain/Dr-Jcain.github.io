@@ -237,13 +237,17 @@
       ${courseTree(course)}
       <div class="sidebar-course-template"><strong>Estructura de cada tema</strong>${(DATA.lessonTemplate || []).slice(0, 4).map((item) => `<span>${esc(item)}</span>`).join('')}</div>`;
 
-    const recent = course.lessons?.slice(-2) || [];
+    // Mostrar todas las clases publicadas como accesos rápidos.
+    // course.lessons ya viene ordenado por número de clase desde build_site.py,
+    // por lo que esta fila se mantiene sincronizada automáticamente con el
+    // contador, el mapa del curso y la navegación lateral.
+    const publishedLessons = course.lessons || [];
     banner.innerHTML = `
       <div class="course-banner course-banner-featured">
         <p class="eyebrow">Página de la materia</p>
         <h2>${esc(course.title)}</h2>
         <p>${esc(course.banner || course.description)}</p>
-        ${recent.length ? `<div class="banner-actions">${recent.map((lesson) => `<a class="portal-primary" href="${esc(lesson.url)}">${esc(lesson.number ? `${lesson.number} · ` : '')}${esc(lesson.title)} →</a>`).join('')}</div>` : ''}
+        ${publishedLessons.length ? `<div class="banner-actions">${publishedLessons.map((lesson) => `<a class="portal-primary" href="${esc(lesson.url)}">${esc(lesson.number ? `${lesson.number} · ` : '')}${esc(lesson.title)} →</a>`).join('')}</div>` : ''}
       </div>`;
 
     curriculum.innerHTML = curriculumHtml(course);
