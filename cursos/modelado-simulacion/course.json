@@ -35,7 +35,8 @@
         {
           "number": "1.4",
           "title": "Ecuaciones dinámicas de un sistema",
-          "slug": "ecuaciones-dinamicas"
+          "slug": "ecuaciones-dinamicas",
+          "summary": "Representación en espacio de estados: metodología paso a paso para transformar ecuaciones diferenciales de orden superior en un sistema equivalente de primer orden."
         },
         {
           "number": "1.5",
