@@ -235,19 +235,15 @@
       <p>${esc(course.description)}</p>
       <div class="status-pills">${metaPills.map((item) => `<span>${esc(item)}</span>`).join('')}<span>${esc(course.statusLabel)}</span></div>
       ${courseTree(course)}
-      <div class="sidebar-course-template"><strong>Estructura de cada tema</strong>${(DATA.lessonTemplate || []).slice(0, 4).map((item) => `<span>${esc(item)}</span>`).join('')}</div>`;
+      <div class="sidebar-course-template"><strong>Estructura de cada tema</strong>${(course.lessonTemplate || DATA.lessonTemplate || []).slice(0, 4).map((item) => `<span>${esc(item)}</span>`).join('')}</div>`;
 
-    // Mostrar todas las clases publicadas como accesos rápidos.
-    // course.lessons ya viene ordenado por número de clase desde build_site.py,
-    // por lo que esta fila se mantiene sincronizada automáticamente con el
-    // contador, el mapa del curso y la navegación lateral.
-    const publishedLessons = course.lessons || [];
+    const recent = course.lessons?.slice(-2) || [];
     banner.innerHTML = `
       <div class="course-banner course-banner-featured">
         <p class="eyebrow">Página de la materia</p>
         <h2>${esc(course.title)}</h2>
         <p>${esc(course.banner || course.description)}</p>
-        ${publishedLessons.length ? `<div class="banner-actions">${publishedLessons.map((lesson) => `<a class="portal-primary" href="${esc(lesson.url)}">${esc(lesson.number ? `${lesson.number} · ` : '')}${esc(lesson.title)} →</a>`).join('')}</div>` : ''}
+        ${recent.length ? `<div class="banner-actions">${recent.map((lesson) => `<a class="portal-primary" href="${esc(lesson.url)}">${esc(lesson.number ? `${lesson.number} · ` : '')}${esc(lesson.title)} →</a>`).join('')}</div>` : ''}
       </div>`;
 
     curriculum.innerHTML = curriculumHtml(course);
@@ -303,7 +299,7 @@
             </div>
           </section>`).join('')}
       </nav>
-      <div class="sidebar-footer"><p>Estructura de cada tema</p><div class="topic-template">${(DATA.lessonTemplate || []).slice(0, 4).map((item) => `<span>${esc(item)}</span>`).join('')}</div></div>`;
+      <div class="sidebar-footer"><p>Estructura de cada tema</p><div class="topic-template">${(course.lessonTemplate || DATA.lessonTemplate || []).slice(0, 4).map((item) => `<span>${esc(item)}</span>`).join('')}</div></div>`;
   }
 
   function lessonBreadcrumbs(lesson) {
