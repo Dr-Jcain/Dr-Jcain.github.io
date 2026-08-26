@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Identificadores y palabras reservadas de C, reglas léxicas y validador interactivo para distinguir nombres válidos, inválidos y palabras clave.">
+  <meta name="jcain-lesson-number" content="2.8">
+  <meta name="jcain-lesson-title" content="Palabras reservadas del lenguaje">
+  <meta name="jcain-lesson-summary" content="Identificadores y palabras reservadas de C, reglas léxicas y validador interactivo para distinguir nombres válidos, inválidos y palabras clave.">
+  <meta name="jcain-lesson-unit" content="Unidad II">
+  <title>2.8 Palabras reservadas del lenguaje | Fundamentos de Programación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body data-page="lesson" data-course="fundamentos-programacion" data-lesson="palabras-reservadas">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+  <main class="main-content">
+    <header class="topbar" data-lesson-topbar></header>
+    <article class="lesson" id="lesson">
+<section class="hero">
+        <div><p class="eyebrow">Clase 2.8 · Fundamentos de Programación</p><h2>Palabras reservadas del lenguaje</h2><p class="hero-lead">Los nombres creados por el programador se llaman identificadores. Las palabras reservadas o palabras clave pertenecen al propio lenguaje C y no pueden utilizarse como nombres de variables, constantes o funciones.</p><div class="hero-actions"><a class="primary-button" href="#identificadores">Comenzar teoría</a><a class="secondary-button" href="#validador">Probar un identificador</a></div></div>
+        <div class="hero-visual"><span class="visual-label">Código C</span><div class="code-card"><header>palabras del lenguaje y nombres del programador</header><pre><span class="code-key">int</span> contador = <span class="code-value">0</span>;
+<span class="code-key">while</span> (contador &lt; <span class="code-value">10</span>) {
+    contador++;
+}</pre></div><div class="hero-tags"><span>int · reservada</span><span>while · reservada</span><span>contador · identificador</span></div></div>
+      </section>
+      <section class="learning-objectives"><div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div><div class="objective-grid"><article class="objective"><span>01</span><p>Definir identificador y palabra reservada sin confundirlos.</p></article><article class="objective"><span>02</span><p>Reconocer palabras clave frecuentes de C.</p></article><article class="objective"><span>03</span><p>Determinar si un nombre es un identificador válido.</p></article><article class="objective"><span>04</span><p>Evitar usar palabras reservadas para nombrar objetos del programa.</p></article></div></section>
+      <section class="concept-section" id="identificadores"><div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Elementos de un programa</p><h3>Identificadores y palabras reservadas son categorías diferentes</h3></div></div><div class="compare-grid"><article class="compare-card variable"><h4>Identificador</h4><p>Nombre creado por el programador para referirse a una variable, constante, función u otro elemento permitido.</p><div class="keyword-cloud"><code>contador</code><code>temperatura</code><code>calcularArea</code><code>dato_1</code></div></article><article class="compare-card constant"><h4>Palabra reservada</h4><p>Palabra con significado definido por el lenguaje. El programador no puede reutilizarla como identificador.</p><div class="keyword-cloud"><code>int</code><code>if</code><code>else</code><code>while</code><code>return</code><code>const</code></div></article></div><div class="callout blue"><strong>Regla léxica básica</strong><p>Un identificador de C comienza con una letra o guion bajo y después puede contener letras, dígitos o guiones bajos. Además, no debe coincidir con una palabra reservada.</p></div></section>
+      <section class="concept-section"><div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Vocabulario del lenguaje</p><h3>Palabras clave frecuentes de C</h3></div></div><div class="prose-card"><p>Estas palabras participan en declaraciones, tipos, estructuras de control y otras construcciones. El conjunto exacto depende de la versión del estándar de C; para el curso conviene reconocer al menos las siguientes:</p><div class="keyword-cloud"><code>auto</code><code>break</code><code>case</code><code>char</code><code>const</code><code>continue</code><code>default</code><code>do</code><code>double</code><code>else</code><code>enum</code><code>extern</code><code>float</code><code>for</code><code>goto</code><code>if</code><code>int</code><code>long</code><code>register</code><code>return</code><code>short</code><code>signed</code><code>sizeof</code><code>static</code><code>struct</code><code>switch</code><code>typedef</code><code>union</code><code>unsigned</code><code>void</code><code>volatile</code><code>while</code><code>inline</code><code>restrict</code><code>_Bool</code><code>_Complex</code></div></div></section>
+      <section class="lab-section" id="validador"><div class="section-heading"><span class="step-number">↯</span><div><p class="eyebrow">Visualización interactiva</p><h3>¿Puedo usar esta palabra como identificador?</h3></div></div><div class="identifier-lab"><div class="lab-card"><p class="card-kicker">Validador</p><h4>Escribe un nombre</h4><label>Posible identificador<input id="identifierInput" value="contador"></label><div class="converter-presets"><button data-name="contador">contador</button><button data-name="int">int</button><button data-name="2dato">2dato</button><button data-name="mi_variable">mi_variable</button><button data-name="mi-variable">mi-variable</button></div></div><div class="identifier-result" id="identifierResult"><strong>contador</strong><p>Identificador válido.</p></div></div></section>
+      <section class="checkpoint-section"><div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación</p><h3>¿Quién puede usar cada palabra?</h3></div></div><div class="quiz-grid"><article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 1</p><h4>¿Puede declararse <code>int while = 3;</code>?</h4><button data-choice="a">No, while es palabra reservada</button><button data-choice="b">Sí, porque while tiene letras</button><button data-choice="c">Sí, si vale 3</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 2</p><h4>¿Cuál es un identificador válido?</h4><button data-choice="a">2dato</button><button data-choice="b">mi-dato</button><button data-choice="c">mi_dato</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 3</p><h4>En <code>float voltaje;</code>, ¿cuál palabra eligió el programador?</h4><button data-choice="a">float</button><button data-choice="b">voltaje</button><button data-choice="c">;</button><p class="quiz-feedback"></p></article></div></section>
+      <section class="practice-section"><div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Problemas</p><h3>Clasifica nombres y palabras del lenguaje</h3></div></div><div class="problem-list"><details class="problem-card"><summary><span>Problema 1</span><strong>Clasifica: <code>int</code>, <code>edad</code>, <code>return</code>, <code>promedio</code>.</strong><em>+</em></summary><div class="problem-body"><p><code>int</code> y <code>return</code> son palabras reservadas. <code>edad</code> y <code>promedio</code> pueden ser identificadores.</p></div></details><details class="problem-card"><summary><span>Problema 2</span><strong>¿Por qué <code>3temperaturas</code> no es válido?</strong><em>+</em></summary><div class="problem-body"><p>Porque comienza con un dígito. Un identificador debe comenzar con una letra o guion bajo.</p></div></details><details class="problem-card"><summary><span>Problema 3</span><strong>¿Por qué <code>dato-final</code> no es válido?</strong><em>+</em></summary><div class="problem-body"><p>Porque el guion <code>-</code> es un operador y no forma parte de los caracteres permitidos en un identificador.</p></div></details><details class="problem-card"><summary><span>Problema 4</span><strong>Propón un nombre válido para almacenar el número de alumnos.</strong><em>+</em></summary><div class="problem-body"><p>Ejemplos: <code>numeroAlumnos</code>, <code>num_alumnos</code> o <code>alumnos</code>. Conviene que el nombre describa el dato.</p></div></details></div></section>
+      <section class="homework-section"><div class="homework-card"><div><p class="eyebrow">Tarea</p><h3>Identificadores en C</h3><p>Clasifica cada elemento como identificador válido, palabra reservada o nombre inválido.</p><div class="homework-items"><div>1. <code>temperatura_1</code></div><div>2. <code>for</code></div><div>3. <code>promedio-final</code></div><div>4. <code>_indice</code></div><div>5. <code>return</code></div><div>6. <code>3datos</code></div></div></div><div class="homework-status"><span>Práctica individual</span><small>Justificar cada clasificación</small></div></div></section>
+      <div data-lesson-footer></div>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>

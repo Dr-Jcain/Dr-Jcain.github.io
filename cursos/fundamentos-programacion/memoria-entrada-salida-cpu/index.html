@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CPU, memoria RAM, entrada/salida y buses de datos, direcciones y control mediante una visualización interactiva de lectura y escritura.">
+  <meta name="jcain-lesson-number" content="1.3.1">
+  <meta name="jcain-lesson-title" content="Memoria, entrada, salida y CPU">
+  <meta name="jcain-lesson-summary" content="CPU, memoria RAM, entrada/salida y buses de datos, direcciones y control mediante una visualización interactiva de lectura y escritura.">
+  <meta name="jcain-lesson-unit" content="Unidad I">
+  <title>1.3.1 Memoria, entrada, salida y CPU | Fundamentos de Programación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body data-page="lesson" data-course="fundamentos-programacion" data-lesson="memoria-entrada-salida-cpu">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+  <main class="main-content">
+    <header class="topbar" data-lesson-topbar></header>
+    <article class="lesson" id="lesson">
+<section class="hero">
+  <div>
+    <p class="eyebrow">Clase 1.3.1 · Fundamentos de Programación</p>
+    <h2>Memoria, entrada, salida y CPU</h2>
+    <p class="hero-lead">Una computadora ejecuta instrucciones moviendo y transformando información. Para entender qué ocurre dentro de un programa conviene distinguir la CPU, la memoria y los dispositivos de entrada/salida, y observar cómo se comunican mediante buses.</p>
+    <div class="hero-actions"><a class="primary-button" href="#arquitectura">Comenzar teoría</a><a class="secondary-button" href="#memoria-interactiva">Abrir memoria interactiva</a></div>
+  </div>
+  <div class="hero-visual">
+    <span class="visual-label">Flujo básico de información</span>
+    <div class="architecture-strip">
+      <div class="arch-node"><strong>Entrada</strong><small>teclado, sensor…</small></div><div class="arch-arrow">→</div>
+      <div class="arch-node"><strong>CPU + memoria</strong><small>procesar y almacenar</small></div><div class="arch-arrow">→</div>
+      <div class="arch-node"><strong>Salida</strong><small>pantalla, actuador…</small></div>
+    </div>
+    <div class="hero-tags"><span>CPU</span><span>RAM</span><span>bus de datos</span><span>bus de direcciones</span><span>bus de control</span></div>
+  </div>
+</section>
+
+<section class="learning-objectives">
+  <div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div>
+  <div class="objective-grid">
+    <article class="objective"><span>01</span><p>Distinguir CPU, memoria, entrada y salida.</p></article>
+    <article class="objective"><span>02</span><p>Explicar para qué sirve una dirección de memoria.</p></article>
+    <article class="objective"><span>03</span><p>Diferenciar bus de datos, bus de direcciones y bus de control.</p></article>
+    <article class="objective"><span>04</span><p>Describir una operación de lectura y una de escritura en RAM.</p></article>
+  </div>
+</section>
+
+<section class="concept-section" id="arquitectura">
+  <div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Arquitectura básica</p><h3>La CPU procesa; la memoria conserva datos e instrucciones</h3></div></div>
+  <div class="info-grid">
+    <article class="info-card"><span class="badge">CPU</span><h4>Unidad central de procesamiento</h4><p>Busca instrucciones, las interpreta y ejecuta operaciones aritméticas, lógicas y de movimiento de datos.</p></article>
+    <article class="info-card"><span class="badge">RAM</span><h4>Memoria principal</h4><p>Está formada por posiciones direccionables. Cada posición almacena información que puede ser leída o escrita durante la ejecución.</p></article>
+    <article class="info-card"><span class="badge">E/S</span><h4>Entrada y salida</h4><p>La entrada introduce información al sistema; la salida comunica resultados hacia el exterior.</p></article>
+  </div>
+  <div class="definition-box"><strong>Dirección de memoria</strong><p>Es el identificador numérico de una posición de memoria. Para acceder a un dato no basta conocer su valor: la CPU debe indicar también <em>dónde</em> se encuentra.</p></div>
+</section>
+
+<section class="concept-section">
+  <div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Comunicación</p><h3>Tres buses cumplen funciones diferentes</h3></div></div>
+  <div class="info-grid">
+    <article class="info-card"><span class="badge">A</span><h4>Bus de direcciones</h4><p>Indica la posición de memoria que se desea utilizar. En el ejemplo, la CPU coloca una dirección como <code>0x1003</code>.</p></article>
+    <article class="info-card"><span class="badge">D</span><h4>Bus de datos</h4><p>Transporta la información que se escribe o la información que se recupera de la memoria.</p></article>
+    <article class="info-card"><span class="badge">C</span><h4>Bus de control</h4><p>Indica qué operación debe realizarse, por ejemplo <strong>READ</strong> para leer o <strong>WRITE</strong> para escribir.</p></article>
+  </div>
+</section>
+
+<section class="lab-section" id="memoria-interactiva">
+  <div class="section-heading"><span class="step-number">↯</span><div><p class="eyebrow">Visualización interactiva</p><h3>La memoria RAM como un ropero de casillas</h3></div></div>
+  <p class="section-intro">Selecciona una dirección, coloca un byte en el bus de datos y ordena una lectura o escritura. La casilla activa se ilumina para mostrar qué posición está siendo utilizada.</p>
+  <div class="memory-lab">
+    <div class="bus-panel">
+      <p class="card-kicker">CPU / controlador</p><h4>Genera una operación de memoria</h4>
+      <div class="bus-form">
+        <label>Dirección<select id="memoryAddress"></select></label>
+        <label>Dato (0–255)<input id="memoryData" type="number" min="0" max="255" value="65"></label>
+      </div>
+      <div class="bus-actions"><button id="writeMemory">WRITE · escribir</button><button id="readMemory" class="secondary">READ · leer</button></div>
+      <div class="bus-diagram">
+        <div class="bus-lane"><strong>Direcciones</strong><div class="bus-line" id="addressBus">—</div></div>
+        <div class="bus-lane"><strong>Datos</strong><div class="bus-line bidir" id="dataBus">—</div></div>
+        <div class="bus-lane"><strong>Control</strong><div class="bus-line" id="controlBus">IDLE</div></div>
+      </div>
+      <div class="memory-status" id="memoryStatus">Selecciona una operación.</div>
+    </div>
+    <div class="memory-panel">
+      <p class="card-kicker">Memoria RAM</p><h4>Ocho posiciones direccionables</h4>
+      <div class="ram-rack" id="ramRack"></div>
+    </div>
+  </div>
+</section>
+
+<section class="checkpoint-section">
+  <div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación</p><h3>Conceptos esenciales</h3></div></div>
+  <div class="quiz-grid">
+    <article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 1</p><h4>¿Qué bus selecciona la casilla de RAM?</h4><button data-choice="a">Bus de datos</button><button data-choice="b">Bus de direcciones</button><button data-choice="c">Bus de control</button><p class="quiz-feedback"></p></article>
+    <article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 2</p><h4>¿Qué señal indica si la memoria debe leer o escribir?</h4><button data-choice="a">La dirección</button><button data-choice="b">El valor del dato</button><button data-choice="c">El bus de control</button><p class="quiz-feedback"></p></article>
+    <article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 3</p><h4>¿Qué componente ejecuta las instrucciones?</h4><button data-choice="a">CPU</button><button data-choice="b">RAM</button><button data-choice="c">Pantalla</button><p class="quiz-feedback"></p></article>
+  </div>
+</section>
+
+<section class="practice-section">
+  <div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Problemas de repaso</p><h3>Describe qué ocurre dentro de la computadora</h3></div></div>
+  <div class="problem-list">
+    <details class="problem-card"><summary><span>Problema 1</span><strong>La CPU desea escribir 25 en la dirección 0x1002. ¿Qué debe circular por cada bus?</strong><em>+</em></summary><div class="problem-body"><div class="solution-steps"><article><span>1</span><div><strong>Direcciones</strong><p><code>0x1002</code>.</p></div></article><article><span>2</span><div><strong>Datos</strong><p>El valor <code>25</code>.</p></div></article><article><span>3</span><div><strong>Control</strong><p>La orden <code>WRITE</code>.</p></div></article></div></div></details>
+    <details class="problem-card"><summary><span>Problema 2</span><strong>¿Qué cambia si la CPU quiere leer la dirección 0x1002?</strong><em>+</em></summary><div class="problem-body"><p>La dirección sigue siendo <code>0x1002</code>, pero el control pasa a <code>READ</code>. El dato viaja ahora desde la memoria hacia la CPU.</p></div></details>
+    <details class="problem-card"><summary><span>Problema 3</span><strong>Un teclado envía un carácter y luego se muestra en pantalla. Clasifica entrada, procesamiento y salida.</strong><em>+</em></summary><div class="problem-body"><p>Teclado: entrada. CPU y memoria: procesamiento/almacenamiento. Pantalla: salida.</p></div></details>
+    <details class="problem-card"><summary><span>Problema 4</span><strong>¿Por qué dos datos iguales pueden estar en direcciones distintas?</strong><em>+</em></summary><div class="problem-body"><p>Porque una dirección identifica la posición, no el contenido. Dos casillas diferentes pueden contener exactamente el mismo valor.</p></div></details>
+  </div>
+</section>
+
+<section class="homework-section"><div class="homework-card"><div><p class="eyebrow">Tarea</p><h3>Memoria y buses</h3><p>Explica, paso a paso, una operación de escritura y una operación de lectura usando CPU, dirección, dato y señal de control.</p><div class="homework-items"><div>1. Escritura de 120 en 0x1005.</div><div>2. Lectura posterior de 0x1005.</div><div>3. Dibuja el sentido del bus de datos en cada operación.</div><div>4. Identifica un ejemplo cotidiano de entrada y uno de salida.</div></div></div><div class="homework-status"><span>Práctica individual</span><small>Usar correctamente los tres buses</small></div></div></section>
+      <div data-lesson-footer></div>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>

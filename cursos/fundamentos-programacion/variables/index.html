@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Concepto de variable como espacio de memoria tipado y modificable; identificador, valor, dirección, declaración y asignación con visualización interactiva.">
+  <meta name="jcain-lesson-number" content="2.5">
+  <meta name="jcain-lesson-title" content="Concepto de variable">
+  <meta name="jcain-lesson-summary" content="Concepto de variable como espacio de memoria tipado y modificable; identificador, valor, dirección, declaración y asignación con visualización interactiva.">
+  <meta name="jcain-lesson-unit" content="Unidad II">
+  <title>2.5 Concepto de variable | Fundamentos de Programación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body data-page="lesson" data-course="fundamentos-programacion" data-lesson="variables">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+  <main class="main-content">
+    <header class="topbar" data-lesson-topbar></header>
+    <article class="lesson" id="lesson">
+<section class="hero">
+  <div><p class="eyebrow">Clase 2.5 · Fundamentos de Programación</p><h2>Concepto de variable</h2><p class="hero-lead">Una variable relaciona un nombre con un espacio de almacenamiento capaz de contener un valor de determinado tipo. Durante la ejecución del programa ese valor puede cambiar.</p><div class="hero-actions"><a class="primary-button" href="#concepto">Comenzar teoría</a><a class="secondary-button" href="#variable-memory">Modificar una variable</a></div></div>
+  <div class="hero-visual"><span class="visual-label">Una declaración en C</span><div class="code-card"><header>declaración</header><pre><span class="code-key">int</span> edad = <span class="code-value">20</span>;</pre></div><div class="hero-tags"><span>tipo: int</span><span>identificador: edad</span><span>valor: 20</span><span>dirección de memoria</span></div></div>
+</section>
+<section class="learning-objectives"><div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div><div class="objective-grid"><article class="objective"><span>01</span><p>Definir variable en términos de memoria, tipo y valor.</p></article><article class="objective"><span>02</span><p>Distinguir identificador, tipo, valor y dirección.</p></article><article class="objective"><span>03</span><p>Interpretar una declaración y una asignación en C.</p></article><article class="objective"><span>04</span><p>Observar cómo una misma variable cambia de valor sin cambiar de identidad.</p></article></div></section>
+
+<section class="concept-section" id="concepto"><div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Definición</p><h3>Una variable es almacenamiento identificado que puede cambiar</h3></div></div><div class="definition-box"><strong>Variable</strong><p>Es un espacio de memoria reservado para almacenar un valor de un tipo de dato determinado que puede modificarse durante la ejecución del programa.</p></div><div class="declaration-strip"><div class="declaration-part"><strong>int</strong><small>tipo de dato</small></div><div class="declaration-sep">→</div><div class="declaration-part"><strong>edad</strong><small>identificador</small></div><div class="declaration-sep">→</div><div class="declaration-part"><strong>20</strong><small>valor inicial</small></div></div></section>
+
+<section class="concept-section"><div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Identificadores</p><h3>El nombre permite referirse a la información sin memorizar direcciones</h3></div></div><div class="two-column"><div class="prose-card"><p>Un <strong>identificador</strong> es un nombre creado para referirse a elementos del programa: variables, constantes, funciones, estructuras, etc. En <code>int edad = 20;</code>, <code>edad</code> es el identificador.</p><p>La computadora trabaja con direcciones; el programa trabaja con nombres. El compilador relaciona ambos niveles.</p></div><aside class="intuition-card"><p class="card-kicker">No confundir</p><h4>Nombre ≠ valor ≠ dirección</h4><p>La variable <code>edad</code> puede conservar su nombre y su dirección mientras su contenido cambia de 20 a 21.</p></aside></div></section>
+
+<section class="lab-section" id="variable-memory"><div class="section-heading"><span class="step-number">↯</span><div><p class="eyebrow">Visualización interactiva</p><h3>Una variable dentro del “ropero” de memoria</h3></div></div><div class="memory-lab"><div class="bus-panel"><p class="card-kicker">Programa</p><h4>Selecciona y modifica una variable</h4><div class="bus-form"><label class="full">Variable<select id="variableSelect"><option value="edad">int edad</option><option value="temperatura">float temperatura</option><option value="inicial">char inicial</option></select></label><label class="full">Nuevo valor<input id="variableValue" value="21"></label></div><div class="bus-actions"><button id="assignVariable">Asignar nuevo valor</button></div><div class="memory-status" id="variableStatus">Selecciona una variable para ver su celda.</div></div><div class="memory-panel"><p class="card-kicker">RAM</p><h4>Variables reservadas</h4><div class="ram-rack" id="variableRack"></div></div></div></section>
+
+<section class="checkpoint-section"><div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación</p><h3>Variable, identificador y valor</h3></div></div><div class="quiz-grid"><article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 1</p><h4>En <code>float temperatura = 22.5;</code>, ¿qué es <code>temperatura</code>?</h4><button data-choice="a">El tipo</button><button data-choice="b">El valor</button><button data-choice="c">El identificador</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 2</p><h4>¿Qué característica distingue a una variable?</h4><button data-choice="a">Su valor puede modificarse</button><button data-choice="b">No ocupa memoria</button><button data-choice="c">Siempre contiene enteros</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 3</p><h4>Si <code>edad</code> cambia de 20 a 21, ¿qué cambia?</h4><button data-choice="a">El identificador</button><button data-choice="b">El contenido almacenado</button><button data-choice="c">El lenguaje de programación</button><p class="quiz-feedback"></p></article></div></section>
+
+<section class="practice-section"><div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Problemas</p><h3>Lee declaraciones como información de memoria</h3></div></div><div class="problem-list"><details class="problem-card"><summary><span>Problema 1</span><strong>Analiza <code>int contador = 0;</code>.</strong><em>+</em></summary><div class="problem-body"><p>Tipo: <code>int</code>. Identificador: <code>contador</code>. Valor inicial: 0. La variable puede recibir posteriormente otro entero representable.</p></div></details><details class="problem-card"><summary><span>Problema 2</span><strong>Después de <code>contador = contador + 1;</code>, ¿qué ocurre?</strong><em>+</em></summary><div class="problem-body"><p>Se calcula el nuevo valor y se escribe en el espacio de memoria asociado a <code>contador</code>. El identificador sigue siendo el mismo.</p></div></details><details class="problem-card"><summary><span>Problema 3</span><strong>¿Puede una variable <code>char letra</code> guardar directamente 3.1416?</strong><em>+</em></summary><div class="problem-body"><p>No es el tipo adecuado. El tipo establece cómo se interpreta y almacena el contenido; para un real se utiliza un tipo de coma flotante.</p></div></details><details class="problem-card"><summary><span>Problema 4</span><strong>¿La dirección forma parte del identificador?</strong><em>+</em></summary><div class="problem-body"><p>No. El identificador es el nombre usado en el código. La dirección corresponde a la ubicación de almacenamiento asociada durante la ejecución.</p></div></details></div></section>
+
+<section class="homework-section"><div class="homework-card"><div><p class="eyebrow">Tarea</p><h3>Variables en C</h3><p>Para cada declaración identifica tipo, identificador y valor inicial.</p><div class="homework-items"><div>1. <code>int alumnos = 35;</code></div><div>2. <code>float voltaje = 12.5f;</code></div><div>3. <code>char opcion = 'S';</code></div><div>4. Escribe una asignación posterior válida para cada variable.</div></div></div><div class="homework-status"><span>Práctica individual</span><small>Distinguir declaración de asignación</small></div></div></section>
+      <div data-lesson-footer></div>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>

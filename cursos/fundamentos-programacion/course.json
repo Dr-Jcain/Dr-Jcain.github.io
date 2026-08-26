@@ -44,7 +44,8 @@
         {
           "number": "1.3.1",
           "title": "Memoria, entrada, salida y CPU",
-          "slug": "memoria-entrada-salida-cpu"
+          "slug": "memoria-entrada-salida-cpu",
+          "summary": "CPU, memoria RAM, entrada/salida y buses de datos, direcciones y control con una memoria interactiva."
         },
         {
           "number": "1.4",
@@ -96,17 +97,20 @@
         {
           "number": "2.4",
           "title": "Tipos de datos: entero, real y carácter",
-          "slug": "tipos-datos"
+          "slug": "tipos-datos",
+          "summary": "char, int y float; almacenamiento, complemento a 2 e IEEE 754 con visualizaciones interactivas."
         },
         {
           "number": "2.5",
           "title": "Concepto de variable",
-          "slug": "variables"
+          "slug": "variables",
+          "summary": "Variable como espacio de memoria tipado y modificable; identificador, valor, dirección, declaración y asignación."
         },
         {
           "number": "2.6",
           "title": "Concepto de constante",
-          "slug": "constantes"
+          "slug": "constantes",
+          "summary": "Constante frente a variable; objetos const, inicialización y visualización de lectura/escritura en memoria."
         },
         {
           "number": "2.7",
@@ -116,7 +120,8 @@
         {
           "number": "2.8",
           "title": "Palabras reservadas del lenguaje",
-          "slug": "palabras-reservadas"
+          "slug": "palabras-reservadas",
+          "summary": "Identificadores y palabras reservadas de C con reglas y validador interactivo."
         },
         {
           "number": "2.9",

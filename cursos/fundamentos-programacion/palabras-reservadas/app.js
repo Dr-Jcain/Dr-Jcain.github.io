@@ -1,0 +1,7 @@
+(() => {
+  'use strict';
+  const keywords=new Set(['auto','break','case','char','const','continue','default','do','double','else','enum','extern','float','for','goto','if','int','long','register','return','short','signed','sizeof','static','struct','switch','typedef','union','unsigned','void','volatile','while','inline','restrict','_Bool','_Complex']);
+  const input=document.getElementById('identifierInput'), result=document.getElementById('identifierResult');
+  function render(){ const s=input.value.trim(); result.className='identifier-result'; if(!s){result.classList.add('invalid');result.innerHTML='<strong>Sin nombre</strong><p>Escribe un posible identificador.</p>';return;} if(keywords.has(s)){result.classList.add('reserved');result.innerHTML=`<strong>${s}</strong><p>Es una palabra reservada de C: no puede utilizarse como identificador.</p>`;return;} if(!/^[A-Za-z_][A-Za-z0-9_]*$/.test(s)){result.classList.add('invalid');result.innerHTML=`<strong>${s}</strong><p>No cumple la forma léxica de un identificador: debe comenzar con letra o _ y continuar sólo con letras, dígitos o _.</p>`;return;} result.classList.add('valid');result.innerHTML=`<strong>${s}</strong><p>Identificador válido y no reservado.</p>`; }
+  input.addEventListener('input',render); document.querySelectorAll('[data-name]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.name;render();})); render();
+})();

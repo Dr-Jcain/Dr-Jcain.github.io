@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Tipos de datos en C: char, int y float; representación binaria, complemento a 2 e IEEE 754 de simple precisión con visualizaciones interactivas.">
+  <meta name="jcain-lesson-number" content="2.4">
+  <meta name="jcain-lesson-title" content="Tipos de datos: entero, real y carácter">
+  <meta name="jcain-lesson-summary" content="Tipos de datos en C: char, int y float; representación binaria, complemento a 2 e IEEE 754 de simple precisión con visualizaciones interactivas.">
+  <meta name="jcain-lesson-unit" content="Unidad II">
+  <title>2.4 Tipos de datos: entero, real y carácter | Fundamentos de Programación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body data-page="lesson" data-course="fundamentos-programacion" data-lesson="tipos-datos">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+  <main class="main-content">
+    <header class="topbar" data-lesson-topbar></header>
+    <article class="lesson" id="lesson">
+<section class="hero">
+  <div>
+    <p class="eyebrow">Clase 2.4 · Fundamentos de Programación</p>
+    <h2>Tipos de datos: entero, real y carácter</h2>
+    <p class="hero-lead">Un tipo de dato define cómo se representa y almacena la información. En C, el tipo determina qué valores puede representar un objeto, cómo se interpretan sus bits y qué operaciones tienen sentido sobre él.</p>
+    <div class="hero-actions"><a class="primary-button" href="#tipos">Comenzar teoría</a><a class="secondary-button" href="#complemento">Ver representaciones binarias</a></div>
+  </div>
+  <div class="hero-visual">
+    <span class="visual-label">Una misma memoria, distintas interpretaciones</span>
+    <div class="hero-flow"><div><strong>char</strong><small>caracteres / códigos</small></div><div><strong>int</strong><small>enteros con signo</small></div><div><strong>float</strong><small>coma flotante</small></div></div>
+    <div class="hero-tags"><span>1 byte</span><span>complemento a 2</span><span>IEEE 754</span></div>
+  </div>
+</section>
+
+<section class="learning-objectives"><div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div><div class="objective-grid"><article class="objective"><span>01</span><p>Explicar qué información aporta un tipo de dato.</p></article><article class="objective"><span>02</span><p>Distinguir <code>char</code>, <code>int</code> y <code>float</code>.</p></article><article class="objective"><span>03</span><p>Representar enteros negativos en complemento a 2.</p></article><article class="objective"><span>04</span><p>Reconocer signo, exponente y fracción en IEEE 754 simple precisión.</p></article></div></section>
+
+<section class="concept-section" id="tipos">
+  <div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Concepto</p><h3>El tipo define representación, almacenamiento y conjunto de valores</h3></div></div>
+  <div class="definition-box"><strong>Tipo de dato</strong><p>Define la forma en que se representa y almacena la información. El mismo patrón de bits puede interpretarse de manera distinta si cambia el tipo.</p></div>
+  <div class="type-grid" style="margin-top:18px">
+    <article class="type-card"><code>char</code><h4>Carácter</h4><p>Ocupa exactamente un byte de C. En los sistemas habituales de 8 bits por byte existen 256 patrones posibles.</p><div class="type-facts"><div><span>Uso</span><strong>caracteres / códigos</strong></div><div><span>Tamaño típico</span><strong>1 byte</strong></div><div><span>Ejemplo</span><strong>'A'</strong></div></div></article>
+    <article class="type-card"><code>int</code><h4>Entero</h4><p>Representa números enteros. En la mayoría de los entornos actuales se usa un <code>int</code> de 32 bits y representación de complemento a 2.</p><div class="type-facts"><div><span>Tamaño típico</span><strong>4 bytes</strong></div><div><span>Rango 32 bits</span><strong>−2,147,483,648 a 2,147,483,647</strong></div><div><span>Ejemplo</span><strong>−25</strong></div></div></article>
+    <article class="type-card"><code>float</code><h4>Real de coma flotante</h4><p>En los entornos que usan IEEE 754 binary32 ocupa 32 bits: signo, exponente y fracción.</p><div class="type-facts"><div><span>Tamaño típico</span><strong>4 bytes</strong></div><div><span>Campos</span><strong>1 + 8 + 23 bits</strong></div><div><span>Máximo aprox.</span><strong>3.4×10³⁸</strong></div></div></article>
+  </div>
+  <div class="callout neutral"><strong>Precisión de la definición</strong><p>El estándar de C no obliga a que <code>int</code> mida 4 bytes ni a que <code>float</code> use IEEE 754. En las visualizaciones de esta clase asumiremos el caso habitual: byte de 8 bits, <code>int</code> de 32 bits y <code>float</code> IEEE 754 de simple precisión.</p></div>
+  <div class="callout blue"><strong>Sobre ASCII</strong><p>Con 8 bits existen 256 patrones. El ASCII estándar define 128 códigos (0–127); otros valores dependen de codificaciones o extensiones. Para comprender <code>char</code>, lo importante aquí es asociar un carácter con un código almacenado en un byte.</p></div>
+</section>
+
+<section class="lab-section" id="char-lab">
+  <div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Visualización</p><h3>Un carácter también se almacena como bits</h3></div></div>
+  <div class="bit-lab"><div class="lab-card"><p class="card-kicker">char</p><h4>Escribe un carácter ASCII</h4><label>Carácter<input id="charInput" maxlength="1" value="A"></label></div><div class="lab-card"><div class="char-output"><div class="char-glyph" id="charGlyph">A</div><div><strong id="charCode">Código decimal: 65</strong><div class="binary-line" id="charBits">01000001</div></div></div></div></div>
+</section>
+
+<section class="lab-section" id="complemento">
+  <div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Visualización interactiva</p><h3>Enteros con signo en complemento a 2</h3></div></div>
+  <div class="bit-lab">
+    <div class="lab-card"><p class="card-kicker">int</p><h4>Convierte un entero</h4><label>Valor<input id="intInput" type="number" value="-25"></label><label>Ancho didáctico<select id="intBits"><option value="8" selected>8 bits</option><option value="16">16 bits</option><option value="32">32 bits</option></select></label><p class="converter-error" id="intError"></p></div>
+    <div class="lab-card"><p class="card-kicker">Representación</p><h4 id="intResultTitle">−25 en 8 bits</h4><div class="bit-row" id="intBitRow"></div><div class="binary-line" id="intProcess"></div></div>
+  </div>
+</section>
+
+<section class="lab-section" id="ieee">
+  <div class="section-heading"><span class="step-number">04</span><div><p class="eyebrow">Visualización interactiva</p><h3>IEEE 754 de simple precisión</h3></div></div>
+  <div class="bit-lab">
+    <div class="lab-card"><p class="card-kicker">float</p><h4>Observa los 32 bits reales</h4><label>Valor decimal<input id="floatInput" type="number" step="any" value="5.75"></label><p>El navegador convierte el valor a <strong>Float32</strong> para mostrar la representación de simple precisión.</p></div>
+    <div class="lab-card"><div class="ieee-fields"><div class="ieee-field"><strong>Signo · 1 bit</strong><span id="ieeeSign"></span></div><div class="ieee-field"><strong>Exponente · 8 bits</strong><span id="ieeeExponent"></span></div><div class="ieee-field"><strong>Fracción · 23 bits</strong><span id="ieeeFraction"></span></div></div><div class="bit-row" id="floatBitRow"></div><div class="binary-line" id="floatExplain"></div></div>
+  </div>
+</section>
+
+<section class="checkpoint-section"><div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación</p><h3>Representación y almacenamiento</h3></div></div><div class="quiz-grid"><article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 1</p><h4>¿Qué define un tipo de dato?</h4><button data-choice="a">Sólo el nombre de la variable</button><button data-choice="b">Cómo se representa y almacena la información</button><button data-choice="c">La dirección exacta de memoria</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 2</p><h4>¿Qué representación usamos para enteros negativos?</h4><button data-choice="a">Complemento a 2</button><button data-choice="b">ASCII</button><button data-choice="c">IEEE 754</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 3</p><h4>¿Cuántos bits tiene la fracción de binary32?</h4><button data-choice="a">8</button><button data-choice="b">1</button><button data-choice="c">23</button><p class="quiz-feedback"></p></article></div></section>
+
+<section class="practice-section"><div class="section-heading"><span class="step-number">05</span><div><p class="eyebrow">Problemas</p><h3>Practica las representaciones</h3></div></div><div class="problem-list">
+  <details class="problem-card"><summary><span>Problema 1</span><strong>Representa −5 en complemento a 2 de 8 bits.</strong><em>+</em></summary><div class="problem-body"><p>5 = <code>00000101</code>. Invertir: <code>11111010</code>. Sumar 1: <code>11111011</code>.</p></div></details>
+  <details class="problem-card"><summary><span>Problema 2</span><strong>¿Qué código decimal almacena 'A' en ASCII?</strong><em>+</em></summary><div class="problem-body"><p>El código ASCII de <code>'A'</code> es 65, cuya representación binaria de 8 bits es <code>01000001</code>.</p></div></details>
+  <details class="problem-card"><summary><span>Problema 3</span><strong>Separa los campos de un float IEEE 754.</strong><em>+</em></summary><div class="problem-body"><p>Un binary32 contiene 1 bit de signo, 8 bits de exponente con sesgo 127 y 23 bits de fracción. La mantisa efectiva de números normales incluye además un 1 implícito.</p></div></details>
+  <details class="problem-card"><summary><span>Problema 4</span><strong>¿Por qué no debe afirmarse que todo int de C siempre mide 4 bytes?</strong><em>+</em></summary><div class="problem-body"><p>Porque su tamaño depende de la implementación y arquitectura. Cuatro bytes es un caso muy común, pero no una obligación general del lenguaje C.</p></div></details>
+</div></section>
+
+<section class="homework-section"><div class="homework-card"><div><p class="eyebrow">Tarea</p><h3>Tipos y bits</h3><p>Resuelve mostrando el procedimiento.</p><div class="homework-items"><div>1. Representa −18 en complemento a 2 de 8 bits.</div><div>2. Obtén el código y los bits de los caracteres '0', 'B' y 'z'.</div><div>3. Usa la visualización IEEE 754 para 10.5 y −3.25.</div><div>4. Explica por qué el tipo es necesario para interpretar los bits.</div></div></div><div class="homework-status"><span>Práctica individual</span><small>No entregar sólo los resultados</small></div></div></section>
+      <div data-lesson-footer></div>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>

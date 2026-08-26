@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Concepto de constante y comparación con variables mediante objetos const, tipo, identificador, valor y visualización de lectura/escritura en memoria.">
+  <meta name="jcain-lesson-number" content="2.6">
+  <meta name="jcain-lesson-title" content="Concepto de constante">
+  <meta name="jcain-lesson-summary" content="Concepto de constante y comparación con variables mediante objetos const, tipo, identificador, valor y visualización de lectura/escritura en memoria.">
+  <meta name="jcain-lesson-unit" content="Unidad II">
+  <title>2.6 Concepto de constante | Fundamentos de Programación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\(', '\)']], displayMath: [['\[', '\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body data-page="lesson" data-course="fundamentos-programacion" data-lesson="constantes">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+  <main class="main-content">
+    <header class="topbar" data-lesson-topbar></header>
+    <article class="lesson" id="lesson">
+<section class="hero">
+        <div><p class="eyebrow">Clase 2.6 · Fundamentos de Programación</p><h2>Concepto de constante</h2><p class="hero-lead">Una constante representa un dato cuyo valor debe permanecer fijo después de su inicialización. En esta introducción trabajaremos con objetos declarados con <code>const</code> para contrastarlos directamente con una variable.</p><div class="hero-actions"><a class="primary-button" href="#concepto">Comenzar teoría</a><a class="secondary-button" href="#const-memory">Probar escritura</a></div></div>
+        <div class="hero-visual"><span class="visual-label">Comparación</span><div class="hero-flow"><div><strong>Variable</strong><small>se puede reasignar</small></div><div><strong>const</strong><small>se inicializa una vez</small></div><div><strong>Tipo</strong><small>define la representación</small></div></div><div class="hero-tags"><span>int contador</span><span>const int LIMITE</span><span>lectura</span><span>protección lógica</span></div></div>
+      </section>
+      <section class="learning-objectives"><div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div><div class="objective-grid"><article class="objective"><span>01</span><p>Definir constante y distinguirla de una variable.</p></article><article class="objective"><span>02</span><p>Interpretar una declaración con <code>const</code>.</p></article><article class="objective"><span>03</span><p>Explicar por qué una constante debe inicializarse con el valor que se conservará.</p></article><article class="objective"><span>04</span><p>Reconocer que tipo e identificador siguen siendo necesarios.</p></article></div></section>
+      <section class="concept-section" id="concepto"><div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Definición</p><h3>La diferencia esencial es la posibilidad de volver a escribir el valor</h3></div></div><div class="compare-grid"><article class="compare-card variable"><h4>Variable</h4><div class="definition-box"><strong>Variable</strong><p>Espacio de memoria reservado para almacenar un valor de un tipo determinado que puede modificarse.</p></div><div class="code-card" style="margin-top:14px"><header>C</header><pre><span class="code-key">int</span> contador = <span class="code-value">0</span>;
+contador = <span class="code-value">1</span>;</pre></div></article><article class="compare-card constant"><h4>Constante</h4><div class="definition-box"><strong>Constante</strong><p>Para esta clase: objeto tipado cuyo valor se fija al inicializarlo y que el programa no debe volver a modificar a través de ese nombre.</p></div><div class="code-card" style="margin-top:14px"><header>C</header><pre><span class="code-key">const int</span> LIMITE = <span class="code-value">100</span>;</pre></div></article></div></section>
+      <section class="concept-section"><div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Elementos</p><h3>Una constante también tiene tipo, nombre y valor</h3></div></div><div class="declaration-strip"><div class="declaration-part"><strong>const int</strong><small>calificador + tipo</small></div><div class="declaration-sep">→</div><div class="declaration-part"><strong>LIMITE</strong><small>identificador</small></div><div class="declaration-sep">→</div><div class="declaration-part"><strong>100</strong><small>valor que permanece fijo</small></div></div></section>
+      <section class="lab-section" id="const-memory"><div class="section-heading"><span class="step-number">↯</span><div><p class="eyebrow">Visualización interactiva</p><h3>Variable y constante dentro de la memoria</h3></div></div><div class="memory-lab"><div class="bus-panel"><p class="card-kicker">Programa</p><h4>Intenta escribir en ambos espacios</h4><div class="bus-form"><label>Objeto<select id="objectSelect"><option value="variable">int contador</option><option value="constant">const int LIMITE</option></select></label><label>Nuevo valor<input id="objectValue" type="number" value="5"></label></div><div class="bus-actions"><button id="objectWrite">Intentar WRITE</button><button id="objectRead" class="secondary">READ</button></div><div class="memory-status" id="objectStatus">La variable puede modificarse; la constante quedará bloqueada.</div></div><div class="memory-panel"><p class="card-kicker">RAM conceptual</p><h4>Dos objetos, reglas distintas</h4><div class="ram-rack" id="objectRack"></div></div></div></section>
+      <section class="checkpoint-section"><div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación</p><h3>¿Variable o constante?</h3></div></div><div class="quiz-grid"><article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 1</p><h4>¿Qué expresa <code>const</code> en <code>const int MAX = 10;</code>?</h4><button data-choice="a">Que MAX es un float</button><button data-choice="b">Que el valor no debe modificarse mediante ese objeto</button><button data-choice="c">Que MAX no tiene tipo</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 2</p><h4>¿Cuál es el identificador?</h4><button data-choice="a">MAX</button><button data-choice="b">const</button><button data-choice="c">10</button><p class="quiz-feedback"></p></article><article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 3</p><h4>¿Cuál puede reasignarse?</h4><button data-choice="a"><code>const int MAX</code></button><button data-choice="b">Ninguno</button><button data-choice="c"><code>int contador</code></button><p class="quiz-feedback"></p></article></div></section>
+      <section class="practice-section"><div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Problemas</p><h3>Clasifica y justifica</h3></div></div><div class="problem-list"><details class="problem-card"><summary><span>Problema 1</span><strong><code>const float PI = 3.1415926f;</code>: identifica cada elemento.</strong><em>+</em></summary><div class="problem-body"><p><code>const</code>: calificador; <code>float</code>: tipo; <code>PI</code>: identificador; 3.1415926f: valor inicial.</p></div></details><details class="problem-card"><summary><span>Problema 2</span><strong>¿Por qué conviene usar una constante para un límite fijo?</strong><em>+</em></summary><div class="problem-body"><p>Porque expresa la intención del programa y evita reasignaciones accidentales a través de ese objeto.</p></div></details><details class="problem-card"><summary><span>Problema 3</span><strong>¿Una constante deja de tener tipo de dato?</strong><em>+</em></summary><div class="problem-body"><p>No. Sigue teniendo un tipo que determina cómo se representa y almacena su valor.</p></div></details><details class="problem-card"><summary><span>Problema 4</span><strong>¿Qué diferencia hay entre inicializar y reasignar?</strong><em>+</em></summary><div class="problem-body"><p>Inicializar proporciona el primer valor al crear el objeto. Reasignar intenta escribir un valor posterior; eso es válido para una variable, pero no para el objeto <code>const</code> usado aquí.</p></div></details></div></section>
+      <section class="homework-section"><div class="homework-card"><div><p class="eyebrow">Tarea</p><h3>Variables y constantes</h3><p>Escribe una declaración adecuada para cada caso.</p><div class="homework-items"><div>1. Número de intentos que cambia durante un ciclo.</div><div>2. Máximo permitido de 100 intentos.</div><div>3. Temperatura medida que se actualiza.</div><div>4. Valor fijo de aceleración gravitacional usado por el programa.</div></div></div><div class="homework-status"><span>Práctica individual</span><small>Justificar variable o constante</small></div></div></section>
+      <div data-lesson-footer></div>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>
