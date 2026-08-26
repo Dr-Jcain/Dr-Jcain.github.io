@@ -17,12 +17,15 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
+
       - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
       - name: Regenerar datos del sitio
         run: python scripts/build_site.py
+
       - name: Guardar archivos generados
         run: |
           git config user.name "github-actions[bot]"
