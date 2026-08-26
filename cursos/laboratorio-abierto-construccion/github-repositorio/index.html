@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Configuración del repositorio único, cuentas individuales, visibilidad y README principal.">
+  <meta name="jcain-lesson-number" content="1.3">
+  <meta name="jcain-lesson-title" content="GitHub: cuentas, repositorio y README">
+  <meta name="jcain-lesson-summary" content="Configuración del repositorio único, cuentas individuales, visibilidad y README principal.">
+  <meta name="jcain-lesson-unit" content="Unidad I">
+  <title>1.3 GitHub: cuentas, repositorio y README | JCain Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+</head>
+<body data-page="lesson" data-course="laboratorio-abierto-construccion" data-lesson="github-repositorio">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+    <main class="main-content">
+      <header class="topbar" data-lesson-topbar></header>
+      <article class="lesson" id="lesson">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">1.3 · Laboratorio Abierto: Construcción</p>
+            <h2>GitHub: cuentas, repositorio y README</h2>
+            <p class="hero-lead">Configuración del repositorio único, cuentas individuales, visibilidad y README principal.</p>
+            <div class="hero-actions"><a class="primary-button" href="#guia">Comenzar</a><a class="secondary-button" href="#evidencia">Ver evidencia</a></div>
+          </div>
+          <aside class="hero-outcome"><p class="card-kicker">Objetivo de trabajo</p><h3>¿Qué debe quedar claro?</h3><p>Configurar GitHub como herramienta real de control de versiones, colaboración y trazabilidad; no como simple almacenamiento final de archivos.</p></aside>
+        </section>
+
+        <section class="learning-objectives" id="guia">
+          <div><p class="eyebrow">Guía de la clase</p><h3>Conceptos y reglas operativas</h3></div>
+          <div class="lab-key-grid"><article class="lab-key-card"><strong>Cuentas individuales</strong><p>Cada integrante utiliza su propia cuenta, nombre y correo asociados. No se permiten cuentas compartidas.</p></article><article class="lab-key-card"><strong>Visibilidad</strong><p>El repositorio puede ser público o privado. Mentor y supervisor deciden considerando confidencialidad, propiedad intelectual o resultados no publicados.</p></article><article class="lab-key-card"><strong>Un repositorio principal</strong><p>Todo el equipo trabaja sobre el mismo repositorio mediante sus propias cuentas.</p></article><article class="lab-key-card"><strong>README</strong><p>Debe permitir comprender rápidamente nombre, descripción, objetivo, mentor, Project Leader, integrantes, estado, estructura, Sprint actual e instrucciones pertinentes.</p></article></div>
+        </section>
+
+        <section class="concept-section">
+          <div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Visualización</p><h3>Flujo de trabajo</h3></div></div>
+          <div class="lab-flow"><div class="lab-flow-step"><span>Crear/validar cuentas</span><b>→</b></div><div class="lab-flow-step"><span>Crear repositorio</span><b>→</b></div><div class="lab-flow-step"><span>Invitar integrantes</span><b>→</b></div><div class="lab-flow-step"><span>Definir visibilidad</span><b>→</b></div><div class="lab-flow-step"><span>Crear estructura</span><b>→</b></div><div class="lab-flow-step"><span>Completar README</span></div></div>
+          <div class="lab-code-grid"><article class="lab-code-card"><header><span>Estructura recomendada</span><button type="button" data-copy-code>Copiar</button></header><pre>README.md
+/design-baseline
+/project-management
+  /charter
+  /wbs
+  /raci
+  /risks
+  /schedule
+/docs
+  /technical
+/src
+/hardware
+/software
+/cad
+/bom
+/tests
+/evidence</pre></article></div>
+          
+        </section>
+
+        <section class="checkpoint-section" id="evidencia">
+          <div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Comprobación</p><h3>Evidencia mínima que debe poder mostrarse</h3></div></div>
+          <div class="lab-evidence">
+            <div class="lab-progress"><span>Progreso de revisión</span><div class="lab-progress-bar"><i data-lab-progress-bar></i></div><strong data-lab-progress-value>0%</strong></div>
+            <div class="lab-checklist"><label class="lab-check"><input type="checkbox" data-lab-check><span>Cada integrante puede demostrar que su cuenta está asociada a sus contribuciones.</span></label><label class="lab-check"><input type="checkbox" data-lab-check><span>Existe un único repositorio principal.</span></label><label class="lab-check"><input type="checkbox" data-lab-check><span>El README permite entender el proyecto sin explicación oral adicional.</span></label></div>
+          </div>
+        </section>
+
+        <section class="homework-section">
+          <div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Actividad</p><h3>Trabajo sobre el proyecto real</h3></div></div>
+          <div class="lab-activity"><div><h3>Aplicación de la clase</h3><p>Configuren el repositorio y creen una estructura adecuada a la naturaleza del proyecto. No todos los proyectos requieren /hardware, /software, /cad, /bom o /tests; utilicen sólo lo que represente su trabajo.</p></div><aside><strong>Criterio</strong><span>La actividad debe quedar respaldada por evidencia real del proyecto cuando corresponda.</span></aside></div>
+        </section>
+
+        
+        <div data-lesson-footer></div>
+      </article>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>

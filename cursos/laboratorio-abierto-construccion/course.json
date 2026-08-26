@@ -1,10 +1,191 @@
 {
   "order": 3,
   "title": "Laboratorio Abierto: Construcción",
-  "shortTitle": "Laboratorio Abierto",
+  "shortTitle": "Laboratorio Abierto: Construcción",
   "mark": "LA",
-  "program": "Laboratorio",
-  "description": "Guías, prácticas, evidencias y material de laboratorio.",
-  "status": "prepared",
-  "units": []
+  "program": "Laboratorio Abierto",
+  "description": "Construcción y gestión trazable de proyectos de ingeniería: GitHub, planeación, Sprints, evidencia y handover.",
+  "banner": "Diseño → Planificación → Construcción → Seguimiento → Consolidación → Pruebas. La materia se desarrolla como un único proyecto continuo y documentado.",
+  "status": "active",
+  "units": [
+    {
+      "label": "Unidad I",
+      "title": "Puesta en marcha del proyecto",
+      "description": "Organización inicial, GitHub, Design Baseline y flujo colaborativo.",
+      "topics": [
+        {
+          "number": "1.1",
+          "title": "Propósito del laboratorio y ciclo de construcción",
+          "slug": "proposito-ciclo",
+          "summary": "El laboratorio como proyecto continuo: del diseño recibido a la construcción documentada y transferible."
+        },
+        {
+          "number": "1.2",
+          "title": "Organización, roles y Project Leader",
+          "slug": "organizacion-roles",
+          "summary": "Responsabilidades del supervisor, mentor, Project Leader y Project Team, y selección del líder del proyecto."
+        },
+        {
+          "number": "1.3",
+          "title": "GitHub: cuentas, repositorio y README",
+          "slug": "github-repositorio",
+          "summary": "Configuración del repositorio único, cuentas individuales, visibilidad y README principal."
+        },
+        {
+          "number": "1.4",
+          "title": "Design Baseline y versión congelada",
+          "slug": "design-baseline",
+          "summary": "Recepción formal del diseño, organización de artefactos y creación de design-baseline-v1.0."
+        },
+        {
+          "number": "1.5",
+          "title": "Flujo de trabajo en GitHub y GitHub Project",
+          "slug": "flujo-github",
+          "summary": "Issues, branches, commits, Pull Requests, revisión, merge y tablero de seguimiento."
+        }
+      ]
+    },
+    {
+      "label": "Unidad II",
+      "title": "Sprint I · Planificación de la construcción",
+      "description": "Transformar el diseño recibido en un plan de construcción ejecutable y trazable.",
+      "topics": [
+        {
+          "number": "2.1",
+          "title": "Sprint I y plan de construcción",
+          "slug": "sprint-i-plan",
+          "summary": "Objetivo, documentos obligatorios y línea base inicial del proyecto de construcción."
+        },
+        {
+          "number": "2.2",
+          "title": "Project Charter y objetivos SMART",
+          "slug": "project-charter-smart",
+          "summary": "Formalización del proyecto y formulación de un objetivo SMART a partir de la plantilla suministrada."
+        },
+        {
+          "number": "2.3",
+          "title": "Work Breakdown Structure (WBS)",
+          "slug": "wbs",
+          "summary": "Descomposición del proyecto en hitos y tareas manejables para convertir el diseño en trabajo ejecutable."
+        },
+        {
+          "number": "2.4",
+          "title": "RACI y análisis de stakeholders",
+          "slug": "raci-stakeholders",
+          "summary": "Asignación de responsabilidades mediante RACI y análisis complementario de poder e interés de stakeholders."
+        },
+        {
+          "number": "2.5",
+          "title": "Risk Register",
+          "slug": "risk-register",
+          "summary": "Identificación y documentación de acontecimientos o condiciones que podrían afectar la ejecución."
+        },
+        {
+          "number": "2.6",
+          "title": "Project Schedule y diagrama de Gantt",
+          "slug": "project-schedule",
+          "summary": "Planeación temporal del trabajo a partir de la WBS y distinción entre Gantt formal y seguimiento cotidiano."
+        },
+        {
+          "number": "2.7",
+          "title": "Trazabilidad y entrega del Sprint I",
+          "slug": "entrega-sprint-i",
+          "summary": "Integración de WBS, RACI y GitHub, y creación de la línea base Project Construction Plan — Baseline v1.0."
+        }
+      ]
+    },
+    {
+      "label": "Unidad III",
+      "title": "Sprint II · Seguimiento, evaluación y adaptación",
+      "description": "Contrastar el plan con la ejecución real y actualizar el proyecto.",
+      "topics": [
+        {
+          "number": "3.1",
+          "title": "Seguimiento continuo y reuniones del equipo",
+          "slug": "seguimiento-reuniones",
+          "summary": "Uso del tablero y de la evidencia para reflejar el estado real durante la ejecución técnica."
+        },
+        {
+          "number": "3.2",
+          "title": "Revisión con el mentor y Project Review",
+          "slug": "mentor-project-review",
+          "summary": "Preparación de reuniones técnicas y revisiones formales con evidencia del proyecto."
+        },
+        {
+          "number": "3.3",
+          "title": "Cambios y documentos vivos",
+          "slug": "cambios-documentos-vivos",
+          "summary": "Gestión de desviaciones y actualización de WBS, RACI, Risk Register y Schedule durante la construcción."
+        },
+        {
+          "number": "3.4",
+          "title": "Sprint II Progress Review y entrega",
+          "slug": "entrega-sprint-ii",
+          "summary": "Revisión intermedia del proyecto: planeado vs. ejecutado, riesgos, decisiones, cambios y ruta restante."
+        }
+      ]
+    },
+    {
+      "label": "Unidad IV",
+      "title": "Sprint III · Consolidación y handover",
+      "description": "Consolidar el estado real de la solución y transferirla al laboratorio de Pruebas.",
+      "topics": [
+        {
+          "number": "4.1",
+          "title": "Consolidación del proyecto",
+          "slug": "consolidacion",
+          "summary": "Determinación objetiva del estado final alcanzado durante Construcción antes de transferir a Pruebas."
+        },
+        {
+          "number": "4.2",
+          "title": "Construction Handover",
+          "slug": "construction-handover",
+          "summary": "Preparación del proyecto para que otra persona o laboratorio pueda comprenderlo y continuarlo."
+        },
+        {
+          "number": "4.3",
+          "title": "Construction Handover Package",
+          "slug": "handover-package",
+          "summary": "Paquete final con estado de la solución, evidencia técnica, historial, trabajo pendiente y preparación para pruebas."
+        },
+        {
+          "number": "4.4",
+          "title": "Versiones principales y transición a Pruebas",
+          "slug": "versiones-transicion",
+          "summary": "Relación entre Design Baseline, Construction Plan Baseline y estado real transferido."
+        }
+      ]
+    },
+    {
+      "label": "Unidad V",
+      "title": "Reglas, evidencia y cierre",
+      "description": "Criterios transversales para mantener trazabilidad, evidencia y continuidad del proyecto.",
+      "topics": [
+        {
+          "number": "5.1",
+          "title": "Reglas del repositorio y criterio de terminado",
+          "slug": "reglas-done",
+          "summary": "Reglas transversales de trabajo, convención de nombres y definición verificable de Done."
+        },
+        {
+          "number": "5.2",
+          "title": "Evidencia y bitácora de decisiones",
+          "slug": "evidencia-decisiones",
+          "summary": "Relación entre afirmaciones, resultados observables y decisiones justificadas."
+        },
+        {
+          "number": "5.3",
+          "title": "Roles, revisiones y trazabilidad individual",
+          "slug": "roles-revisiones-trazabilidad",
+          "summary": "Expectativas del Project Leader, Project Team y mentor, y demostración de contribuciones individuales."
+        },
+        {
+          "number": "5.4",
+          "title": "Checklists, principios y cierre del laboratorio",
+          "slug": "checklists-principios",
+          "summary": "Listas de verificación de los tres Sprints y principios que rigen el trabajo del laboratorio."
+        }
+      ]
+    }
+  ]
 }

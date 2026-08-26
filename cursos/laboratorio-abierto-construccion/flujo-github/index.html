@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Issues, branches, commits, Pull Requests, revisión, merge y tablero de seguimiento.">
+  <meta name="jcain-lesson-number" content="1.5">
+  <meta name="jcain-lesson-title" content="Flujo de trabajo en GitHub y GitHub Project">
+  <meta name="jcain-lesson-summary" content="Issues, branches, commits, Pull Requests, revisión, merge y tablero de seguimiento.">
+  <meta name="jcain-lesson-unit" content="Unidad I">
+  <title>1.5 Flujo de trabajo en GitHub y GitHub Project | JCain Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+</head>
+<body data-page="lesson" data-course="laboratorio-abierto-construccion" data-lesson="flujo-github">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+    <main class="main-content">
+      <header class="topbar" data-lesson-topbar></header>
+      <article class="lesson" id="lesson">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">1.5 · Laboratorio Abierto: Construcción</p>
+            <h2>Flujo de trabajo en GitHub y GitHub Project</h2>
+            <p class="hero-lead">Issues, branches, commits, Pull Requests, revisión, merge y tablero de seguimiento.</p>
+            <div class="hero-actions"><a class="primary-button" href="#guia">Comenzar</a><a class="secondary-button" href="#evidencia">Ver evidencia</a></div>
+          </div>
+          <aside class="hero-outcome"><p class="card-kicker">Objetivo de trabajo</p><h3>¿Qué debe quedar claro?</h3><p>Trabajar de forma trazable desde que aparece una actividad hasta que su cambio se integra en main.</p></aside>
+        </section>
+
+        <section class="learning-objectives" id="guia">
+          <div><p class="eyebrow">Guía de la clase</p><h3>Conceptos y reglas operativas</h3></div>
+          <div class="lab-key-grid"><article class="lab-key-card"><strong>main estable</strong><p>Después de establecer la Design Baseline no se desarrolla directamente sobre main.</p></article><article class="lab-key-card"><strong>Issue</strong><p>Una actividad relevante debe tener título claro, referencia WBS, descripción, responsable, criterio de terminado, Sprint y evidencia pertinente.</p></article><article class="lab-key-card"><strong>Branch</strong><p>Cada actividad relevante se desarrolla en una rama independiente, por ejemplo feature/17-pwm-generator.</p></article><article class="lab-key-card"><strong>Pull Request</strong><p>Debe explicar qué se realizó, qué Issue resuelve, archivos modificados, verificaciones y pendientes.</p></article><article class="lab-key-card"><strong>GitHub Project</strong><p>El tablero debe reflejar el estado real: Backlog, To Do, In Progress, Review, Done y Blocked.</p></article></div>
+        </section>
+
+        <section class="concept-section">
+          <div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">Visualización</p><h3>Flujo de trabajo</h3></div></div>
+          <div class="lab-flow"><div class="lab-flow-step"><span>Issue</span><b>→</b></div><div class="lab-flow-step"><span>Branch</span><b>→</b></div><div class="lab-flow-step"><span>Commits</span><b>→</b></div><div class="lab-flow-step"><span>Pull Request</span><b>→</b></div><div class="lab-flow-step"><span>Review</span><b>→</b></div><div class="lab-flow-step"><span>Merge a main</span><b>→</b></div><div class="lab-flow-step"><span>Cerrar Issue</span></div></div>
+          <div class="lab-code-grid"><article class="lab-code-card"><header><span>Convenciones útiles</span><button type="button" data-copy-code>Copiar</button></header><pre>feature/21-temperature-sensor
+hardware/24-buck-pcb
+docs/07-update-risk-register
+fix/35-pwm-duty-limit
+test/41-power-stage-test</pre></article><article class="lab-code-card"><header><span>Commits identificables</span><button type="button" data-copy-code>Copiar</button></header><pre>#17 Add initial PWM implementation
+#17 Configure switching frequency
+#17 Add duty-cycle limits</pre></article></div>
+          <div class="lab-note"><strong>Importante.</strong> La calidad del trabajo no se evalúa contando commits. Un número alto de commits no implica una contribución mayor.</div>
+        </section>
+
+        <section class="checkpoint-section" id="evidencia">
+          <div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Comprobación</p><h3>Evidencia mínima que debe poder mostrarse</h3></div></div>
+          <div class="lab-evidence">
+            <div class="lab-progress"><span>Progreso de revisión</span><div class="lab-progress-bar"><i data-lab-progress-bar></i></div><strong data-lab-progress-value>0%</strong></div>
+            <div class="lab-checklist"><label class="lab-check"><input type="checkbox" data-lab-check><span>Existe al menos un Issue con criterio de finalización.</span></label><label class="lab-check"><input type="checkbox" data-lab-check><span>La actividad se desarrolló en una rama.</span></label><label class="lab-check"><input type="checkbox" data-lab-check><span>El PR documenta cambio y evidencia.</span></label><label class="lab-check"><input type="checkbox" data-lab-check><span>El tablero coincide con el estado real.</span></label></div>
+          </div>
+        </section>
+
+        <section class="homework-section">
+          <div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Actividad</p><h3>Trabajo sobre el proyecto real</h3></div></div>
+          <div class="lab-activity"><div><h3>Aplicación de la clase</h3><p>Practiquen el flujo completo con una actividad pequeña de documentación antes de iniciar la construcción técnica.</p></div><aside><strong>Criterio</strong><span>La actividad debe quedar respaldada por evidencia real del proyecto cuando corresponda.</span></aside></div>
+        </section>
+
+        
+        <div data-lesson-footer></div>
+      </article>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>

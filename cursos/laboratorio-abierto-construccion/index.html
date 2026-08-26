@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Guías, prácticas, evidencias y material de laboratorio.">
+  <meta name="description" content="Laboratorio Abierto: Construcción — gestión y materialización trazable de proyectos de ingeniería.">
   <title>Laboratorio Abierto: Construcción | JCain Engineering</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/shared.css">
   <link rel="stylesheet" href="/assets/portal.css">
+  <link rel="stylesheet" href="./course.css">
   <script defer src="/assets/data/site-data.js"></script>
   <script defer src="/assets/site.js"></script>
 </head>
@@ -19,22 +20,34 @@
   <main class="portal-main">
     <div class="course-layout course-layout-wide">
       <aside class="course-sidebar course-sidebar-tree" data-course-sidebar></aside>
-
       <section class="course-content">
         <div data-course-banner></div>
-
         <section id="mapa-curso">
-          <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">Mapa del curso</p><h1>Unidades y temas</h1></div></div>
+          <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">Mapa del curso</p><h1>Unidades y clases</h1></div></div>
           <div data-course-curriculum></div>
         </section>
-
+        <section id="recursos-curso" class="lab-resources-section">
+          <div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">Archivos de trabajo</p><h2>Manual, plantillas y ejemplos</h2></div></div>
+          <p class="lab-section-intro">Los archivos adjuntos se conservan como recursos descargables. Los ejemplos sirven como referencia de estructura; cada equipo deberá adaptarlos a su propio proyecto de ingeniería.</p>
+          <div class="lab-resource-grid">
+            <a href="./recursos/Manual_de_trabajo_y_gestion_del_proyecto.pdf"><strong>Manual de trabajo</strong><span>PDF · reglas, Sprints, entregas y checklists</span></a>
+            <a href="./recursos/Project_Charter_Template.docx"><strong>Project Charter</strong><span>Plantilla DOCX</span></a>
+            <a href="./recursos/Project_Charter_Exemplar.docx"><strong>Project Charter</strong><span>Ejemplo DOCX</span></a>
+            <a href="./recursos/SMART_Goals_Template.docx"><strong>Objetivos SMART</strong><span>Plantilla DOCX</span></a>
+            <a href="./recursos/SMART_Goals_Exemplar.docx"><strong>Objetivos SMART</strong><span>Ejemplo DOCX</span></a>
+            <a href="./recursos/WBS_Example.xlsx"><strong>WBS</strong><span>Ejemplo XLSX</span></a>
+            <a href="./recursos/RACI_Template.xlsx"><strong>RACI</strong><span>Plantilla XLSX</span></a>
+            <a href="./recursos/RACI_Exemplar.xlsx"><strong>RACI</strong><span>Ejemplo XLSX</span></a>
+            <a href="./recursos/Stakeholder_Analysis_Template.pptx"><strong>Stakeholders</strong><span>Plantilla PPTX</span></a>
+            <a href="./recursos/Stakeholder_Analysis_Exemplar.pptx"><strong>Stakeholders</strong><span>Ejemplo PPTX</span></a>
+          </div>
+        </section>
         <section id="clases-publicadas">
-          <div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">Clases publicadas</p><h2><span data-current-course-count>0 clases publicadas</span></h2></div></div>
+          <div class="section-heading"><span class="section-number">03</span><div><p class="eyebrow">Clases publicadas</p><h2><span data-current-course-count>0 clases publicadas</span></h2></div></div>
           <div data-course-lessons></div>
         </section>
       </section>
     </div>
-
     <div data-site-footer></div>
   </main>
 </div>

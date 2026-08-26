@@ -1,0 +1,20 @@
+
+body[data-course="laboratorio-abierto-construccion"] .banner-actions {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+body[data-course="laboratorio-abierto-construccion"] .banner-actions .portal-primary {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.lab-resources-section { margin-top: 48px; }
+.lab-section-intro { margin: -8px 0 20px 67px; color: #66758a; max-width: 900px; }
+.lab-resource-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin-left: 67px; }
+.lab-resource-grid a { text-decoration:none; background:#fff; border:1px solid #dbe3ee; border-radius:14px; padding:16px 18px; display:flex; justify-content:space-between; gap:16px; align-items:center; box-shadow:0 8px 22px rgba(12,40,72,.04); }
+.lab-resource-grid a:hover { border-color:#b7d5ee; transform:translateY(-1px); }
+.lab-resource-grid strong { color:#123657; }
+.lab-resource-grid span { color:#708298; font-size:12px; text-align:right; }
+@media(max-width:760px){ .lab-resource-grid{grid-template-columns:1fr;margin-left:0}.lab-section-intro{margin-left:0}.lab-resource-grid a{align-items:flex-start;flex-direction:column}.lab-resource-grid span{text-align:left} }
