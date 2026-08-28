@@ -20,7 +20,7 @@
           "number": "1.1",
           "title": "Sistema dinámico",
           "slug": "sistemas-dinamicos",
-          "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo."
+          "summary": "Definición intuitiva y formal de sistema dinámico, ecuación escalar autónoma, problema de valor inicial, existencia y unicidad, y concepto de flujo."
         },
         {
           "number": "1.2",
@@ -35,8 +35,7 @@
         {
           "number": "1.4",
           "title": "Ecuaciones dinámicas de un sistema",
-          "slug": "ecuaciones-dinamicas",
-          "summary": "Representación en espacio de estados: metodología paso a paso para transformar ecuaciones diferenciales de orden superior en un sistema equivalente de primer orden."
+          "slug": "ecuaciones-dinamicas"
         },
         {
           "number": "1.5",

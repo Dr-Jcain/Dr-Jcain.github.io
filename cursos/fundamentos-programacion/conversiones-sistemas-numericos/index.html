@@ -4,10 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Clase 1.1.1 de Fundamentos de Programación: conversiones entre sistemas binario, octal, decimal y hexadecimal.">
+  <meta name="jcain-lesson-number" content="1.1.1">
+  <meta name="jcain-lesson-title" content="Conversiones entre sistemas binario, octal, decimal y hexadecimal">
+  <meta name="jcain-lesson-summary" content="Sistemas posicionales, conversión hacia decimal, divisiones sucesivas desde decimal, conversiones directas entre binario, octal y hexadecimal, ejemplos y práctica interactiva.">
+  <meta name="jcain-lesson-unit" content="Unidad I">
   <title>1.1.1 Conversiones entre sistemas numéricos | JCain Engineering</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
   <link rel="stylesheet" href="styles.css">
   <script>
     window.MathJax = {
@@ -16,115 +21,20 @@
     };
   </script>
   <script defer src="/assets/vendor/mathjax-3.2.1/tex-svg-full.js"></script>
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
   <script defer src="app.js"></script>
 </head>
-<body>
+<body data-page="lesson" data-course="fundamentos-programacion" data-lesson="conversiones-sistemas-numericos">
 <div class="app-shell">
-  <aside class="sidebar" id="sidebar">
-    <a class="portal-back" href="../../../index.html">← JCain Engineering</a>
-    <div class="brand">
-      <div class="brand-mark">JE</div>
-      <div>
-        <p class="eyebrow">Fundamentos de Programación</p>
-        <h1>Temario de la materia</h1>
-      </div>
-    </div>
-    <div class="course-meta"><span>I5288</span><span>80 h</span><span>8 créditos</span></div>
-
-    <nav class="course-nav" aria-label="Temario de Fundamentos de Programación">
-      <a class="nav-item nav-home" href="../index.html"><span class="nav-icon">⌂</span>Inicio de la materia</a>
-
-      <div class="nav-unit">
-        <button class="unit-toggle" aria-expanded="true"><span><strong>Unidad I</strong> · Introducción y conceptos básicos</span><span>⌄</span></button>
-        <div class="unit-links">
-          <button class="topic-current" data-topic="conversiones">1.1 Conceptos fundamentales: computadora y lenguajes <span>Actual</span></button>
-          <div class="subtopics">
-            <a class="subtopic-active" href="#inicio">1.1.1 Conversiones entre sistemas numéricos <span>Publicada</span></a>
-          </div>
-          <button data-planned="true">1.2 Paradigmas de programación <span>Próximamente</span></button>
-          <button data-planned="true">1.2.1 Programación estructurada</button>
-          <button data-planned="true">1.3 Modelo Von Newmann</button>
-          <button data-planned="true">1.3.1 Memoria, entrada, salida y CPU</button>
-          <button data-planned="true">1.4 Proceso de programación</button>
-          <button data-planned="true">1.5 Definición de algoritmo</button>
-          <button data-planned="true">1.5.1 Características de los algoritmos</button>
-        </div>
-      </div>
-
-      <div class="nav-unit">
-        <button class="unit-toggle" aria-expanded="false"><span><strong>Unidad II</strong> · Fundamentos de programación</span><span>⌄</span></button>
-        <div class="unit-links" hidden>
-          <button data-planned="true">2.1 Técnicas de formulación</button>
-          <button data-planned="true">2.1.1 Diagrama de flujo</button>
-          <button data-planned="true">2.1.2 Pseudocódigo</button>
-          <button data-planned="true">2.2 Lenguaje C</button>
-          <button data-planned="true">2.3 Operadores</button>
-          <button data-planned="true">2.4 Tipos de datos</button>
-          <button data-planned="true">2.5 Variables</button>
-          <button data-planned="true">2.6 Constantes</button>
-          <button data-planned="true">2.7 Comentarios</button>
-          <button data-planned="true">2.8 Palabras reservadas</button>
-          <button data-planned="true">2.9 Bibliotecas</button>
-        </div>
-      </div>
-
-      <div class="nav-unit">
-        <button class="unit-toggle" aria-expanded="false"><span><strong>Unidad III</strong> · Secuenciación</span><span>⌄</span></button>
-        <div class="unit-links" hidden>
-          <button data-planned="true">3.1 Estructura secuencial</button>
-          <button data-planned="true">3.2 Pseudocódigo y diagrama</button>
-          <button data-planned="true">3.3 Entrada y salida</button>
-        </div>
-      </div>
-
-      <div class="nav-unit">
-        <button class="unit-toggle" aria-expanded="false"><span><strong>Unidad IV</strong> · Selección</span><span>⌄</span></button>
-        <div class="unit-links" hidden>
-          <button data-planned="true">4.1 Selección</button>
-          <button data-planned="true">4.1.1 Simple (if)</button>
-          <button data-planned="true">4.1.2 Doble (if-else)</button>
-          <button data-planned="true">4.1.3 Múltiple (switch / if-else)</button>
-        </div>
-      </div>
-
-      <div class="nav-unit">
-        <button class="unit-toggle" aria-expanded="false"><span><strong>Unidad V</strong> · Repetición</span><span>⌄</span></button>
-        <div class="unit-links" hidden>
-          <button data-planned="true">5.1 Estructuras repetitivas</button>
-          <button data-planned="true">5.2 While</button>
-          <button data-planned="true">5.3 Contadores, acumuladores y banderas</button>
-          <button data-planned="true">5.4 Do-while</button>
-          <button data-planned="true">5.5 For</button>
-        </div>
-      </div>
-
-      <div class="nav-unit">
-        <button class="unit-toggle" aria-expanded="false"><span><strong>Unidad VI</strong> · Funciones</span><span>⌄</span></button>
-        <div class="unit-links" hidden>
-          <button data-planned="true">6.1 Programación modular</button>
-          <button data-planned="true">6.2 Estructura de una función</button>
-          <button data-planned="true">6.3 Tipos de función</button>
-          <button data-planned="true">6.4 Funciones sin devolución</button>
-          <button data-planned="true">6.5 Funciones con devolución</button>
-        </div>
-      </div>
-    </nav>
-
-    <div class="sidebar-footer">
-      <p>Estructura del tema</p>
-      <div class="topic-template"><span>Teoría</span><span>Ejemplos</span><span>Laboratorio</span><span>Problemas</span><span>Tarea</span></div>
-    </div>
-  </aside>
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
 
   <main class="main-content">
-    <header class="topbar">
-      <button class="menu-button" id="menuButton" aria-label="Abrir temario">☰</button>
-      <div class="breadcrumbs">Unidad I <span>›</span> Conceptos fundamentales <span>›</span> 1.1.1 Conversiones entre sistemas numéricos</div>
-      <button class="focus-button" id="focusButton">Modo presentación</button>
-    </header>
+    <header class="topbar" data-lesson-topbar></header>
 
-    <article class="lesson" id="inicio">
-      <section class="hero">
+    <article class="lesson" id="lesson">
+      <section class="hero" id="inicio">
         <div>
           <p class="eyebrow">Clase 1.1.1 · Fundamentos de Programación</p>
           <h2>Conversiones entre sistemas binario, octal, decimal y hexadecimal</h2>
@@ -526,10 +436,10 @@
         </div>
       </section>
 
-      <footer class="lesson-footer"><div><span>JCain Engineering</span><strong>Fundamentos de Programación · 1.1.1</strong></div><div class="footer-links"><a href="../index.html">← Temario de la materia</a><a href="#inicio">Volver arriba ↑</a></div></footer>
+      <div data-lesson-footer></div>
     </article>
   </main>
 </div>
-<div class="toast" id="toast">Este tema se publicará conforme avance la clase.</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
 </body>
 </html>
