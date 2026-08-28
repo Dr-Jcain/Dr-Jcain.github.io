@@ -713,8 +713,8 @@
         {
           "slug": "conversiones-sistemas-numericos",
           "number": "1.1.1",
-          "title": "1.1.1 Conversiones entre sistemas numéricos",
-          "summary": "Clase 1.1.1 de Fundamentos de Programación: conversiones entre sistemas binario, octal, decimal y hexadecimal.",
+          "title": "Conversiones entre sistemas binario, octal, decimal y hexadecimal",
+          "summary": "Sistemas posicionales, conversión hacia decimal, divisiones sucesivas desde decimal, conversiones directas entre binario, octal y hexadecimal, ejemplos y práctica interactiva.",
           "url": "/cursos/fundamentos-programacion/conversiones-sistemas-numericos/",
           "unitLabel": "Unidad I",
           "unitTitle": "Introducción y conceptos básicos",
@@ -1255,7 +1255,7 @@
               "number": "1.1",
               "title": "Sistema dinámico",
               "slug": "sistemas-dinamicos",
-              "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
+              "summary": "Definición intuitiva y formal de sistema dinámico, ecuación escalar autónoma, problema de valor inicial, existencia y unicidad, y concepto de flujo.",
               "published": true,
               "actualFolder": "sistemas-dinamicos",
               "url": "/cursos/modelado-simulacion/sistemas-dinamicos/"
@@ -1276,10 +1276,10 @@
               "number": "1.4",
               "title": "Ecuaciones dinámicas de un sistema",
               "slug": "ecuaciones-dinamicas",
-              "summary": "Representación en espacio de estados: metodología paso a paso para transformar ecuaciones diferenciales de orden superior en un sistema equivalente de primer orden.",
               "published": true,
               "actualFolder": "ecuaciones-dinamicas",
-              "url": "/cursos/modelado-simulacion/ecuaciones-dinamicas/"
+              "url": "/cursos/modelado-simulacion/ecuaciones-dinamicas/",
+              "summary": "Representación en espacio de estados: del orden de las ecuaciones diferenciales al vector de estado y a la forma matricial de primer orden."
             },
             {
               "number": "1.5",
@@ -1385,7 +1385,7 @@
           "slug": "sistemas-dinamicos",
           "number": "1.1",
           "title": "Sistema dinámico",
-          "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
+          "summary": "Definición intuitiva y formal de sistema dinámico, ecuación escalar autónoma, problema de valor inicial, existencia y unicidad, y concepto de flujo.",
           "url": "/cursos/modelado-simulacion/sistemas-dinamicos/",
           "unitLabel": "Unidad I",
           "unitTitle": "Conceptos básicos",
@@ -1481,8 +1481,8 @@
     {
       "slug": "conversiones-sistemas-numericos",
       "number": "1.1.1",
-      "title": "1.1.1 Conversiones entre sistemas numéricos",
-      "summary": "Clase 1.1.1 de Fundamentos de Programación: conversiones entre sistemas binario, octal, decimal y hexadecimal.",
+      "title": "Conversiones entre sistemas binario, octal, decimal y hexadecimal",
+      "summary": "Sistemas posicionales, conversión hacia decimal, divisiones sucesivas desde decimal, conversiones directas entre binario, octal y hexadecimal, ejemplos y práctica interactiva.",
       "url": "/cursos/fundamentos-programacion/conversiones-sistemas-numericos/",
       "unitLabel": "Unidad I",
       "unitTitle": "Introducción y conceptos básicos",
@@ -1807,7 +1807,7 @@
       "slug": "sistemas-dinamicos",
       "number": "1.1",
       "title": "Sistema dinámico",
-      "summary": "Concepto matemático de sistema dinámico: estado, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
+      "summary": "Definición intuitiva y formal de sistema dinámico, ecuación escalar autónoma, problema de valor inicial, existencia y unicidad, y concepto de flujo.",
       "url": "/cursos/modelado-simulacion/sistemas-dinamicos/",
       "unitLabel": "Unidad I",
       "unitTitle": "Conceptos básicos",
