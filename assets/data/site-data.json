@@ -1255,7 +1255,7 @@
               "number": "1.1",
               "title": "Sistema dinámico",
               "slug": "sistemas-dinamicos",
-              "summary": "Definición intuitiva y formal de sistema dinámico, ecuación escalar autónoma, problema de valor inicial, existencia y unicidad, y concepto de flujo.",
+              "summary": "Concepto matemático de sistema dinámico: estado vectorial, ley de evolución, problema de valor inicial, trayectoria, campo vectorial y flujo.",
               "published": true,
               "actualFolder": "sistemas-dinamicos",
               "url": "/cursos/modelado-simulacion/sistemas-dinamicos/"
