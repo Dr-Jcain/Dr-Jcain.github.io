@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Definición de programación estructurada: origen del problema del flujo de control, GOTO, código espagueti y fundamento teórico de Böhm y Jacopini mediante secuencia, selección e iteración.">
+  <meta name="jcain-lesson-number" content="1.2.1">
+  <meta name="jcain-lesson-title" content="Definición de programación estructurada">
+  <meta name="jcain-lesson-summary" content="Definición, fundamento teórico e historia de la programación estructurada a partir de Böhm y Jacopini: flujo de control, GOTO, código espagueti, secuencia, selección e iteración.">
+  <meta name="jcain-lesson-unit" content="Unidad I">
+  <title>1.2.1 Definición de programación estructurada | Fundamentos de Programación</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=STIX+Two+Text:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <link rel="stylesheet" href="./styles.css">
+
+  <script defer src="/assets/data/site-data.js"></script>
+  <script defer src="/assets/site.js"></script>
+  <script defer src="/assets/lesson-shell.js"></script>
+  <script defer src="../assets/lesson.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body data-page="lesson" data-course="fundamentos-programacion" data-lesson="definicion-programacion-estructurada">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar" data-lesson-sidebar aria-label="Temario del curso"></aside>
+
+  <main class="main-content">
+    <header class="topbar" data-lesson-topbar></header>
+
+    <article class="lesson" id="lesson">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Clase 1.2.1 · Fundamentos de Programación</p>
+          <h2>Definición de programación estructurada</h2>
+          <p class="hero-lead">La programación estructurada surge de la necesidad de organizar programas cuyo flujo de control se volvía difícil de seguir cuando dependía de numerosos saltos. Su fundamento teórico muestra que es posible construir programas mediante un conjunto reducido de formas de control bien organizadas. Esta idea pasó de la teoría al diseño de lenguajes y a la práctica de programación.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#problema">Comenzar teoría</a>
+            <a class="secondary-button" href="#articulo">Ir al artículo de 1966</a>
+          </div>
+        </div>
+
+        <div class="hero-visual structured-hero" aria-label="De saltos arbitrarios a bloques estructurados">
+          <span class="visual-label">De saltos arbitrarios a bloques estructurados</span>
+          <div class="hero-flow">
+            <div><strong>Secuencia</strong><small>una acción después de otra</small></div>
+            <div><strong>Selección</strong><small>elegir según una condición</small></div>
+            <div><strong>Iteración</strong><small>repetir mientras se cumpla una condición</small></div>
+          </div>
+          <div class="hero-tags"><span>flujo de control</span><span>bloques</span><span>legibilidad</span><span>teoría → práctica</span></div>
+        </div>
+      </section>
+
+      <section class="learning-objectives">
+        <div><p class="eyebrow">Al terminar</p><h3>¿Qué debe poder hacer el alumno?</h3></div>
+        <div class="objective-grid">
+          <article class="objective"><span>01</span><p>Definir programación estructurada en términos de organización del flujo de control.</p></article>
+          <article class="objective"><span>02</span><p>Explicar por qué el abuso de saltos puede producir código difícil de seguir y mantener.</p></article>
+          <article class="objective"><span>03</span><p>Reconocer, de forma introductoria, las tres formas básicas del flujo estructurado: secuencia, selección e iteración.</p></article>
+          <article class="objective"><span>04</span><p>Relacionar la definición de programación estructurada con la idea central del trabajo de Böhm y Jacopini.</p></article>
+        </div>
+      </section>
+
+      <section class="concept-section" id="problema">
+        <div class="section-heading"><span class="step-number">01</span><div><p class="eyebrow">El problema</p><h3>Cuando el flujo del programa puede saltar a cualquier lugar</h3></div></div>
+
+        <div class="two-column">
+          <div class="prose-card">
+            <p>En los niveles bajos de una computadora, las decisiones y repeticiones terminan realizándose mediante <strong>saltos</strong> o <strong>bifurcaciones</strong>. Esto es natural para la máquina: el procesador puede cambiar la siguiente instrucción que ejecutará.</p>
+            <p>El problema aparece cuando el programador organiza directamente programas grandes mediante numerosos saltos arbitrarios. Si una instrucción puede enviar la ejecución hacia muchos puntos diferentes y desde muchos lugares se puede regresar a otros, la estructura lógica deja de ser evidente.</p>
+            <div class="definition-box"><strong>Código espagueti</strong><p>Nombre informal dado a un programa cuyo flujo de control está muy entrecruzado. Las rutas de ejecución son difíciles de seguir, verificar, modificar y depurar.</p></div>
+          </div>
+
+          <aside class="intuition-card">
+            <p class="card-kicker">Del salto al flujo estructurado</p>
+            <h4>El problema está en cómo se organiza el programa</h4>
+            <p>En lenguaje ensamblador el flujo se controla mediante saltos condicionales e incondicionales. En lenguajes de más alto nivel, instrucciones como <code>goto</code> permiten transferir explícitamente el control hacia otra parte del programa.</p>
+            <div class="callout neutral"><strong>Cuando los saltos se multiplican</strong><p>La lógica puede quedar formada por muchas rutas cruzadas. El objetivo de la programación estructurada es que el programador exprese esa lógica mediante bloques con una organización visible.</p></div>
+          </aside>
+        </div>
+
+        <div class="spaghetti-board" aria-label="Comparación conceptual entre flujo con saltos arbitrarios y flujo estructurado">
+          <article class="flow-card spaghetti">
+            <div class="flow-card-head"><span>Flujo con saltos arbitrarios</span><strong>difícil de leer</strong></div>
+            <div class="spaghetti-canvas" aria-hidden="true">
+              <div class="s-node n1">A</div><div class="s-node n2">B</div><div class="s-node n3">C</div><div class="s-node n4">D</div><div class="s-node n5">E</div>
+              <svg viewBox="0 0 520 230" preserveAspectRatio="none">
+                <defs><marker id="arrowBad" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z"/></marker></defs>
+                <path d="M75 60 C190 10, 300 15, 435 65" marker-end="url(#arrowBad)"/>
+                <path d="M435 75 C350 125, 250 115, 170 80" marker-end="url(#arrowBad)"/>
+                <path d="M165 85 C90 130, 105 185, 250 185" marker-end="url(#arrowBad)"/>
+                <path d="M250 185 C385 190, 430 150, 435 90" marker-end="url(#arrowBad)"/>
+                <path d="M250 175 C310 130, 255 95, 165 75" marker-end="url(#arrowBad)"/>
+              </svg>
+            </div>
+            <p>La ruta se entiende siguiendo flechas que cruzan distintas zonas del programa.</p>
+          </article>
+
+          <article class="flow-card structured">
+            <div class="flow-card-head"><span>Flujo estructurado</span><strong>bloques anidados</strong></div>
+            <div class="structured-stack" aria-hidden="true">
+              <div class="struct-block">Secuencia A</div>
+              <div class="struct-decision"><span>¿condición?</span><div><b>Sí → bloque B</b><b>No → bloque C</b></div></div>
+              <div class="struct-loop"><span>Mientras condición</span><b>Bloque D</b><small>↺ regresar a la condición</small></div>
+              <div class="struct-block">Secuencia E</div>
+            </div>
+            <p>La estructura puede leerse de arriba hacia abajo y cada construcción delimita claramente su alcance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="concept-section" id="definicion">
+        <div class="section-heading"><span class="step-number">02</span><div><p class="eyebrow">Definición</p><h3>¿Qué es programación estructurada?</h3></div></div>
+
+        <div class="definition-box definition-main">
+          <strong>Programación estructurada</strong>
+          <p>Paradigma que organiza el flujo de control de un programa mediante estructuras bien delimitadas —principalmente secuencia, selección e iteración— evitando que los saltos arbitrarios sean el mecanismo principal para construir la lógica.</p>
+        </div>
+
+        <div class="constructors-grid constructors-brief">
+          <article class="constructor-card">
+            <span class="constructor-number">1</span><h4>Secuencia</h4><p>Las acciones se ejecutan en un orden definido.</p>
+          </article>
+          <article class="constructor-card">
+            <span class="constructor-number">2</span><h4>Selección</h4><p>El flujo puede elegir entre caminos de acuerdo con una condición.</p>
+          </article>
+          <article class="constructor-card">
+            <span class="constructor-number">3</span><h4>Iteración</h4><p>Una parte del flujo puede repetirse mientras corresponda.</p>
+          </article>
+        </div>
+
+        <div class="callout blue"><strong>En esta clase</strong><p>Las tres formas se presentan únicamente para establecer la definición de programación estructurada. La selección y la iteración se estudiarán posteriormente como temas independientes.</p></div>
+      </section>
+
+
+      <section class="concept-section" id="teorema">
+        <div class="section-heading"><span class="step-number">03</span><div><p class="eyebrow">Fundamento teórico</p><h3>¿Qué aporta Böhm y Jacopini?</h3></div></div>
+
+        <div class="two-column">
+          <div class="prose-card">
+            <p>En 1966, Corrado Böhm y Giuseppe Jacopini publicaron <em>Flow Diagrams, Turing Machines and Languages With Only Two Formation Rules</em>. El trabajo estudia los <strong>diagramas de flujo</strong> como una forma de representar programas y analiza cómo pueden transformarse en diagramas equivalentes construidos a partir de formas básicas.</p>
+            <p>Una idea central es la <strong>normalización</strong>: un diagrama complejo puede sustituirse por otro <strong>equivalente</strong>, es decir, por otro que conserva la transformación realizada aunque su organización interna sea diferente.</p>
+            <p>En la segunda parte del artículo, esta construcción se aplica a máquinas de Turing y aparece un lenguaje generado mediante reglas de <strong>composición</strong> e <strong>iteración</strong>.</p>
+          </div>
+
+          <aside class="intuition-card theorem-card">
+            <p class="card-kicker">Idea para esta clase</p>
+            <h4>La estructura puede sustituir un flujo arbitrario</h4>
+            <p>La consecuencia que interesa para introducir la programación estructurada puede expresarse así:</p>
+            <div class="theorem-statement">Un flujo de control puede reorganizarse en una forma equivalente construida con un conjunto reducido de formas de control, en lugar de depender de saltos arbitrarios como principio de organización.</div>
+            <p class="theorem-caveat">El artículo desarrolla esta idea mediante diagramas de flujo, equivalencia, normalización, composición e iteración.</p>
+          </aside>
+        </div>
+
+        <div class="theory-practice-grid">
+          <article><span>TEORÍA</span><h4>Equivalencia y normalización</h4><p>Se estudia cómo representar un mismo comportamiento mediante una organización más regular del flujo.</p></article>
+          <div class="theory-arrow">→</div>
+          <article><span>PROGRAMACIÓN ESTRUCTURADA</span><h4>Bloques de control</h4><p>El programa se organiza con formas de control que pueden combinarse y anidarse de manera comprensible.</p></article>
+          <div class="theory-arrow">→</div>
+          <article><span>LENGUAJES DE PROGRAMACIÓN</span><h4>De la teoría a la práctica</h4><p>Este modo de organizar programas se incorporó progresivamente a la práctica de lenguajes como Pascal y C, a versiones modernas de COBOL y a lenguajes actuales como Java y Python.</p></article>
+        </div>
+      </section>
+
+      <section class="lab-section" id="goto-demo">
+        <div class="section-heading"><span class="step-number">04</span><div><p class="eyebrow">Comparación interactiva</p><h3>Mismo resultado: saltos frente a estructura</h3></div></div>
+        <p class="section-intro">Los dos fragmentos siguientes representan el mismo proceso. Cambia el valor inicial y observa cómo cambia la organización del flujo. La estructura iterativa se utiliza aquí sólo como contraste y se estudiará con detalle más adelante.</p>
+
+        <div class="jump-lab">
+          <div class="jump-controls">
+            <label>Valor inicial de <code>n</code><input id="startN" type="number" min="1" max="8" value="3"></label>
+            <div class="jump-mode" role="group" aria-label="Modo de programa">
+              <button type="button" class="is-active" data-mode="goto">Con saltos</button>
+              <button type="button" data-mode="structured">Estructurado</button>
+            </div>
+            <button class="run-button" id="runTrace" type="button">Ejecutar</button>
+          </div>
+
+          <div class="jump-grid">
+            <article class="code-card execution-code">
+              <header id="codeHeader">Pseudocódigo con saltos</header>
+              <pre id="gotoCode"><code><span data-line="L10">L10: if n &lt;= 0 goto L50</span>
+<span data-line="L20">L20: print n</span>
+<span data-line="L30">L30: n = n - 1</span>
+<span data-line="L40">L40: goto L10</span>
+<span data-line="L50">L50: print "Fin"</span></code></pre>
+              <pre id="structuredCode" hidden><code><span data-line="W1">while (n &gt; 0) {</span>
+<span data-line="W2">    print n</span>
+<span data-line="W3">    n = n - 1</span>
+<span data-line="W4">}</span>
+<span data-line="W5">print "Fin"</span></code></pre>
+            </article>
+
+            <article class="trace-card">
+              <p class="card-kicker">Traza de ejecución</p>
+              <h4 id="traceTitle">Programa con saltos</h4>
+              <div class="trace-list" id="traceList"></div>
+              <div class="trace-output"><span>Salida</span><strong id="traceOutput">3, 2, 1, Fin</strong></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="callout blue"><strong>Observa la diferencia</strong><p>La salida puede ser exactamente la misma. La ventaja estructural no consiste en que la computadora “haga otra cosa”, sino en que la lógica del programa sea más fácil de seguir, razonar, comprobar y modificar.</p></div>
+      </section>
+
+      <section class="concept-section" id="articulo">
+        <div class="section-heading"><span class="step-number">05</span><div><p class="eyebrow">Artículo base</p><h3>Böhm y Jacopini: fundamento teórico de la programación estructurada</h3></div></div>
+
+        <div class="paper-card">
+          <div class="paper-main">
+            <p class="card-kicker">Communications of the ACM · 1966</p>
+            <h4>Flow Diagrams, Turing Machines and Languages With Only Two Formation Rules</h4>
+            <p>Corrado Böhm y Giuseppe Jacopini · Vol. 9, No. 5, pp. 366–371.</p>
+            <a class="paper-button" href="https://doi.org/10.1145/355592.365646" target="_blank" rel="noopener noreferrer">Consultar el artículo original ↗</a>
+          </div>
+          <div class="paper-goal"><span>Idea central</span><strong>El artículo estudia cómo normalizar diagramas de flujo y cómo construir representaciones equivalentes mediante un conjunto reducido de reglas de formación.</strong></div>
+        </div>
+
+        <div class="article-ideas">
+          <article><span>1</span><div><h4>Diagramas de flujo como representación de programas</h4><p>En la introducción, los autores consideran los diagramas de bloques o de flujo como un lenguaje bidimensional para representar programas y procesos de cómputo.</p></div></article>
+          <article><span>2</span><div><h4>Operaciones y decisiones</h4><p>Las Figuras 1 y 2 distinguen cajas funcionales, que realizan operaciones, y cajas predicativas, que determinan cuál operación sigue.</p></div></article>
+          <article><span>3</span><div><h4>Equivalencia y normalización</h4><p>El problema no consiste en conservar exactamente el mismo dibujo, sino en construir un diagrama equivalente que realice la misma transformación y pueda descomponerse de una forma más regular.</p></div></article>
+          <article><span>4</span><div><h4>Composición e iteración</h4><p>En la segunda parte, la construcción se aplica a máquinas de Turing y se estudia una familia de programas generada a partir de composición e iteración.</p></div></article>
+        </div>
+
+        <div class="callout blue"><strong>Relación con la clase</strong><p>La programación estructurada lleva esta idea al diseño de programas: organizar el flujo mediante formas de control bien definidas permite expresar algoritmos sin convertir los saltos arbitrarios en la estructura principal del código.</p></div>
+      </section>
+
+      <section class="checkpoint-section" id="comprobacion">
+        <div class="section-heading"><span class="step-number">?</span><div><p class="eyebrow">Comprobación conceptual</p><h3>Antes de pasar a los problemas</h3></div></div>
+        <div class="quiz-grid">
+          <article class="quiz-card" data-answer="b"><p class="quiz-number">Pregunta 1</p><h4>¿Qué busca principalmente la programación estructurada?</h4><button data-choice="a">Eliminar físicamente todas las instrucciones de salto de la CPU.</button><button data-choice="b">Organizar el flujo del programa mediante estructuras bien delimitadas.</button><button data-choice="c">Obligar a usar un único lenguaje de programación.</button><p class="quiz-feedback"></p></article>
+          <article class="quiz-card" data-answer="c"><p class="quiz-number">Pregunta 2</p><h4>¿Cuáles son las tres construcciones que utilizamos en la formulación didáctica?</h4><button data-choice="a">Entrada, memoria y salida.</button><button data-choice="b">Compilación, enlace y ejecución.</button><button data-choice="c">Secuencia, selección e iteración.</button><p class="quiz-feedback"></p></article>
+          <article class="quiz-card" data-answer="a"><p class="quiz-number">Pregunta 3</p><h4>¿Qué significa transformar un diagrama en otro equivalente?</h4><button data-choice="a">Conservar esencialmente el mismo comportamiento aunque cambie la forma del flujo.</button><button data-choice="b">Usar exactamente las mismas flechas y cajas.</button><button data-choice="c">Reducir obligatoriamente el tiempo de ejecución.</button><p class="quiz-feedback"></p></article>
+        </div>
+      </section>
+
+      <section class="practice-section" id="problemas">
+        <div class="section-heading"><span class="step-number">06</span><div><p class="eyebrow">Problemas</p><h3>Del salto a la estructura</h3></div></div>
+        <div class="problem-list">
+          <details class="problem-card"><summary><span>Problema 1</span><strong>Reescribe una repetición basada en GOTO</strong><em>+</em></summary><div class="problem-body"><div class="problem-prompt"><p>El programa incrementa <code>i</code> mientras sea menor que 5:</p><pre><code>L1: if i &gt;= 5 goto L3
+L2: i = i + 1
+goto L1
+L3: print i</code></pre></div><div class="solution-steps"><article><span>1</span><div><strong>Identificar la condición de repetición</strong><p>El bloque se repite mientras <code>i &lt; 5</code>.</p></div></article><article><span>2</span><div><strong>Usar una estructura iterativa</strong><pre><code>while (i &lt; 5) {
+    i = i + 1;
+}
+print(i);</code></pre></div></article></div></div></details>
+
+          <details class="problem-card"><summary><span>Problema 2</span><strong>De la teoría a la práctica</strong><em>+</em></summary><div class="problem-body"><div class="problem-prompt"><p>Explique por qué una representación equivalente del flujo puede ser más conveniente que conservar una red de saltos difícil de seguir.</p></div><div class="solution-steps"><article><span>1</span><div><strong>Mismo comportamiento</strong><p>La equivalencia busca conservar lo que hace el programa.</p></div></article><article><span>2</span><div><strong>Mejor organización</strong><p>La normalización permite expresar ese comportamiento mediante una estructura más regular, lo que facilita seguir y razonar sobre el flujo.</p></div></article></div></div></details>
+
+          <details class="problem-card"><summary><span>Problema 3</span><strong>¿La programación estructurada elimina los saltos de la máquina?</strong><em>+</em></summary><div class="problem-body"><p>No. Un compilador puede convertir <code>if</code>, <code>while</code> o <code>for</code> en instrucciones de salto del procesador. La diferencia es que el programador trabaja con construcciones de control de mayor nivel y alcance claramente delimitado.</p></div></details>
+
+          <details class="problem-card"><summary><span>Problema 4</span><strong>Interpreta la idea del artículo</strong><em>+</em></summary><div class="problem-body"><p>Que un diagrama no sea directamente descomponible en unos bloques dados no implica que su comportamiento requiera necesariamente un flujo arbitrario. El trabajo estudia cómo construir un diagrama equivalente y normalizado, incluso introduciendo información auxiliar cuando es necesario.</p></div></details>
+        </div>
+      </section>
+
+      <section class="homework-section" id="tarea">
+        <div class="homework-card">
+          <div>
+            <p class="eyebrow">Tarea · Artículo base</p>
+            <h3>Teoría y programación estructurada</h3>
+            <p>Consulta el artículo de Böhm y Jacopini y utiliza su resumen, introducción y figuras iniciales para responder las preguntas.</p>
+            <div class="homework-items">
+              <div>1. Explica con tus palabras la diferencia entre una caja funcional y una caja predicativa.</div>
+              <div>2. Define qué entiendes por un diagrama equivalente dentro del artículo.</div>
+              <div>3. Explica qué significa normalizar un diagrama de flujo.</div>
+              <div>4. Relaciona estas ideas con la definición de programación estructurada estudiada en clase.</div>
+            </div>
+          </div>
+          <div class="homework-status"><span>Teoría + interpretación</span><small>Böhm y Jacopini (1966) · flujo de control · programación estructurada</small></div>
+        </div>
+      </section>
+
+      <section class="source-section">
+        <div class="source-card">
+          <span>Referencia principal</span>
+          <p>Böhm, C., &amp; Jacopini, G. (1966). <em>Flow Diagrams, Turing Machines and Languages With Only Two Formation Rules</em>. Communications of the ACM, 9(5), 366–371. DOI: 10.1145/355592.365646.</p>
+        </div>
+      </section>
+
+      <div data-lesson-footer></div>
+    </article>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">Este tema todavía no está publicado.</div>
+</body>
+</html>
