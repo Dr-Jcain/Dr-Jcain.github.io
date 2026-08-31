@@ -363,7 +363,10 @@
               "number": "1.2.1",
               "title": "Definición de programación estructurada",
               "slug": "definicion-programacion-estructurada",
-              "published": false
+              "published": true,
+              "actualFolder": "definicion-programacion-estructurada",
+              "url": "/cursos/fundamentos-programacion/definicion-programacion-estructurada/",
+              "summary": "Definición, fundamento teórico e historia de la programación estructurada a partir de Böhm y Jacopini: flujo de control, GOTO, código espagueti, secuencia, selección e iteración."
             },
             {
               "number": "1.3",
@@ -708,7 +711,7 @@
       ],
       "slug": "fundamentos-programacion",
       "url": "/cursos/fundamentos-programacion/",
-      "publishedCount": 6,
+      "publishedCount": 7,
       "lessons": [
         {
           "slug": "conversiones-sistemas-numericos",
@@ -720,6 +723,17 @@
           "unitTitle": "Introducción y conceptos básicos",
           "parentNumber": "1.1",
           "parentTitle": "Conceptos fundamentales: definición de computadora y lenguajes que usa una computadora"
+        },
+        {
+          "slug": "definicion-programacion-estructurada",
+          "number": "1.2.1",
+          "title": "Definición de programación estructurada",
+          "summary": "Definición, fundamento teórico e historia de la programación estructurada a partir de Böhm y Jacopini: flujo de control, GOTO, código espagueti, secuencia, selección e iteración.",
+          "url": "/cursos/fundamentos-programacion/definicion-programacion-estructurada/",
+          "unitLabel": "Unidad I",
+          "unitTitle": "Introducción y conceptos básicos",
+          "parentNumber": "",
+          "parentTitle": ""
         },
         {
           "slug": "memoria-entrada-salida-cpu",
@@ -1448,7 +1462,7 @@
   ],
   "stats": {
     "courseCount": 6,
-    "publishedLessonCount": 31,
+    "publishedLessonCount": 32,
     "coursesWithLessons": 4
   },
   "publishedLessons": [
@@ -1488,6 +1502,19 @@
       "unitTitle": "Introducción y conceptos básicos",
       "parentNumber": "1.1",
       "parentTitle": "Conceptos fundamentales: definición de computadora y lenguajes que usa una computadora",
+      "courseSlug": "fundamentos-programacion",
+      "courseTitle": "Fundamentos de Programación"
+    },
+    {
+      "slug": "definicion-programacion-estructurada",
+      "number": "1.2.1",
+      "title": "Definición de programación estructurada",
+      "summary": "Definición, fundamento teórico e historia de la programación estructurada a partir de Böhm y Jacopini: flujo de control, GOTO, código espagueti, secuencia, selección e iteración.",
+      "url": "/cursos/fundamentos-programacion/definicion-programacion-estructurada/",
+      "unitLabel": "Unidad I",
+      "unitTitle": "Introducción y conceptos básicos",
+      "parentNumber": "",
+      "parentTitle": "",
       "courseSlug": "fundamentos-programacion",
       "courseTitle": "Fundamentos de Programación"
     },
